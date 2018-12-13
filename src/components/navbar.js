@@ -11,9 +11,9 @@ export default props => {
                 </Link>
             </div>
             <div className='db dtc-l f5 v-mid w-66 w-75-l tc tr-l'>
-                <Link to='/' className="fw4 no-underline black-70 dn dib-ns pv2 ph3" href='#' title='About'>About</Link>
-                <Link to='/careers' className="fw4 no-underline black-70 dn dib-ns pv2 ph3" href='#' title='Careers'>Careers</Link>
-                <Link to='/contact' className="fw4 no-underline black-70 dn dib-ns pv2 ph3" href='#' title='Contact'>Contact</Link>
+                <Link to='/' className="fw4 no-underline black-70 dn dib-ns pv2 ph3" href='#' title='Home'>Home</Link>
+                {/* <Link to='/careers' className="fw4 no-underline black-70 dn dib-ns pv2 ph3" href='#' title='Careers'>Careers</Link>
+                <Link to='/contact' className="fw4 no-underline black-70 dn dib-ns pv2 ph3" href='#' title='Contact'>Contact</Link> */}
             </div>
         </nav >
     )

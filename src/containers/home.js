@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export default props => {
     return (
@@ -17,18 +17,22 @@ export default props => {
                         Aetheras aims to create software to improve lives, whether through solving problems, providing entertainment, or both.
                         </p>
                         <p className="ph2 pb4 db lh-copy black-70 serif fw1 mv0 f3 baskerville">
-                        We believe blockchain technology, with its ability to promote transparency and fairness, offers the world huge opportunities for innovation.
+                        Our first project is a blockchain developed in house to service the gaming industry’s trading market.   The project's research and development will enable us to build applications for many more verticals in the future.
                         </p>
                         <p className="ph2 pb4 db lh-copy black-70 serif fw1 mv0 f3 baskerville">
-                        Our first project is a blockchain developed in house to service the gaming industry’s trading market.   The project's research and development will enable us to build applications for many more verticals in the future.
+                        We believe blockchain technology, with its ability to promote transparency and fairness, offers the world huge opportunities for innovation.
                         </p>
                     </div>
                     
                 </div >
             </article >
             <section className="cf mt5 pv5 bt b--black-05 ph6-l">
-                <h1 className="tc f4 ttu fw6 tracked mb4 avenir">We are Hiring!</h1>
-                We are currently hiring for various roles at our Taipei office.  Please visit our <Link to="https://www.104.com.tw/jobbank/custjob/index.php?r=cust&j=48524a733c3e466f383a426b40463e2193131312f483e527109j56&jobsource=checkc">104 page</Link> for details.
+            <div className="pv5 f4 f2-ns measure center">
+                <h1 className="tc f2 ttu fw6 tracked mb4 avenir">We are Hiring!</h1>
+                <p className="ph2 pb4 db lh-copy black-70 serif fw1 mv0 f3 baskerville">
+                We are currently hiring for various roles at our Taipei office.  Please visit our <a href="https://www.104.com.tw/jobbank/custjob/index.php?r=cust&j=48524a733c3e466f383a426b40463e2193131312f483e527109j56&jobsource=checkc">104 page</a> for details.
+                </p>
+                </div>
             </section>
         </div >
     );
