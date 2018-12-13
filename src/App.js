@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 import Home from './containers/home';
 import Footer from './components/footer';
-import NavBar from './components/navbar';
+// import NavBar from './components/navbar';
 // import Tasks from './components/tasks';
 // import Contact from './containers/contact';
 
@@ -27,7 +27,7 @@ class App extends React.Component {
             <Route exact path='/404' status={404} render={() => <h1>404 Not Found</h1>} />
             <Route render={() => 
                 <div className=''>                               
-                  <NavBar />
+                  {/* <NavBar /> */}
                   <Switch>
                     <Route exact path="/" render={Home} />
                     {/* <Route path="/portfolio" render={Tasks} />
