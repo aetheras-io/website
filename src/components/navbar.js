@@ -1,20 +1,91 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import { getStyles, NAVBAR_STYLES } from '../utils/Style-Const';
+import { Link } from 'react-router-dom';
 
-import { Link } from 'react-router-dom'
+class Navbar extends React.Component {
 
-export default props => {
-    return (
-        <nav className='db dt-l w-100 border-box pa3'>
-            <div className='w-33' >
-                <Link to='/' className='grow f6 fw4 no-underline black-70 dn dib-ns pv2 ph3' href='#' title='Logo' style={{backgroundColor: 'rgb(250, 250, 250)'}}>                
-                    <img src='/images/logo.png' className='v-mid db-m h2 br-100' alt='Aetheras' />
-                </Link>
-            </div>
-            <div className='db dtc-l f5 v-mid w-66 w-75-l tc tr-l'>
-                <Link to='/' className="fw4 no-underline black-70 dn dib-ns pv2 ph3" href='#' title='Home'>Home</Link>
-                {/* <Link to='/careers' className="fw4 no-underline black-70 dn dib-ns pv2 ph3" href='#' title='Careers'>Careers</Link>
-                <Link to='/contact' className="fw4 no-underline black-70 dn dib-ns pv2 ph3" href='#' title='Contact'>Contact</Link> */}
-            </div>
-        </nav >
-    )
-}
+    componentDidMount() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', this.smothScrollIntoView);
+        });
+    }
+
+    componentWillUnmount() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.removeEventListener('click', this.smothScrollIntoView);
+        });
+    }
+
+    smothScrollIntoView = e => {
+        e.preventDefault();
+        document.querySelector(e.target.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+
+    render() {
+        const { classes } = this.props;
+        return (
+            <AppBar position="fixed" className={classes.navbar}>
+                <Toolbar>
+                    <Grid
+                        container
+                        direction="row"
+                        justify="center"
+                        alignItems="center">
+                        <Grid item xs={2}>
+                            <Typography
+                                variant="h6"
+                                color="inherit"
+                                className={classes.titleLink}>
+                                <Link to='/#cover' className={classes.linkText}>AETHERAS</Link>
+                            </Typography>
+                        </Grid>
+                        <Grid
+                            item
+                            xs={10}
+                            className={classes.linkContainer}>
+                            <Typography
+                                variant="subheading"
+                                color="inherit"
+                                className={classes.link}>
+                                <Link to='/#news' className={classes.linkText}>News</Link>
+                            </Typography>
+                            <Typography
+                                variant="subheading"
+                                color="inherit"
+                                className={classes.link}>
+                                <Link to='/#agora' className={classes.linkText}>Agora</Link>
+                            </Typography>
+                            <Typography
+                                variant="subheading"
+                                color="inherit"
+                                className={classes.link}>
+                                <Link to='/#technology' className={classes.linkText}>Technology</Link>
+                            </Typography>
+                            <Typography
+                                variant="subheading"
+                                color="inherit"
+                                className={classes.link}>
+                                <Link to='/#partner' className={classes.linkText}>Partner</Link>
+                            </Typography>
+                            <Typography
+                                variant="subheading"
+                                color="inherit"
+                                className={classes.link}>
+                                <Link to='/#joinUs' className={classes.linkText}>Join Us</Link>
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </Toolbar>
+            </AppBar>
+        );
+    }
+};
+
+export default withStyles(getStyles(NAVBAR_STYLES))(Navbar);

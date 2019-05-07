@@ -1,6 +1,6 @@
 import React from 'react';
 import config from '../config';
-import ContractForm from '../components/forms/contactForm';
+import ContractForm from './contactForm';
 import { withFormik } from 'formik';
 
 

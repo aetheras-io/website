@@ -1,0 +1,25 @@
+body {
+    font-family: Source Sans Pro, sans-serif;
+    background-color: #fefefe !important;
+}
+
+#root {
+    position: relative;
+    padding-bottom: 200px;    
+}
+
+a {
+    color: inherit !important;
+}
+
+@keyframes buildIcon {
+    0%{
+        opacity: 0.2;
+    }
+    50%{
+        opacity: 0.75;
+    }
+    100%{
+        opacity: 0.2;
+    }
+}
