@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import Cover from './Cover';
 import News from './News';
-import NewsMedium from './NewsMedium';
+// import NewsMedium from './NewsMedium';
 import Agora from './Agora';
 import Technology from './Technology';
 import Partner from './Partner';
@@ -15,7 +15,7 @@ const Home = props => {
             <Navbar />
             <Cover />
             <News />
-            <NewsMedium />
+            {/* <NewsMedium /> */}
             <Agora />
             <Technology />
             <Partner />

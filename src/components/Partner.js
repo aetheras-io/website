@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { getStyles, PARTNER_STYLES } from '../utils/Style-Const';
+import { getStyles, usingClasses, PARTNER_STYLES } from '../utils/Style-Const';
 import Typography from "@material-ui/core/Typography";
 
 const partnerList = [
@@ -35,12 +35,12 @@ const getPartnerDOM = (partnerList, classes) => {
     let partnerDOM = null;
     if (partnerList && partnerList.length > 0) {
         partnerDOM = partnerList.map((partner, idx) => (
-            <a href={partner.link} className={classes.link} target="_blank" rel="noopener noreferrer" key={idx}>
-                <div className={classes.item}>
+            <a href={partner.link} className={usingClasses(classes, 'link')} target="_blank" rel="noopener noreferrer" key={idx}>
+                <div className={usingClasses(classes, 'item')}>
                     <img
                         src={partner.logo}
                         alt="Logo"
-                        className={classes.avatar}
+                        className={usingClasses(classes, 'avatar')}
                     />
                     {partner.name}
                 </div>
@@ -54,12 +54,12 @@ const Partner = props => {
     const { classes } = props;
     const partnerDOM = getPartnerDOM(partnerList, classes);
     return (
-        <section className={classes.section}>
-            <div id="partner" className={classes.archor} />
-            <Typography component="h2" variant="headline" className={classes.titleText}>
+        <section className={usingClasses(classes, 'section')}>
+            <div id="partner" className={usingClasses(classes, 'anchor')} />
+            <Typography component="h2" variant="headline" className={usingClasses(classes, 'titleText')}>
                 Partner
             </Typography>
-            <div className={classes.container}>
+            <div className={usingClasses(classes, 'container')}>
                 {partnerDOM}
             </div>
         </section>

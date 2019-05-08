@@ -2,9 +2,16 @@ export const getStyles = (styles) => {
     return Object.assign({ ...SHARED_STYLES }, styles);
 }
 
+export const usingClasses = (classes, name) => {
+    if (!classes[name]) {
+        return name;
+    }
+    return `${name} ${classes[name]}`;
+}
+
 const spacing = 8;
 const letterSpacing = 0.8;
-const navHeight = '64px';
+const navHeight = '56px';
 
 export const SHARED_STYLES = Object.freeze({
     section: {
@@ -12,6 +19,9 @@ export const SHARED_STYLES = Object.freeze({
         minHeight: '240px',
         margin: '0 auto',
         padding: `${spacing * 4}px ${spacing * 2}px`
+    },
+    headLine: {
+        letterSpacing: `${letterSpacing * 3}px`
     },
     titleText: {
         letterSpacing: `${letterSpacing * 3}px`
@@ -25,7 +35,7 @@ export const SHARED_STYLES = Object.freeze({
         letterSpacing: `${letterSpacing}px`,
         lineHeight: '2rem'
     },
-    archor: {
+    anchor: {
         transform: 'translateY(-72px)'
     },
     build: {
@@ -42,8 +52,24 @@ export const SHARED_STYLES = Object.freeze({
 
 export const NAVBAR_STYLES = Object.freeze({
     navbar: {
+        height: navHeight,
         color: 'rgba(0,0,0,0.82)',
         backgroundColor: 'rgba(255, 255, 255, 0.72)'
+    },
+    toolbar: {
+        height: '100%',
+        minHeight: navHeight,
+        justifyContent: 'space-between'
+    },
+    titleContainer: {
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
+    logoImg: {
+        height: '33px',
+        transform: 'translateY(-1px)'
     },
     titleLink: {
         width: 'fit-content',
@@ -55,54 +81,85 @@ export const NAVBAR_STYLES = Object.freeze({
         textDecoration: 'unset',
         letterSpacing: `${letterSpacing * 2}px`
     },
-    linkContainer: {
+    anchorContainer: {
+        height: '100%',
         display: 'flex',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+    },
+    mobileAnchorContainer: {
+        display: 'none',
+        height: '100%',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+    },
+    mobileMenuPaper: {
+        top: '0 !important',
+        left: '0 !important',
+        width: '100%',
+        maxWidth: '100%',
+        'ul': {
+            paddingTop: '0',
+            paddingBottom: '0'
+        }
+    },
+    mobileMenuLink: {
+        height: 'fit-content',
+        padding: '0'
+    },
+    mobileLinkText: {
+        width: '100%',
+        height: '100%',
+        padding: `${spacing * 2}px`,
+        textDecoration: 'unset',
+        letterSpacing: `${letterSpacing * 2}px`
     },
     link: {
         display: 'inline-flex',
         padding: `${spacing}px`,
         margin: `0 ${spacing}px`,
-        backgroundColor: 'rgba(255, 255, 255, 0.9)'
+        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+        '&:last-child': {
+            paddingRight: '0',
+            marginRight: '0'
+        }
     }
 });
 
 export const COVER_STYLES = Object.freeze({
     cover: {
         width: '100%',
-        height: '600px',
+        height: 'calc(100vw / 2)',
+        maxHeight: '300px',
         marginTop: navHeight,
+        padding: '16px 10% 0 10%',
         background: 'url("/images/background.png") 50% center'
     },
     logoContainer: {
-        height: '600px',
-        width: '332px',
-        paddingTop: '120px',
-        paddingLeft: `${spacing * 4}px`,
-        float: 'left'
+        height: '100%',
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center'
     },
     logoImg: {
-        display: 'inline',
-        width: '75vw',
-        maxWidth: '300px'
+        display: 'inline-flex',
+        height: '100%',
+        maxHeight: '300px'
     },
     titleContainer: {
-        width: 'calc(100% - 332px)',
         height: '100%',
-        paddingLeft: `${spacing * 6}px`,
-        float: 'right',
+        paddingLeft: `${spacing * 2}px`,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'baseline'
+        alignItems: 'flex-center'
     },
     title: {
         letterSpacing: `${letterSpacing * 4}px`,
-        transform: `translateY(-${spacing * 3}px)`,
-        marginBottom: `${spacing * 1.5}px`
     },
     slogan: {
-        transform: `translateY(-${spacing * 3}px)`,
+        marginTop: `${spacing * 1.5}px`
     }
 });
 
@@ -171,7 +228,8 @@ export const PARTNER_STYLES = Object.freeze({
         color: 'rgba(0, 0, 0, 0.74)'
     },
     avatar: {
-        height: '64px'
+        height: '64px',
+        marginRight: '4px'
     }
 })
 
@@ -204,7 +262,7 @@ export const FOOTER_STYLES = Object.freeze({
         height: '24px',
         position: 'absolute',
         bottom: '8px',
-        right: '16px',
+        right: '0',
         color: 'whitesmoke',
     }
 });
@@ -212,7 +270,7 @@ export const FOOTER_STYLES = Object.freeze({
 export const ABOUT_STYLES = Object.freeze({
     about: {
         marginTop: navHeight,
-        minHeight: 'calc(100vh - 264px)'
+        minHeight: '400px',
     },
     list: {
         width: '100%',
@@ -251,17 +309,23 @@ export const ABOUT_STYLES = Object.freeze({
 export const NOTFOUND_STYLES = Object.freeze({
     notFound: {
         marginTop: navHeight,
-        height: '600px',
+        height: 'calc(100vh - 256px)',
+        minHeight: '400px',
         background: 'url("/images/background.png") 50% center'
     },
-    titleText: {
+    title: {
         fontSize: '4rem',
         letterSpacing: `${letterSpacing * 8}px`,
         marginTop: `${spacing * 4}px`,
         color: 'rgba(0, 0, 0, 0.64)'
     },
+    subTitle: {
+        marginBottom: `${spacing * 1.5}px`,
+        letterSpacing: `${letterSpacing * 3}px`
+    },
     body: {
-        marginTop: `${spacing * 10}px`
+        marginTop: `${spacing * 10}px`,
+        padding: '0 16px'
     },
     bodyText: {
         fontSize: '1.7rem',

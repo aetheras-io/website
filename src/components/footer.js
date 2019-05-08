@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles, Grid } from '@material-ui/core';
-import { getStyles, FOOTER_STYLES } from '../utils/Style-Const';
+import { getStyles, usingClasses, FOOTER_STYLES } from '../utils/Style-Const';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 
@@ -12,33 +12,33 @@ const address = 'https://www.google.com.tw/maps/place/10491%E5%8F%B0%E5%8C%97%E5
 const Footer = props => {
     const { classes } = props;
     return (
-        <footer className={classes.footer}>
-            <Grid container className={classes.gridContainer}>
-                <Grid item xs={3} className={classes.gridItem}>
-                    <Typography variant="title" className={classes.subTitleText} gutterBottom>
+        <footer className={usingClasses(classes, 'footer')}>
+            <Grid container className={usingClasses(classes, 'gridContainer')}>
+                <Grid item xs={6} sm={3} className={usingClasses(classes, 'gridItem')}>
+                    <Typography variant="title" className={usingClasses(classes, 'subTitleText')} gutterBottom>
                         Get Help
                     </Typography>
-                    <Typography variant="body1" className={classes.linkText} gutterBottom>
+                    <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
                         <Link to='/about' href='#'>About Us</Link>
                     </Typography>
-                    <Typography variant="body1" className={classes.linkText} gutterBottom>
+                    <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
                         <a href={email}>Contact Us</a>
                     </Typography>
-                    <Typography variant="body1" className={classes.linkText} gutterBottom>
+                    <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
                         <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
                     </Typography>
-                    <Typography variant="body1" className={classes.linkText} gutterBottom>
+                    <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
                         <a href={whitePaper} target="_blank" rel="noopener noreferrer">White Paper</a>
                     </Typography>
                 </Grid>
-                <Grid item xs={6} className={classes.gridItem}>
-                    <Typography variant="title" className={classes.subTitleText}>
+                <Grid item xs={6} className={usingClasses(classes, 'gridItem')}>
+                    <Typography variant="title" className={usingClasses(classes, 'subTitleText')}>
                         More
                     </Typography>
-                    <Typography variant="body1" className={classes.linkText}>
+                    <Typography variant="body1" className={usingClasses(classes, 'linkText')}>
                         Address: <a href={address} target="_blank" rel="noopener noreferrer">台北市中山區松江路139號8樓之4</a>
                     </Typography>
-                    <Typography variant="body1" className={classes.copyright}>
+                    <Typography variant="body1" className={usingClasses(classes, 'copyright')}>
                         Heimdal Holdings Corp.
                     </Typography>
                 </Grid>

@@ -23,3 +23,128 @@ a {
         opacity: 0.2;
     }
 }
+
+@media (min-width: 729px) {
+    .mobileMenuPaper {
+        display: none;
+    }
+}
+
+/* tablet or small laptop */
+@media (max-width: 728px) {
+    section.cover {
+        padding: 16px 5% 0 5%;
+    }
+    section:not(.cover) {
+        width: 90%;
+    }
+    div.anchorContainer {
+        display: none;
+    }
+    div.mobileAnchorContainer {
+        display: flex;
+    }
+}
+/* tablet or xl mobile */
+@media (max-width: 568px) {
+    #logo-title {
+        font-size: 1.716rem;
+    }
+    #logo-slogan {
+        font-size: 1.106rem;
+    }
+}
+
+/* mobile */
+@media (max-width: 420px) {
+    #logo-title {
+        font-size: 1.215rem;
+    }
+    #logo-slogan {
+        font-size: 0.8rem;
+    }
+    h2.titleText {
+        font-size: 1.215rem;
+    }
+    h2.subTitleText {
+        font-size: 1.215rem;
+    }
+    span.titleDate {
+        font-size: 0.8rem;
+        margin-left: 0;
+    }
+    p.bodyText {
+        font-size: 1.1215rem;
+        line-height: 1.8rem;
+    }
+    p.bodyText {
+        font-size: 1.1215rem;
+        line-height: 1.8rem;
+    }
+    a.moreLink {
+        font-size: 0.975rem;
+    }
+    p.linkText {
+        font-size: 0.85rem;
+    }
+
+    #notFound-title {
+        font-size: 3rem;
+    }
+
+    #notFound-subTitle {
+        font-size: 1.215rem;
+    }
+
+    #notFound-bodyText {
+        font-size: 1.4rem;
+    }
+}
+
+/* small mobile */
+@media (max-width: 320px) {
+
+    #logo-title {
+        font-size: 1.1rem;
+    }
+    #logo-slogan {
+        font-size: 0.7rem;
+    }
+    h2.titleText {
+        font-size: 1.1rem;
+    }
+    h2.subTitleText {
+        font-size: 1.1rem;
+    }
+    span.titleDate {
+        font-size: 0.7em;
+        margin-left: 0;
+    }
+    p.bodyText {
+        font-size: 1.11rem;
+        line-height: 1.75rem;
+    }
+    a.moreLink {
+        font-size: 0.9rem;
+    }
+    p.linkText {
+        font-size: 0.78rem;
+    }
+
+    #notFound-title {
+        margin-top: 0
+    }
+
+    div.body {
+        margin-top: 40px;
+    }
+
+    #notFound-subTitle {
+        font-size: 1.11rem;
+    }
+
+    #notFound-bodyText {
+        font-size: 1.2315rem;
+    }
+
+}
