@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Name",
+        "job": "Job",
+        "avatar": "/images/logo.png",
+        "github": "https://www.aetheras.io/",
+        "linkedIn": "https://www.aetheras.io/",
+        "mail": "https://www.aetheras.io/"
+    },
+    {
+        "name": "Name",
+        "job": "Job",
+        "avatar": "/images/logo.png",
+        "github": "https://www.aetheras.io/",
+        "linkedIn": "https://www.aetheras.io/",
+        "mail": "https://www.aetheras.io/"
+    },
+    {
+        "name": "Name",
+        "job": "Job",
+        "avatar": "/images/logo.png",
+        "github": "https://www.aetheras.io/",
+        "linkedIn": "https://www.aetheras.io/",
+        "mail": "https://www.aetheras.io/"
+    }
+]

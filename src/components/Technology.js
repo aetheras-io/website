@@ -4,33 +4,25 @@ import { getStyles, usingClasses, TECH_STYLES } from '../utils/Style-Const';
 import Typography from "@material-ui/core/Typography";
 import { Grid } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
+import technology from '../data/technology';
 
-const techList = [
-    {
-        title: 'Title',
-        content: 'We believe blockchain technology, with its ability to promote transparency and fairness, offers the world huge opportunities for innovation.'
-    },
-    {
-        title: 'Title',
-        content: 'We believe blockchain technology, with its ability to promote transparency and fairness, offers the world huge opportunities for innovation.'
-    },
-    {
-        title: 'Title',
-        content: 'We believe blockchain technology, with its ability to promote transparency and fairness, offers the world huge opportunities for innovation.'
-    },
-    {
-        title: 'Title',
-        content: 'We believe blockchain technology, with its ability to promote transparency and fairness, offers the world huge opportunities for innovation.'
-    },
-    {
-        title: 'Title',
-        content: 'We believe blockchain technology, with its ability to promote transparency and fairness, offers the world huge opportunities for innovation.'
-    },
-    {
-        title: 'Title',
-        content: 'We believe blockchain technology, with its ability to promote transparency and fairness, offers the world huge opportunities for innovation.'
-    }
-]
+const Technology = props => {
+    const { classes } = props;
+    const techDOM = getTechDOM(technology, classes);
+    return (
+        <section className={usingClasses(classes, 'section')}>
+            <div id="technology" className={usingClasses(classes, 'anchor')} />
+            <Typography component="h2" variant="headline" className={usingClasses(classes, 'headLine')}>
+                Technology
+            </Typography>
+            <div className={usingClasses(classes, 'list')}>
+                <Grid container spacing={16}>
+                    {techDOM}
+                </Grid>
+            </div>
+        </section>
+    );
+};
 
 const getTechDOM = (techList, classes) => {
     let techDOM = null;
@@ -50,23 +42,5 @@ const getTechDOM = (techList, classes) => {
     }
     return techDOM;
 }
-
-const Technology = props => {
-    const { classes } = props;
-    const techDOM = getTechDOM(techList, classes);
-    return (
-        <section className={usingClasses(classes, 'section')}>
-            <div id="technology" className={usingClasses(classes, 'anchor')} />
-            <Typography component="h2" variant="headline" className={usingClasses(classes, 'headLine')}>
-                Technology
-            </Typography>
-            <div className={usingClasses(classes, 'list')}>
-                <Grid container spacing={16}>
-                    {techDOM}
-                </Grid>
-            </div>
-        </section>
-    );
-};
 
 export default withStyles(getStyles(TECH_STYLES))(Technology);
