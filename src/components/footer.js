@@ -12,7 +12,7 @@ const localeData = { en: en_US, zh: zh_TW };
 const Footer = props => {
     const { classes, intl } = props;
     const locale = intl.locale
-    const documentation = localeData[locale];
+    const documentation = localeData[locale] ? localeData[locale] : localeData[intl.defaultLocale];
     return (
         <footer className={usingClasses(classes, 'footer')}>
             <Grid container className={usingClasses(classes, 'gridContainer')}>

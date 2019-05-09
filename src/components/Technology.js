@@ -8,12 +8,12 @@ import en_US from '../data/technology/en_US';
 import zh_TW from '../data/technology/zh_TW';
 import { injectIntl, FormattedMessage } from 'react-intl';
 
-const localeData = {en: en_US, zh: zh_TW };
+const localeData = { en: en_US, zh: zh_TW };
 
 const Technology = props => {
     const { classes, intl } = props;
     const locale = intl.locale;
-    const technology = localeData[locale];
+    const technology = localeData[locale] ? localeData[locale] : localeData[intl.defaultLocale];
     const techDOM = getTechDOM(technology, classes);
     return (
         <section className={usingClasses(classes, 'section')}>

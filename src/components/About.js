@@ -12,13 +12,12 @@ const localeData = { en: en_US, zh: zh_TW };
 const About = props => {
     const { classes, intl } = props;
     const locale = intl.locale;
-    const about = localeData[locale];
+    const about = localeData[locale] ? localeData[locale] : localeData[intl.defaultLocale];
     const messageDOM = about.message.split('\n').map((message, idx) => (
         <p className={usingClasses(classes, 'bodyText')} key={idx}>
             {message}
         </p>
     ));
-    console.log(messageDOM)
     return (
         <div className={usingClasses(classes, 'about')}>
             <section className={usingClasses(classes, 'section')}>

@@ -11,7 +11,7 @@ const localeData = { en: en_US, zh: zh_TW };
 const News = props => {
     const { classes, intl } = props;
     const locale = intl.locale;
-    const news = localeData[locale];
+    const news = localeData[locale] ? localeData[locale] : localeData[intl.defaultLocale];
     const newsDOM = getNewsDOM(news, classes, locale);
     return (
         <section className={usingClasses(classes, 'section')}>

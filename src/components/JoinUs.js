@@ -13,7 +13,7 @@ const link = 'https://www.104.com.tw/jobbank/custjob/index.php?r=cust&j=48524a73
 const JoinUs = props => {
     const { classes, intl } = props;
     const locale = intl.locale;
-    const messages = localeData[locale];
+    const messages = localeData[locale] ? localeData[locale] : localeData[intl.defaultLocale];
     return (
         <section className={usingClasses(classes, 'section')}>
             <div id="joinUs" className={usingClasses(classes, 'anchor')} />

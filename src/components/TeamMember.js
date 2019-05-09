@@ -13,7 +13,7 @@ const localeData = { en: en_US, zh: zh_TW };
 const TeamMember = props => {
     const { classes, intl } = props;
     const locale = intl.locale;
-    const teamMember = localeData[locale];
+    const teamMember = localeData[locale] ? localeData[locale] : localeData[intl.defaultLocale];
     const teamMemberDOM = getTeamMemberDOM(teamMember, classes);
     return (
         <section className={usingClasses(classes, 'section')}>
