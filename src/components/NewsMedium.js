@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { getStyles, usingClasses } from '../utils/Style-Const';
 import Typography from '@material-ui/core/Typography';
 import Build from '@material-ui/icons/Build';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 const NewsMedium = props => {
     const { classes } = props;
@@ -19,4 +20,4 @@ const NewsMedium = props => {
     );
 };
 
-export default withStyles(getStyles({}))(NewsMedium);
+export default withStyles(getStyles({}))(injectIntl(NewsMedium));

@@ -31,9 +31,9 @@ export const SHARED_STYLES = Object.freeze({
         letterSpacing: `${letterSpacing * 3}px`
     },
     bodyText: {
-        fontSize: '1.2315rem',
+        fontSize: '1.15rem',
         letterSpacing: `${letterSpacing}px`,
-        lineHeight: '2rem'
+        lineHeight: '1.8rem'
     },
     anchor: {
         transform: 'translateY(-72px)'
@@ -58,6 +58,7 @@ export const NAVBAR_STYLES = Object.freeze({
     },
     toolbar: {
         height: '100%',
+        paddingRight: '0',
         minHeight: navHeight,
         justifyContent: 'space-between'
     },
@@ -92,6 +93,7 @@ export const NAVBAR_STYLES = Object.freeze({
         height: '100%',
         justifyContent: 'flex-end',
         alignItems: 'center',
+        marginRight: `${spacing}px`
     },
     mobileMenuPaper: {
         top: '0 !important',
@@ -123,6 +125,15 @@ export const NAVBAR_STYLES = Object.freeze({
             paddingRight: '0',
             marginRight: '0'
         }
+    },
+    localeMenuPaper: {
+        top: '8px !important',
+        right: '8px !important',
+    },
+    localeMenuItem: {
+        padding: `${spacing * 2}px`,
+        justifyContent: 'center',
+
     }
 });
 
@@ -177,8 +188,9 @@ export const NEWS_STYLES = Object.freeze({
         flexDirection: 'column'
     },
     bodyText: Object.assign({ ...SHARED_STYLES.bodyText }, {
-        marginTop: `${spacing}px`,
-        marginBottom: 0
+        margin: `${spacing}px 0`,
+        overflow: 'hidden',
+        maxHeight: '96px'
     }),
     moreLink: {
         fontSize: '1.1rem',
@@ -321,7 +333,8 @@ export const NOTFOUND_STYLES = Object.freeze({
     },
     subTitle: {
         marginBottom: `${spacing * 1.5}px`,
-        letterSpacing: `${letterSpacing * 3}px`
+        letterSpacing: `${letterSpacing * 3}px`,
+        color: 'rgba(0, 0, 0, 0.64)'
     },
     body: {
         marginTop: `${spacing * 10}px`,

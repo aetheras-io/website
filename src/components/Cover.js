@@ -2,6 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { getStyles, usingClasses, COVER_STYLES } from '../utils/Style-Const';
 import Typography from '@material-ui/core/Typography';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 const Cover = props => {
     const { classes } = props;
@@ -27,7 +28,10 @@ const Cover = props => {
                         variant="h6"
                         color="inherit"
                         className={usingClasses(classes, 'slogan')}>
-                        Make the world more flexible with blockchain technology.
+                        <FormattedMessage
+                            id="slogan"
+                            defaultMessage={'Make the world more flexible with blockchain technology.'}
+                        />
                     </Typography>
                 </div>
             </div>
@@ -35,4 +39,4 @@ const Cover = props => {
     );
 };
 
-export default withStyles(getStyles(COVER_STYLES))(Cover);
+export default withStyles(getStyles(COVER_STYLES))(injectIntl(Cover));

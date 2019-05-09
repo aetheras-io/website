@@ -1,0 +1,26 @@
+[
+    {
+        "name": "姓名",
+        "job": "職稱",
+        "avatar": "/images/logo.png",
+        "github": "https://github.com/aetheras-io",
+        "linkedIn": "https://www.aetheras.io/",
+        "mail": "https://www.aetheras.io/"
+    },
+    {
+        "name": "姓名",
+        "job": "職稱",
+        "avatar": "/images/logo.png",
+        "github": "https://github.com/aetheras-io",
+        "linkedIn": "https://www.aetheras.io/",
+        "mail": "https://www.aetheras.io/"
+    },
+    {
+        "name": "姓名",
+        "job": "職稱",
+        "avatar": "/images/logo.png",
+        "github": "https://github.com/aetheras-io",
+        "linkedIn": "https://www.aetheras.io/",
+        "mail": "https://www.aetheras.io/"
+    }
+]

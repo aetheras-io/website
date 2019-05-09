@@ -4,16 +4,25 @@ import { getStyles, usingClasses, TECH_STYLES } from '../utils/Style-Const';
 import Typography from "@material-ui/core/Typography";
 import { Grid } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
-import technology from '../data/technology';
+import en_US from '../data/technology/en_US';
+import zh_TW from '../data/technology/zh_TW';
+import { injectIntl, FormattedMessage } from 'react-intl';
+
+const localeData = {en: en_US, zh: zh_TW };
 
 const Technology = props => {
-    const { classes } = props;
+    const { classes, intl } = props;
+    const locale = intl.locale;
+    const technology = localeData[locale];
     const techDOM = getTechDOM(technology, classes);
     return (
         <section className={usingClasses(classes, 'section')}>
             <div id="technology" className={usingClasses(classes, 'anchor')} />
             <Typography component="h2" variant="headline" className={usingClasses(classes, 'headLine')}>
-                Technology
+                <FormattedMessage
+                    id="tech_title"
+                    defaultMessage={'Technology'}
+                />
             </Typography>
             <div className={usingClasses(classes, 'list')}>
                 <Grid container spacing={16}>
@@ -43,4 +52,4 @@ const getTechDOM = (techList, classes) => {
     return techDOM;
 }
 
-export default withStyles(getStyles(TECH_STYLES))(Technology);
+export default withStyles(getStyles(TECH_STYLES))(injectIntl(Technology));

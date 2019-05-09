@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { getStyles, usingClasses } from '../utils/Style-Const';
 import Typography from '@material-ui/core/Typography';
 import Build from '@material-ui/icons/Build';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 const Agora = props => {
     const { classes } = props;
@@ -10,7 +11,10 @@ const Agora = props => {
         <section className={usingClasses(classes, 'section')}>
             <div id="agora" className={usingClasses(classes, 'anchor')} />
             <Typography component="h2" variant="headline" className={usingClasses(classes, 'headLine')}>
-                Agora
+                <FormattedMessage
+                    id="agora_title"
+                    defaultMessage={'Agora'}
+                />
             </Typography>
             <div className={usingClasses(classes, 'build')}>
                 <Build className={usingClasses(classes, 'buildIcon')} />
@@ -19,4 +23,4 @@ const Agora = props => {
     );
 };
 
-export default withStyles(getStyles({}))(Agora);
+export default withStyles(getStyles({}))(injectIntl(Agora));

@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { getStyles, usingClasses, PARTNER_STYLES } from '../utils/Style-Const';
 import Typography from "@material-ui/core/Typography";
 import partner from '../data/partner';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 const Partner = props => {
     const { classes } = props;
@@ -11,7 +12,10 @@ const Partner = props => {
         <section className={usingClasses(classes, 'section')}>
             <div id="partner" className={usingClasses(classes, 'anchor')} />
             <Typography component="h2" variant="headline" className={usingClasses(classes, 'titleText')}>
-                Partner
+                <FormattedMessage
+                    id="partner_title"
+                    defaultMessage={'Partner'}
+                />
             </Typography>
             <div className={usingClasses(classes, 'container')}>
                 {partnerDOM}
@@ -39,4 +43,4 @@ const getPartnerDOM = (partnerList, classes) => {
     return partnerDOM;
 }
 
-export default withStyles(getStyles(PARTNER_STYLES))(Partner);
+export default withStyles(getStyles(PARTNER_STYLES))(injectIntl(Partner));

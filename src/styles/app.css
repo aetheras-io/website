@@ -12,6 +12,22 @@ a {
     color: inherit !important;
 }
 
+.flag-icon {
+    border-radius: 50%;
+}
+
+.localeMenuItem .flag-icon {
+    min-width: 24px;
+    min-height: 24px;
+}
+
+.newsBody .bodyText {
+    display: -webkit-box;
+    /*! autoprefixer: off */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
 @keyframes buildIcon {
     0%{
         opacity: 0.2;
@@ -43,6 +59,9 @@ a {
     }
     div.mobileAnchorContainer {
         display: flex;
+    }
+    .localeMenuPaper {
+        display: none;
     }
 }
 /* tablet or xl mobile */
