@@ -2,7 +2,7 @@ export const STYLES_CONST = Object.freeze({
     spacing: 8,
     letterSpacing: 0.8,
     navHeight: '56px',
-    footerHeight: '200px'
+    footerHeight: '224px'
 })
 
 export const SHARED_STYLES = Object.freeze({

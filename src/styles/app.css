@@ -79,6 +79,11 @@ a {
     #logo-slogan {
         font-size: 1.106rem;
     }
+    span.titleDate {
+        font-size: 0.8rem;
+        display: block;
+        margin-left: 0;
+    }
 }
 
 /* mobile */
@@ -97,7 +102,6 @@ a {
     }
     span.titleDate {
         font-size: 0.8rem;
-        margin-left: 0;
     }
     p.bodyText {
         font-size: 1.1215rem;
@@ -111,19 +115,25 @@ a {
         font-size: 0.975rem;
     }
     p.linkText {
-        font-size: 0.85rem;
+        font-size: 0.95rem;
     }
 
     #notFound-title {
         font-size: 3rem;
+        margin-top: 0px;
     }
 
     #notFound-subTitle {
         font-size: 1.215rem;
     }
 
+    .notFound .body {
+        margin-top: 32px
+    }
+
     #notFound-bodyText {
         font-size: 1.4rem;
+        margin-top: 24px;
     }
 }
 
@@ -144,7 +154,6 @@ a {
     }
     span.titleDate {
         font-size: 0.7em;
-        margin-left: 0;
     }
     p.bodyText {
         font-size: 1.11rem;

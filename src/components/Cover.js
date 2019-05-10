@@ -40,12 +40,11 @@ const Cover = props => {
     );
 };
 
-const styles = Object.assign({...SHARED_STYLES}, {
+const styles = Object.assign({ ...SHARED_STYLES }, {
     cover: {
         width: '100%',
         height: 'calc(100vw / 2)',
         maxHeight: '300px',
-        marginTop: STYLES_CONST.navHeight,
         padding: '16px 10% 0 10%',
         background: 'url("/images/background.png") 50% center'
     },
