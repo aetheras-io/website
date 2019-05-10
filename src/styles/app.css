@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: Source Sans Pro, sans-serif;
     background-color: #fefefe !important;
@@ -5,7 +9,7 @@ body {
 
 #root {
     position: relative;
-    padding-bottom: 200px;    
+    min-height: 100%; 
 }
 
 a {
@@ -53,6 +57,9 @@ a {
     }
     section:not(.cover) {
         width: 90%;
+    }
+    footer.footer {
+        padding: 0 5%;
     }
     div.anchorContainer {
         display: none;

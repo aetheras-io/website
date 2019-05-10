@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { SHARED_STYLES } from "../utils/SharedStyles";
 import { usingClasses } from "../utils/utils";
 import Typography from "@material-ui/core/Typography";
 import en_US from '../data/aboutUs/en_US';
@@ -20,7 +20,7 @@ const About = props => {
         </p>
     ));
     return (
-        <div className={usingClasses(classes, 'about')}>
+        <div className={usingClasses(classes, 'wrapper')}>
             <section className={usingClasses(classes, 'section')}>
                 <Typography component="h2" variant="headline" className={usingClasses(classes, 'headLine')}>
                     <FormattedMessage
@@ -35,11 +35,6 @@ const About = props => {
     );
 };
 
-const styles = Object.assign({ ...SHARED_STYLES }, {
-    about: {
-        marginTop: STYLES_CONST.navHeight,
-        minHeight: '400px',
-    }
-})
+const styles = SHARED_STYLES;
 
 export default withStyles(styles)(injectIntl(About));

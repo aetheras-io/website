@@ -143,12 +143,12 @@ class Navbar extends React.Component {
                                     />
                                 </Link>
                             </Typography>
-                            <IconButton className={classes.localeButton} color="inherit" onClick={this.openLocaleMenu}>
+                            <IconButton className={usingClasses(classes, 'localeButton')} color="inherit" onClick={this.openLocaleMenu}>
                                 <span className={`flag-icon flag-icon-squared flag-icon-${currentLocale.code}`}></span>
                             </IconButton>
                         </div>
                         <div className={usingClasses(classes, 'mobileAnchorContainer')}>
-                            <IconButton className={classes.menuButton} color="inherit" onClick={this.openNavMenu}>
+                            <IconButton className={usingClasses(classes, 'menuButton')} color="inherit" onClick={this.openNavMenu}>
                                 <MenuIcon />
                             </IconButton>
                         </div>
@@ -239,7 +239,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     },
     toolbar: {
         height: '100%',
-        paddingRight: '0',
+        paddingRight: `${STYLES_CONST.spacing * 0.5}px`,
         minHeight: STYLES_CONST.navHeight,
         justifyContent: 'space-between'
     },
@@ -303,12 +303,8 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     link: {
         display: 'inline-flex',
         padding: `${STYLES_CONST.spacing}px`,
-        margin: `0 ${STYLES_CONST.spacing}px`,
+        marginLeft: `${STYLES_CONST.spacing}px`,
         backgroundColor: 'rgba(255, 255, 255, 0.85)',
-        '&:last-child': {
-            paddingRight: '0',
-            marginRight: '0'
-        }
     },
     localeMenuPaper: {
         top: '8px !important',

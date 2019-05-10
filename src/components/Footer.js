@@ -81,7 +81,7 @@ const Footer = props => {
 
 const styles = Object.assign({ ...SHARED_STYLES }, {
     footer: {
-        height: '200px',
+        height: STYLES_CONST.footerHeight,
         width: '100%',
         padding: '0 10%',
         backgroundColor: 'rgba(0, 0, 0, 0.82)',

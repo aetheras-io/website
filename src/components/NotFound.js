@@ -36,12 +36,9 @@ const NotFound = props => {
 }
 
 const styles = Object.assign({ ...SHARED_STYLES }, {
-    notFound: {
-        marginTop: STYLES_CONST.navHeight,
-        height: 'calc(100vh - 256px)',
-        minHeight: '400px',
+    notFound: Object.assign({ ...SHARED_STYLES.wrapper }, {
         background: 'url("/images/background.png") 50% center'
-    },
+    }),
     title: {
         fontSize: '4rem',
         letterSpacing: `${STYLES_CONST.letterSpacing * 8}px`,

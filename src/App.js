@@ -33,7 +33,6 @@ class App extends React.Component {
         };
     }
 
-
     setLocale = (locale) => {
         this.setState({ currentLocale: locale });
     }

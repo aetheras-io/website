@@ -2,10 +2,14 @@ export const STYLES_CONST = Object.freeze({
     spacing: 8,
     letterSpacing: 0.8,
     navHeight: '56px',
+    footerHeight: '200px'
 })
 
 export const SHARED_STYLES = Object.freeze({
-    
+    wrapper: {
+        paddingTop: STYLES_CONST.navHeight,
+        paddingBottom: STYLES_CONST.footerHeight,
+    },
     section: {
         width: '80%',
         minHeight: '240px',
