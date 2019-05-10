@@ -23,10 +23,16 @@ import 'flag-icon-css/css/flag-icon.min.css';
 addLocaleData([...en, ...zh]);
 
 class App extends React.Component {
-    state = {
-        network: 'Loading...',
-        currentLocale: locale[0]
-    };
+    constructor(props) {
+        super(props);
+        const browserLanguage = (navigator.language || navigator.browserLanguage).toLowerCase();
+        const defaultLocale = (locale.find(l => l.languageCode === browserLanguage || l.locale === browserLanguage) || locale[0]);
+        this.state = {
+            network: 'Loading...',
+            currentLocale: defaultLocale
+        };
+    }
+
 
     setLocale = (locale) => {
         this.setState({ currentLocale: locale });

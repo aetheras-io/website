@@ -5,11 +5,13 @@ const locale = [
     {
         code: 'us',
         locale: 'en',
+        languageCode: 'en-us',
         messages: en_US
     },
     {
         code: 'tw',
         locale: 'zh',
+        languageCode: 'zh-tw',
         messages: zh_TW
     }
 ]

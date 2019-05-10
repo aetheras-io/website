@@ -73,16 +73,18 @@ class Navbar extends React.Component {
                 <AppBar position="fixed" className={usingClasses(classes, 'navbar')}>
                     <Toolbar className={usingClasses(classes, 'toolbar')}>
                         <div className={usingClasses(classes, 'titleContainer')}>
-                            <img
-                                src="/images/logo.png"
-                                alt="Logo"
-                                className={usingClasses(classes, 'logoImg')}
-                            />
                             <Typography
                                 variant="h6"
                                 color="inherit"
                                 className={usingClasses(classes, 'titleLink')}>
-                                <Link to='/#cover' className={usingClasses(classes, 'linkText')}>AETHERAS</Link>
+                                <Link to='/#cover' className={usingClasses(classes, 'linkText')}>
+                                    <img
+                                        src="/images/logo.png"
+                                        alt="Logo"
+                                        className={usingClasses(classes, 'logoImg')}
+                                    />
+                                    AETHERAS
+                                </Link>
                             </Typography>
                         </div>
                         <div className={usingClasses(classes, 'anchorContainer')}>
@@ -249,17 +251,20 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     },
     logoImg: {
         height: '33px',
-        transform: 'translateY(-1px)'
+        transform: 'translateY(-1px)',
+        marginRight: `${STYLES_CONST.spacing}px`
     },
     titleLink: {
         width: 'fit-content',
-        padding: `${STYLES_CONST.spacing * 0.5}px`,
+        padding: `${STYLES_CONST.spacing}px`,
         letterSpacing: `${STYLES_CONST.letterSpacing * 4}px`,
-        backgroundColor: 'rgba(255, 255, 255, 0.9)'
+        backgroundColor: 'rgba(255, 255, 255, 0.85)',
+        display: 'flex'
     },
     linkText: {
         textDecoration: 'unset',
-        letterSpacing: `${STYLES_CONST.letterSpacing * 2}px`
+        letterSpacing: `${STYLES_CONST.letterSpacing * 2}px`,
+        display: 'inline-flex'
     },
     anchorContainer: {
         height: '100%',
@@ -299,7 +304,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         display: 'inline-flex',
         padding: `${STYLES_CONST.spacing}px`,
         margin: `0 ${STYLES_CONST.spacing}px`,
-        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+        backgroundColor: 'rgba(255, 255, 255, 0.85)',
         '&:last-child': {
             paddingRight: '0',
             marginRight: '0'
