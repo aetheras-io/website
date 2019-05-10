@@ -1,6 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { getStyles, usingClasses, ABOUT_STYLES } from "../utils/Style-Const";
+import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { usingClasses } from "../utils/utils";
 import Typography from "@material-ui/core/Typography";
 import en_US from '../data/aboutUs/en_US';
 import zh_TW from '../data/aboutUs/zh_TW';
@@ -34,4 +35,11 @@ const About = props => {
     );
 };
 
-export default withStyles(getStyles(ABOUT_STYLES))(injectIntl(About));
+const styles = Object.assign({ ...SHARED_STYLES }, {
+    about: {
+        marginTop: STYLES_CONST.navHeight,
+        minHeight: '400px',
+    }
+})
+
+export default withStyles(styles)(injectIntl(About));

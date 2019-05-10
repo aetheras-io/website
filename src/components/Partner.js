@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { getStyles, usingClasses, PARTNER_STYLES } from '../utils/Style-Const';
+import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { usingClasses } from "../utils/utils";
 import Typography from "@material-ui/core/Typography";
 import partner from '../data/partner';
 import { injectIntl, FormattedMessage } from 'react-intl';
@@ -43,4 +44,32 @@ const getPartnerDOM = (partnerList, classes) => {
     return partnerDOM;
 }
 
-export default withStyles(getStyles(PARTNER_STYLES))(injectIntl(Partner));
+const styles = Object.assign({ ...SHARED_STYLES }, {
+    container: {
+        marginTop: `${STYLES_CONST.spacing}px`,
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        flexWrap: 'wrap'
+    },
+    link: {
+        textDecoration: 'unset',
+        marginRight: `${STYLES_CONST.spacing * 2}px`,
+        marginBottom: `${STYLES_CONST.spacing}px`
+    },
+    item: {
+        padding: `${STYLES_CONST.spacing}px`,
+        display: 'inline-flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '1.1rem',
+        letterSpacing: `${STYLES_CONST.letterSpacing}px`,
+        color: 'rgba(0, 0, 0, 0.74)'
+    },
+    avatar: {
+        height: '64px',
+        marginRight: '4px'
+    }
+})
+
+export default withStyles(styles)(injectIntl(Partner));

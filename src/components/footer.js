@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles, Grid } from '@material-ui/core';
-import { getStyles, usingClasses, FOOTER_STYLES } from '../utils/Style-Const';
+import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { usingClasses } from "../utils/utils";
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import en_US from '../data/documentation/en_US';
@@ -78,4 +79,38 @@ const Footer = props => {
     );
 };
 
-export default withStyles(getStyles(FOOTER_STYLES))(injectIntl(Footer));
+const styles = Object.assign({ ...SHARED_STYLES }, {
+    footer: {
+        height: '200px',
+        width: '100%',
+        padding: '0 10%',
+        backgroundColor: 'rgba(0, 0, 0, 0.82)',
+        position: 'absolute',
+        bottom: '0'
+    },
+    gridContainer: {
+        height: '100%',
+        position: 'relative'
+    },
+    gridItem: {
+        height: '100%',
+        padding: `${STYLES_CONST.spacing * 1.5}px`,
+    },
+    subTitleText: Object.assign({ ...SHARED_STYLES.subTitleText }, {
+        color: 'whitesmoke',
+    }),
+    linkText: {
+        color: 'whitesmoke',
+        fontSize: '0.955rem',
+        letterSpacing: `${STYLES_CONST.letterSpacing * 1.5}px`
+    },
+    copyright: {
+        height: '24px',
+        position: 'absolute',
+        bottom: '8px',
+        right: '0',
+        color: 'whitesmoke',
+    }
+});
+
+export default withStyles(styles)(injectIntl(Footer));

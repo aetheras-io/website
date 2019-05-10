@@ -11,11 +11,6 @@ const locale = [
         code: 'tw',
         locale: 'zh',
         messages: zh_TW
-    },
-    {
-        code: 'tn',
-        locale: 'zr',
-        messages: zh_TW
     }
 ]
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { getStyles, usingClasses } from '../utils/Style-Const';
+import { SHARED_STYLES } from "../utils/SharedStyles";
+import { usingClasses } from "../utils/utils";
 import Typography from '@material-ui/core/Typography';
 import Build from '@material-ui/icons/Build';
 import { injectIntl, FormattedMessage } from 'react-intl';
@@ -23,4 +24,6 @@ const Agora = props => {
     );
 };
 
-export default withStyles(getStyles({}))(injectIntl(Agora));
+const styles = SHARED_STYLES;
+
+export default withStyles(styles)(injectIntl(Agora));

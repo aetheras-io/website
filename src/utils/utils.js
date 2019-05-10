@@ -1,5 +1,6 @@
-export default {
-    sleep: function (ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
+export const usingClasses = (classes, name) => {
+    if (!classes[name]) {
+        return name;
     }
-};
+    return `${name} ${classes[name]}`;
+}

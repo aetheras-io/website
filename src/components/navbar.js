@@ -3,7 +3,8 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { getStyles, usingClasses, NAVBAR_STYLES } from '../utils/Style-Const';
+import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { usingClasses } from "../utils/utils";
 import { Link } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -228,4 +229,91 @@ class Navbar extends React.Component {
     }
 };
 
-export default withStyles(getStyles(NAVBAR_STYLES))(injectIntl(Navbar));
+const styles = Object.assign({ ...SHARED_STYLES }, {
+    navbar: {
+        height: STYLES_CONST.navHeight,
+        color: 'rgba(0,0,0,0.82)',
+        backgroundColor: 'rgba(255, 255, 255, 0.72)'
+    },
+    toolbar: {
+        height: '100%',
+        paddingRight: '0',
+        minHeight: STYLES_CONST.navHeight,
+        justifyContent: 'space-between'
+    },
+    titleContainer: {
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
+    logoImg: {
+        height: '33px',
+        transform: 'translateY(-1px)'
+    },
+    titleLink: {
+        width: 'fit-content',
+        padding: `${STYLES_CONST.spacing * 0.5}px`,
+        letterSpacing: `${STYLES_CONST.letterSpacing * 4}px`,
+        backgroundColor: 'rgba(255, 255, 255, 0.9)'
+    },
+    linkText: {
+        textDecoration: 'unset',
+        letterSpacing: `${STYLES_CONST.letterSpacing * 2}px`
+    },
+    anchorContainer: {
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+    },
+    mobileAnchorContainer: {
+        display: 'none',
+        height: '100%',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        marginRight: `${STYLES_CONST.spacing}px`
+    },
+    mobileMenuPaper: {
+        top: '0 !important',
+        left: '0 !important',
+        width: '100%',
+        maxWidth: '100%',
+        'ul': {
+            paddingTop: '0',
+            paddingBottom: '0'
+        }
+    },
+    mobileMenuLink: {
+        height: 'fit-content',
+        padding: '0'
+    },
+    mobileLinkText: {
+        width: '100%',
+        height: '100%',
+        padding: `${STYLES_CONST.spacing * 2}px`,
+        textDecoration: 'unset',
+        letterSpacing: `${STYLES_CONST.letterSpacing * 2}px`
+    },
+    link: {
+        display: 'inline-flex',
+        padding: `${STYLES_CONST.spacing}px`,
+        margin: `0 ${STYLES_CONST.spacing}px`,
+        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+        '&:last-child': {
+            paddingRight: '0',
+            marginRight: '0'
+        }
+    },
+    localeMenuPaper: {
+        top: '8px !important',
+        right: '8px !important',
+    },
+    localeMenuItem: {
+        padding: `${STYLES_CONST.spacing * 2}px`,
+        justifyContent: 'center',
+
+    }
+});
+
+export default withStyles(styles)(injectIntl(Navbar));

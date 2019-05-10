@@ -1,9 +1,10 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { getStyles, usingClasses } from '../utils/Style-Const';
+import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { usingClasses } from "../utils/utils";
 import Typography from '@material-ui/core/Typography';
 import Build from '@material-ui/icons/Build';
-import { injectIntl, FormattedMessage } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
 const NewsMedium = props => {
     const { classes } = props;
@@ -20,4 +21,6 @@ const NewsMedium = props => {
     );
 };
 
-export default withStyles(getStyles({}))(injectIntl(NewsMedium));
+const styles = SHARED_STYLES;
+
+export default withStyles(styles)(injectIntl(NewsMedium));

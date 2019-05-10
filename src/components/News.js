@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { getStyles, usingClasses, NEWS_STYLES } from '../utils/Style-Const';
+import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { usingClasses } from "../utils/utils";
 import Typography from '@material-ui/core/Typography';
 import en_US from '../data/news/en_US';
 import zh_TW from '../data/news/zh_TW';
@@ -52,4 +53,31 @@ const getNewsDOM = (newsList, classes, locale) => {
     return newsDOM;
 }
 
-export default withStyles(getStyles(NEWS_STYLES))(injectIntl(News));
+const styles = Object.assign({ ...SHARED_STYLES }, {
+    titleDate: {
+        marginLeft: '24px',
+        fontSize: '0.95rem',
+        color: 'rgba(0, 0, 0, 0.63)',
+        display: 'inline-block',
+        transform: 'translateY(1px)'
+    },
+    newsBody: {
+        padding: `${STYLES_CONST.spacing * 2}px 0`,
+        display: 'flex',
+        flexDirection: 'column'
+    },
+    bodyText: Object.assign({ ...SHARED_STYLES.bodyText }, {
+        margin: `${STYLES_CONST.spacing}px 0`,
+        overflow: 'hidden',
+        maxHeight: '96px'
+    }),
+    moreLink: {
+        fontSize: '1.1rem',
+        letterSpacing: `${STYLES_CONST.letterSpacing}px`,
+        display: 'inline-flex',
+        alignSelf: 'flex-end',
+        justifySelf: 'flex-end'
+    },
+})
+
+export default withStyles(styles)(injectIntl(News));

@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { getStyles, usingClasses, TECH_STYLES } from '../utils/Style-Const';
+import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { usingClasses } from "../utils/utils";
 import Typography from "@material-ui/core/Typography";
 import { Grid } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
@@ -52,4 +53,20 @@ const getTechDOM = (techList, classes) => {
     return techDOM;
 }
 
-export default withStyles(getStyles(TECH_STYLES))(injectIntl(Technology));
+const styles = Object.assign({ ...SHARED_STYLES }, {
+    list: {
+        width: '100%',
+        marginTop: `calc(1em + ${STYLES_CONST.spacing}px)`
+    },
+    paper: {
+        padding: `${STYLES_CONST.spacing * 2}px`
+    },
+    subTitleText: Object.assign({ ...SHARED_STYLES.subTitleText }, {
+        textAlign: 'center'
+    }),
+    bodyText: Object.assign({ ...SHARED_STYLES.bodyText }, {
+        textAlign: 'center'
+    })
+})
+
+export default withStyles(styles)(injectIntl(Technology));

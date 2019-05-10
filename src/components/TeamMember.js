@@ -1,6 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { getStyles, usingClasses, ABOUT_STYLES } from "../utils/Style-Const";
+import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { usingClasses } from "../utils/utils";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -73,4 +74,39 @@ const getTeamMemberDOM = (teamMember, classes) => {
     return teamMemberDOM;
 }
 
-export default withStyles(getStyles(ABOUT_STYLES))(injectIntl(TeamMember));
+const styles = Object.assign({ ...SHARED_STYLES }, {
+    list: {
+        width: '100%',
+        marginTop: `calc(1em + ${STYLES_CONST.spacing}px)`
+    },
+    paper: {
+        padding: `${STYLES_CONST.spacing * 2}px`
+    },
+    subTitleText: {
+        textAlign: 'center',
+        marginBottom: `${STYLES_CONST.spacing * 1.5}px`,
+        letterSpacing: `${STYLES_CONST.letterSpacing * 3}px`
+    },
+    avatar: {
+        width: '64px',
+        margin: '0 auto',
+        borderRadius: '100%',
+        display: 'block',
+        marginBottom: `${STYLES_CONST.spacing}px`,
+    },
+    linkIcon: {
+        width: '24px',
+        opacity: '0.54',
+        marginRight: `${STYLES_CONST.spacing}px`,
+        '&:hover': {
+            opacity: '0.84'
+        }
+    },
+    subBodyText: {
+        fontSize: '1rem',
+        color: 'rgba(0, 0, 0, 0.63)',
+        marginBottom: `${STYLES_CONST.spacing * 2}px`
+    }
+})
+
+export default withStyles(styles)(injectIntl(TeamMember));
