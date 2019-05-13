@@ -235,7 +235,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     navbar: {
         height: STYLES_CONST.navHeight,
         color: 'rgba(0,0,0,0.82)',
-        backgroundColor: 'rgba(255, 255, 255, 0.72)'
+        backgroundColor: 'rgba(255, 255, 255, 0.9)'
     },
     toolbar: {
         height: '100%',
@@ -247,7 +247,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         height: '100%',
         display: 'flex',
         justifyContent: 'flex-start',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     logoImg: {
         height: '33px',
@@ -258,7 +258,6 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         width: 'fit-content',
         padding: `${STYLES_CONST.spacing}px`,
         letterSpacing: `${STYLES_CONST.letterSpacing * 4}px`,
-        backgroundColor: 'rgba(255, 255, 255, 0.85)',
         display: 'flex'
     },
     linkText: {
@@ -270,7 +269,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         height: '100%',
         display: 'flex',
         justifyContent: 'flex-end',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     mobileAnchorContainer: {
         display: 'none',
@@ -303,8 +302,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     link: {
         display: 'inline-flex',
         padding: `${STYLES_CONST.spacing}px`,
-        marginLeft: `${STYLES_CONST.spacing}px`,
-        backgroundColor: 'rgba(255, 255, 255, 0.85)',
+        marginLeft: `${STYLES_CONST.spacing}px`
     },
     localeMenuPaper: {
         top: '8px !important',
