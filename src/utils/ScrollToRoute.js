@@ -4,10 +4,10 @@ import { Route, withRouter } from 'react-router-dom';
 class ScrollToRoute extends Component {
     componentDidUpdate(prevProps) {
         const isRouteUpdate = this.props.path === this.props.location.pathname && this.props.location.pathname !== prevProps.location.pathname;
-        const isAnchor = this.props.location.hash !== '';
+        const isAnchor = window.location.hash !== '';
         if (isAnchor) {
             setTimeout(() => {
-                const id = this.props.location.hash.replace('#', '');
+                const id = window.location.hash.replace('#', '');
                 const element = document.getElementById(id);
                 if (element) {
                     const behavior = isRouteUpdate ? 'instant' : 'smooth';
