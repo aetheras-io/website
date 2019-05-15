@@ -12,6 +12,34 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { injectIntl, FormattedMessage } from 'react-intl';
 
+const link = [
+    {
+        titleId: 'news_title',
+        defalutTitle: 'News',
+        to: '/#news'
+    },
+    {
+        titleId: 'agora_title',
+        defaultTitle: 'Agora',
+        to: '/#agora'
+    },
+    {
+        titleId: 'tech_title',
+        defaultTitle: 'Technology',
+        to: '/#technology'
+    },
+    {
+        titleId: 'partner_title',
+        defaultTitle: 'Partner',
+        to: '/#partner'
+    },
+    {
+        titleId: 'joinUs_nav_title',
+        defaultTitle: 'Join Us',
+        to: '/#joinUs'
+    }
+]
+
 class Navbar extends React.Component {
     state = {
         isNavMenuOpen: false,
@@ -64,10 +92,52 @@ class Navbar extends React.Component {
         this.setState({ localeMenuAnchor: null });
     };
 
+    getLinkDOM = (linkList, classes, type) => {
+        if (!linkList || linkList.length === 0) {
+            return null;
+        }
+        if (type === 'desktop') {
+            return linkList.map(link => (
+                <Typography
+                    variant="subheading"
+                    color="inherit"
+                    className={usingClasses(classes, 'link')}
+                    key={link.titleId}
+                >
+                    <Link replace to={link.to} className={usingClasses(classes, 'linkText')}>
+                        <FormattedMessage
+                            id={link.titleId}
+                            defaultMessage={link.defaultTitle}
+                        />
+                    </Link>
+                </Typography>
+            ));
+        }
+        if (type === 'mobile') {
+            return linkList.map(link => (
+                <MenuItem
+                    onClick={this.closeNavMenu}
+                    className={usingClasses(classes, 'mobileMenuLink')}
+                    key={link.titleId}
+                >
+                    <Link replace to={link.to} className={usingClasses(classes, 'mobileLinkText')}>
+                        <FormattedMessage
+                            id={link.titleId}
+                            defaultMessage={link.defalutTitle}
+                        />
+                    </Link>
+                </MenuItem>
+            ));
+        }
+        return null;
+    }
+
     render() {
         const { classes, intl, locale } = this.props;
         const { isNavMenuOpen, localeMenuAnchor } = this.state;
         const currentLocale = locale.find(l => l.locale === intl.locale);
+        const linkDOM = this.getLinkDOM(link, classes, 'desktop');
+        const mobileLinkDOM = this.getLinkDOM(link, classes, 'mobile');
         return (
             <React.Fragment>
                 <AppBar position="fixed" className={usingClasses(classes, 'navbar')}>
@@ -77,7 +147,7 @@ class Navbar extends React.Component {
                                 variant="h6"
                                 color="inherit"
                                 className={usingClasses(classes, 'titleLink')}>
-                                <Link to='/#cover' className={usingClasses(classes, 'linkText')}>
+                                <Link replace to='/' className={usingClasses(classes, 'linkText')}>
                                     <img
                                         src="/images/logo.png"
                                         alt="Logo"
@@ -88,61 +158,7 @@ class Navbar extends React.Component {
                             </Typography>
                         </div>
                         <div className={usingClasses(classes, 'anchorContainer')}>
-                            <Typography
-                                variant="subheading"
-                                color="inherit"
-                                className={usingClasses(classes, 'link')}>
-                                <Link to='/#news' className={usingClasses(classes, 'linkText')}>
-                                    <FormattedMessage
-                                        id="news_title"
-                                        defaultMessage={'News'}
-                                    />
-                                </Link>
-                            </Typography>
-                            <Typography
-                                variant="subheading"
-                                color="inherit"
-                                className={usingClasses(classes, 'link')}>
-                                <Link to='/#agora' className={usingClasses(classes, 'linkText')}>
-                                    <FormattedMessage
-                                        id="agora_title"
-                                        defaultMessage={'Agora'}
-                                    />
-                                </Link>
-                            </Typography>
-                            <Typography
-                                variant="subheading"
-                                color="inherit"
-                                className={usingClasses(classes, 'link')}>
-                                <Link to='/#technology' className={usingClasses(classes, 'linkText')}>
-                                    <FormattedMessage
-                                        id="tech_title"
-                                        defaultMessage={'Technology'}
-                                    />
-                                </Link>
-                            </Typography>
-                            <Typography
-                                variant="subheading"
-                                color="inherit"
-                                className={usingClasses(classes, 'link')}>
-                                <Link to='/#partner' className={usingClasses(classes, 'linkText')}>
-                                    <FormattedMessage
-                                        id="partner_title"
-                                        defaultMessage={'Partner'}
-                                    />
-                                </Link>
-                            </Typography>
-                            <Typography
-                                variant="subheading"
-                                color="inherit"
-                                className={usingClasses(classes, 'link')}>
-                                <Link to='/#joinUs' className={usingClasses(classes, 'linkText')}>
-                                    <FormattedMessage
-                                        id="joinUs_nav_title"
-                                        defaultMessage={'Join Us'}
-                                    />
-                                </Link>
-                            </Typography>
+                            {linkDOM}
                             <IconButton className={usingClasses(classes, 'localeButton')} color="inherit" onClick={this.openLocaleMenu}>
                                 <span className={`flag-icon flag-icon-squared flag-icon-${currentLocale.code}`}></span>
                             </IconButton>
@@ -162,46 +178,7 @@ class Navbar extends React.Component {
                     classes={{ paper: usingClasses(classes, 'mobileMenuPaper') }}
                     MenuListProps={{ disablePadding: true }}
                 >
-                    <MenuItem onClick={this.closeNavMenu} className={usingClasses(classes, 'mobileMenuLink')}>
-                        <Link to='/#news' className={usingClasses(classes, 'mobileLinkText')}>
-                            <FormattedMessage
-                                id="news_title"
-                                defaultMessage={'News'}
-                            />
-                        </Link>
-                    </MenuItem>
-                    <MenuItem onClick={this.closeNavMenu} className={usingClasses(classes, 'mobileMenuLink')}>
-                        <Link to='/#agora' className={usingClasses(classes, 'mobileLinkText')}>
-                            <FormattedMessage
-                                id="agora_title"
-                                defaultMessage={'Agora'}
-                            />
-                        </Link>
-                    </MenuItem>
-                    <MenuItem onClick={this.closeNavMenu} className={usingClasses(classes, 'mobileMenuLink')}>
-                        <Link to='/#technology' className={usingClasses(classes, 'mobileLinkText')}>
-                            <FormattedMessage
-                                id="tech_title"
-                                defaultMessage={'Technology'}
-                            />
-                        </Link>
-                    </MenuItem>
-                    <MenuItem onClick={this.closeNavMenu} className={usingClasses(classes, 'mobileMenuLink')}>
-                        <Link to='/#partner' className={usingClasses(classes, 'mobileLinkText')}>
-                            <FormattedMessage
-                                id="partner_title"
-                                defaultMessage={'Partner'}
-                            />
-                        </Link>
-                    </MenuItem>
-                    <MenuItem onClick={this.closeNavMenu} className={usingClasses(classes, 'mobileMenuLink')}>
-                        <Link to='/#joinUs' className={usingClasses(classes, 'mobileLinkText')}>
-                            <FormattedMessage
-                                id="joinUs_nav_title"
-                                defaultMessage={'Join Us'}
-                            />
-                        </Link>
-                    </MenuItem>
+                    {mobileLinkDOM}
                     <li className={usingClasses(classes, 'mobileMenuLink')}>
                         {locale.map(l => (
                             <IconButton onClick={this.selectLocale(l.code)} key={l.code} className={usingClasses(classes, 'localeMenuItem')}>

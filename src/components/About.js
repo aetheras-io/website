@@ -7,6 +7,7 @@ import en_US from '../data/aboutUs/en_US';
 import zh_TW from '../data/aboutUs/zh_TW';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import TeamMember from "./TeamMember.js";
+import Paragraph from "./Paragraph";
 
 const localeData = { en: en_US, zh: zh_TW };
 
@@ -14,11 +15,6 @@ const About = props => {
     const { classes, intl } = props;
     const locale = intl.locale;
     const about = localeData[locale] ? localeData[locale] : localeData[intl.defaultLocale];
-    const messageDOM = about.message.split('\n').map((message, idx) => (
-        <p className={usingClasses(classes, 'bodyText')} key={idx}>
-            {message}
-        </p>
-    ));
     return (
         <div className={usingClasses(classes, 'wrapper')}>
             <section className={usingClasses(classes, 'section')}>
@@ -28,7 +24,7 @@ const About = props => {
                         defaultMessage={'About Us'}
                     />
                 </Typography>
-                {messageDOM}
+                <Paragraph messages={about} />
             </section>
             <TeamMember />
         </div>

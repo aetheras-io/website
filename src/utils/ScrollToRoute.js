@@ -5,20 +5,16 @@ class ScrollToRoute extends Component {
     componentDidUpdate(prevProps) {
         const isRouteUpdate = this.props.path === this.props.location.pathname && this.props.location.pathname !== prevProps.location.pathname;
         const isAnchor = window.location.hash !== '';
+        let element = document.getElementById('root');
         if (isAnchor) {
+            const id = window.location.hash.replace('#', '');
+            element = document.getElementById(id);
+        }
+        if (element) {
             setTimeout(() => {
-                const id = window.location.hash.replace('#', '');
-                const element = document.getElementById(id);
-                if (element) {
-                    const behavior = isRouteUpdate ? 'instant' : 'smooth';
-                    element.scrollIntoView({ behavior: behavior })
-                };
+                const behavior = isRouteUpdate ? 'instant' : 'smooth';
+                element.scrollIntoView({ behavior: behavior });
             }, 0);
-            setTimeout(() => {
-                window.history.pushState(null, '', this.props.location.pathname);
-            }, 500)
-        } else if (isRouteUpdate) {
-            window.scrollTo(0, 0)
         }
     }
 
