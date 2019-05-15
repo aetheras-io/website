@@ -46,25 +46,6 @@ class Navbar extends React.Component {
         localeMenuAnchor: null
     };
 
-    componentDidMount() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', this.smothScrollIntoView);
-        });
-    }
-
-    componentWillUnmount() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.removeEventListener('click', this.smothScrollIntoView);
-        });
-    }
-
-    smothScrollIntoView = e => {
-        e.preventDefault();
-        document.querySelector(e.target.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    }
-
     openNavMenu = () => {
         this.setState({ isNavMenuOpen: true });
     }
