@@ -128,7 +128,7 @@ class Navbar extends React.Component {
                                 variant="h6"
                                 color="inherit"
                                 className={usingClasses(classes, 'titleLink')}>
-                                <Link replace to='/' className={usingClasses(classes, 'linkText')}>
+                                <Link replace to='/#cover' className={usingClasses(classes, 'linkText')}>
                                     <img
                                         src="/images/logo.png"
                                         alt="Logo"

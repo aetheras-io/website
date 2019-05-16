@@ -4,13 +4,14 @@ import { Route, withRouter } from 'react-router-dom';
 class ScrollToRoute extends Component {
     componentDidUpdate(prevProps) {
         const isRouteUpdate = this.props.path === this.props.location.pathname && this.props.location.pathname !== prevProps.location.pathname;
-        const isAnchor = window.location.hash !== '';
+        const isAnchor = Boolean(this.props.location.hash);
         let element = document.getElementById('root');
         if (isAnchor) {
-            const id = window.location.hash.replace('#', '');
+            const id = this.props.location.hash.replace('#', '');
+            this.props.location.hash = ""
             element = document.getElementById(id);
         }
-        if (element) {
+        if (isRouteUpdate || isAnchor) {
             setTimeout(() => {
                 const behavior = isRouteUpdate ? 'instant' : 'smooth';
                 element.scrollIntoView({ behavior: behavior });
