@@ -1,82 +1,92 @@
 import React from 'react';
 import { withStyles, Grid } from '@material-ui/core';
-import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { STYLES_CONST, SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
-import en_US from '../data/documentation/en_US';
-import zh_TW from '../data/documentation/zh_TW';
 import { injectIntl, FormattedMessage } from 'react-intl';
+import IntlComponent from './shared/IntlComponent';
+import CONST from '../utils/const';
 
-const localeData = { en: en_US, zh: zh_TW };
+class Footer extends IntlComponent {
+    render() {
+        const { classes } = this.props;
+        const { intlData } = this.state;
 
-const Footer = props => {
-    const { classes, intl } = props;
-    const locale = intl.locale
-    const documentation = localeData[locale] ? localeData[locale] : localeData[intl.defaultLocale];
-    return (
-        <footer className={usingClasses(classes, 'footer')}>
-            <Grid container className={usingClasses(classes, 'gridContainer')}>
-                <Grid item xs={6} sm={3} className={usingClasses(classes, 'gridItem')}>
-                    <Typography variant="title" className={usingClasses(classes, 'subTitleText')} gutterBottom>
-                        <FormattedMessage
-                            id="getHelp"
-                            defaultMessage={'Get Help'}
-                        />
-                    </Typography>
-                    <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
-                        <Link to='/about' href='#'>
+        if (!intlData) {
+            return null;
+        }
+
+        const documentation = intlData.documentation;
+
+        if (!documentation) {
+            return null;
+        }
+
+        return (
+            <footer className={usingClasses(classes, 'footer')}>
+                <Grid container className={usingClasses(classes, 'gridContainer')}>
+                    <Grid item xs={6} sm={3} className={usingClasses(classes, 'gridItem')}>
+                        <Typography variant="title" className={usingClasses(classes, 'subTitleText')} gutterBottom>
                             <FormattedMessage
-                                id="aboutUs_title"
-                                defaultMessage={'About Us'}
+                                id="getHelp"
+                                defaultMessage={'Get Help'}
                             />
-                        </Link>
-                    </Typography>
-                    <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
-                        <a href={documentation.contactMail}>
+                        </Typography>
+                        <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
+                            <Link to={{ pathname: '/about', state: { shouldScroll: true } }} href='#'>
+                                <FormattedMessage
+                                    id="aboutUs_title"
+                                    defaultMessage={'About Us'}
+                                />
+                            </Link>
+                        </Typography>
+                        <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
+                            <a href={CONST.contactMail}>
+                                <FormattedMessage
+                                    id="contactUs"
+                                    defaultMessage={'Contact Us'}
+                                />
+                            </a>
+                        </Typography>
+                        <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
+                            <a href={CONST.whitePaperURL} target="_blank" rel="noopener noreferrer">
+                                <FormattedMessage
+                                    id="whitePaper"
+                                    defaultMessage={'White Paper'}
+                                />
+                            </a>
+                        </Typography>
+                        <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
+                            <a href={CONST.githubURL} target="_blank" rel="noopener noreferrer">
+                                <FormattedMessage
+                                    id="github"
+                                    defaultMessage={'GitHub'}
+                                />
+                            </a>
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={6} className={usingClasses(classes, 'gridItem')}>
+                        <Typography variant="title" className={usingClasses(classes, 'subTitleText')}>
                             <FormattedMessage
-                                id="contactUs"
-                                defaultMessage={'Contact Us'}
+                                id="more"
+                                defaultMessage={'More'}
                             />
-                        </a>
-                    </Typography>
-                    <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
-                        <a href={documentation.whitePaperURL} target="_blank" rel="noopener noreferrer">
+                        </Typography>
+                        <Typography variant="body1" className={usingClasses(classes, 'linkText')}>
                             <FormattedMessage
-                                id="whitePaper"
-                                defaultMessage={'White Paper'}
-                            />
-                        </a>
+                                id="address"
+                                defaultMessage={'Address'}
+                            />: <a href={documentation.addressURL} target="_blank" rel="noopener noreferrer">{documentation.addressName}</a>
+                        </Typography>
+                        <Typography variant="body1" className={usingClasses(classes, 'copyright')}>
+                            Heimdal Holdings Corp.
                     </Typography>
-                    <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
-                        <a href={documentation.githubURL} target="_blank" rel="noopener noreferrer">
-                            <FormattedMessage
-                                id="github"
-                                defaultMessage={'GitHub'}
-                            />
-                        </a>
-                    </Typography>
+                    </Grid>
                 </Grid>
-                <Grid item xs={6} className={usingClasses(classes, 'gridItem')}>
-                    <Typography variant="title" className={usingClasses(classes, 'subTitleText')}>
-                        <FormattedMessage
-                            id="more"
-                            defaultMessage={'More'}
-                        />
-                    </Typography>
-                    <Typography variant="body1" className={usingClasses(classes, 'linkText')}>
-                        <FormattedMessage
-                            id="address"
-                            defaultMessage={'Address'}
-                        />: <a href={documentation.addressURL} target="_blank" rel="noopener noreferrer">{documentation.addressName}</a>
-                    </Typography>
-                    <Typography variant="body1" className={usingClasses(classes, 'copyright')}>
-                        Heimdal Holdings Corp.
-                    </Typography>
-                </Grid>
-            </Grid>
-        </footer>
-    );
+            </footer>
+        );
+    }
 };
 
 const styles = Object.assign({ ...SHARED_STYLES }, {

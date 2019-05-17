@@ -7,9 +7,10 @@ import {
 import { addLocaleData, IntlProvider } from 'react-intl';
 import zh from 'react-intl/locale-data/zh';
 import en from 'react-intl/locale-data/en';
-import locale from './i18n/locale';
+import localeConfig from './i18n/locale-config';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import ScrollToRoute from './utils/ScrollToRoute';
+import ScrollToRoute from './components/shared/ScrollToRoute';
+import IntlComponent from './components/shared/IntlComponent';
 import Home from './components/Home';
 import Tasks from './components/Tasks';
 // import Contact from './components/Contact';
@@ -22,14 +23,14 @@ import 'flag-icon-css/css/flag-icon.min.css';
 
 addLocaleData([...en, ...zh]);
 
-class App extends React.Component {
+class App extends IntlComponent {
     constructor(props) {
         super(props);
         const browserLanguage = (navigator.language || navigator.browserLanguage).toLowerCase();
-        const defaultLocale = (locale.find(l => l.languageCode === browserLanguage || l.locale === browserLanguage) || locale[0]);
+        this.defaultLocale = (localeConfig.find(l => l.languageCode === browserLanguage || l.locale === browserLanguage) || localeConfig[0]);
         this.state = {
             network: 'Loading...',
-            currentLocale: defaultLocale
+            currentLocale: this.defaultLocale
         };
     }
 
@@ -37,15 +38,44 @@ class App extends React.Component {
         this.setState({ currentLocale: locale });
     }
 
-    render() {
+    componentDidMount() {
         const { currentLocale } = this.state;
+        if (currentLocale) {
+            this.loadLocaleData({
+                intl: {
+                    locale: currentLocale.locale,
+                    defaultLocale: this.defaultLocale.locale
+                }
+            });
+        }
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        const { currentLocale } = this.state;
+        if (nextState.currentLocale.locale !== currentLocale.locale) {
+            this.loadLocaleData({
+                intl: {
+                    locale: nextState.currentLocale.locale,
+                    defaultLocale: this.defaultLocale.locale
+                }
+            });
+        }
+    }
+
+    render() {
+        const { currentLocale, intlData } = this.state;
+
+        if (!intlData) {
+            return null;
+        }
+
         return (
-            <IntlProvider locale={currentLocale.locale} messages={currentLocale.messages}>
+            <IntlProvider locale={currentLocale.locale} messages={intlData.static}>
                 <React.Fragment>
                     <CssBaseline />
                     <Router>
                         <React.Fragment>
-                            <Navbar locale={locale} setLocale={this.setLocale} />
+                            <Navbar locale={localeConfig} setLocale={this.setLocale} />
                             <Switch>
                                 <ScrollToRoute exact path="/" component={Home} />
                                 <ScrollToRoute path="/portfolio" component={Tasks} />

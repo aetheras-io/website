@@ -1,28 +1,42 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { STYLES_CONST, SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
 import Typography from "@material-ui/core/Typography";
-import partner from '../data/partner';
 import { injectIntl, FormattedMessage } from 'react-intl';
+import IntlComponent from './shared/IntlComponent';
 
-const Partner = props => {
-    const { classes } = props;
-    const partnerDOM = getPartnerDOM(partner, classes);
-    return (
-        <section className={usingClasses(classes, 'section')}>
-            <div id="partner" className={usingClasses(classes, 'anchor')} />
-            <Typography component="h2" variant="headline" className={usingClasses(classes, 'titleText')}>
-                <FormattedMessage
-                    id="partner_title"
-                    defaultMessage={'Partner'}
-                />
-            </Typography>
-            <div className={usingClasses(classes, 'container')}>
-                {partnerDOM}
-            </div>
-        </section>
-    );
+class Partner extends IntlComponent {
+    render() {
+        const { classes } = this.props;
+        const { intlData } = this.state;
+
+        if (!intlData) {
+            return null;
+        }
+
+        const partner = intlData.partner;
+
+        if (!partner || !partner.length) {
+            return null;
+        }
+
+        const partnerDOM = getPartnerDOM(partner, classes);
+        return (
+            <section className={usingClasses(classes, 'section')}>
+                <div id="partner" className={usingClasses(classes, 'anchor')} />
+                <Typography component="h2" variant="headline" className={usingClasses(classes, 'titleText')}>
+                    <FormattedMessage
+                        id="partner_title"
+                        defaultMessage={'Partner'}
+                    />
+                </Typography>
+                <div className={usingClasses(classes, 'container')}>
+                    {partnerDOM}
+                </div>
+            </section>
+        );
+    }
 };
 
 const getPartnerDOM = (partnerList, classes) => {

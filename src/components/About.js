@@ -1,34 +1,43 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { SHARED_STYLES } from "../utils/SharedStyles";
+import { SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
 import Typography from "@material-ui/core/Typography";
-import en_US from '../data/aboutUs/en_US';
-import zh_TW from '../data/aboutUs/zh_TW';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import TeamMember from "./TeamMember.js";
-import Paragraph from "./Paragraph";
+import IntlComponent from './shared/IntlComponent';
+import Paragraph from "./shared/Paragraph";
 
-const localeData = { en: en_US, zh: zh_TW };
+class About extends IntlComponent {
+    render() {
+        const { classes } = this.props;
+        const { intlData } = this.state;
 
-const About = props => {
-    const { classes, intl } = props;
-    const locale = intl.locale;
-    const about = localeData[locale] ? localeData[locale] : localeData[intl.defaultLocale];
-    return (
-        <div className={usingClasses(classes, 'wrapper')}>
-            <section className={usingClasses(classes, 'section')}>
-                <Typography component="h2" variant="headline" className={usingClasses(classes, 'headLine')}>
-                    <FormattedMessage
-                        id="aboutUs_title"
-                        defaultMessage={'About Us'}
-                    />
-                </Typography>
-                <Paragraph messages={about} />
-            </section>
-            <TeamMember />
-        </div>
-    );
+        if (!intlData) {
+            return null;
+        }
+
+        const aboutUs = intlData.aboutUs;
+
+        if (!aboutUs) {
+            return null;
+        }
+
+        return (
+            <div className={usingClasses(classes, 'wrapper')}>
+                <section className={usingClasses(classes, 'section')}>
+                    <Typography component="h2" variant="headline" className={usingClasses(classes, 'headLine')}>
+                        <FormattedMessage
+                            id="aboutUs_title"
+                            defaultMessage={'About Us'}
+                        />
+                    </Typography>
+                    <Paragraph messages={aboutUs} />
+                </section>
+                <TeamMember />
+            </div>
+        );
+    }
 };
 
 const styles = SHARED_STYLES;

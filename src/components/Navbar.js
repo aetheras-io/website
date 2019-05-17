@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { STYLES_CONST, SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
 import { Link } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
@@ -16,27 +16,27 @@ const link = [
     {
         titleId: 'news_title',
         defalutTitle: 'News',
-        to: '/#news'
+        anchor: 'news'
     },
     {
         titleId: 'agora_title',
         defaultTitle: 'Agora',
-        to: '/#agora'
+        anchor: 'agora'
     },
     {
         titleId: 'tech_title',
         defaultTitle: 'Technology',
-        to: '/#technology'
+        anchor: 'technology'
     },
     {
         titleId: 'partner_title',
         defaultTitle: 'Partner',
-        to: '/#partner'
+        anchor: 'partner'
     },
     {
         titleId: 'joinUs_nav_title',
         defaultTitle: 'Join Us',
-        to: '/#joinUs'
+        anchor: 'joinUs'
     }
 ]
 
@@ -85,7 +85,7 @@ class Navbar extends React.Component {
                     className={usingClasses(classes, 'link')}
                     key={link.titleId}
                 >
-                    <Link replace to={link.to} className={usingClasses(classes, 'linkText')}>
+                    <Link replace to={{ pathname: '/', state: { shouldScroll: true, anchor: link.anchor } }} className={usingClasses(classes, 'linkText')}>
                         <FormattedMessage
                             id={link.titleId}
                             defaultMessage={link.defaultTitle}
@@ -101,7 +101,7 @@ class Navbar extends React.Component {
                     className={usingClasses(classes, 'mobileMenuLink')}
                     key={link.titleId}
                 >
-                    <Link replace to={link.to} className={usingClasses(classes, 'mobileLinkText')}>
+                    <Link replace to={{ pathname: '/', state: { shouldScroll: true, anchor: link.anchor } }} className={usingClasses(classes, 'mobileLinkText')}>
                         <FormattedMessage
                             id={link.titleId}
                             defaultMessage={link.defalutTitle}
@@ -128,7 +128,7 @@ class Navbar extends React.Component {
                                 variant="h6"
                                 color="inherit"
                                 className={usingClasses(classes, 'titleLink')}>
-                                <Link replace to='/#cover' className={usingClasses(classes, 'linkText')}>
+                                <Link replace to={{ pathname: '/', state: { shouldScroll: true } }} className={usingClasses(classes, 'linkText')}>
                                     <img
                                         src="/images/logo.png"
                                         alt="Logo"

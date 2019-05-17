@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core';
-import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { STYLES_CONST, SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
 import Typography from '@material-ui/core/Typography';
 import { injectIntl, FormattedMessage } from 'react-intl';

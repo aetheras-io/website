@@ -1,38 +1,46 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { SHARED_STYLES } from "../utils/SharedStyles";
+import { SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
 import Typography from "@material-ui/core/Typography";
-import en_US from '../data/joinUs/en_US';
-import zh_TW from '../data/joinUs/zh_TW';
 import { injectIntl, FormattedMessage } from 'react-intl';
+import CONST from '../utils/const';
+import IntlComponent from './shared/IntlComponent';
 
-const localeData = { en: en_US, zh: zh_TW };
+class JoinUs extends IntlComponent {
+    render() {
+        const { classes } = this.props;
+        const { intlData } = this.state;
 
-const link = 'https://www.104.com.tw/jobbank/custjob/index.php?r=cust&j=48524a733c3e466f383a426b40463e2193131312f483e527109j56&jobsource=checkc'
+        if (!intlData) {
+            return null;
+        }
 
-const JoinUs = props => {
-    const { classes, intl } = props;
-    const locale = intl.locale;
-    const messages = localeData[locale] ? localeData[locale] : localeData[intl.defaultLocale];
-    return (
-        <section className={usingClasses(classes, 'section')}>
-            <div id="joinUs" className={usingClasses(classes, 'anchor')} />
-            <Typography component="h2" variant="headline" className={usingClasses(classes, 'titleText')}>
-                <FormattedMessage
-                    id="joinUs_title"
-                    defaultMessage={'We are Hiring!'}
-                />
-            </Typography>
-            <p className={usingClasses(classes, 'bodyText')}>
-                {messages.messageBeforeLink}
-                <a target="_blank" href={link} rel="noopener noreferrer">
-                    {messages.link}
-                </a>
-                {messages.messageAfterLink}
-            </p>
-        </section>
-    );
+        const joinUs = intlData.joinUs;
+
+        if (!joinUs) {
+            return null;
+        }
+
+        return (
+            <section className={usingClasses(classes, 'section')}>
+                <div id="joinUs" className={usingClasses(classes, 'anchor')} />
+                <Typography component="h2" variant="headline" className={usingClasses(classes, 'titleText')}>
+                    <FormattedMessage
+                        id="joinUs_title"
+                        defaultMessage={'We are Hiring!'}
+                    />
+                </Typography>
+                <p className={usingClasses(classes, 'bodyText')}>
+                    {joinUs.messageBeforeLink}
+                    <a target="_blank" href={CONST.recruitURL} rel="noopener noreferrer">
+                        {joinUs.link}
+                    </a>
+                    {joinUs.messageAfterLink}
+                </p>
+            </section>
+        );
+    }
 };
 
 const styles = SHARED_STYLES;

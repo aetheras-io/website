@@ -6,7 +6,7 @@ import Agora from './Agora';
 import Technology from './Technology';
 import Partner from './Partner';
 import JoinUs from './JoinUs';
-import { SHARED_STYLES } from '../utils/SharedStyles';
+import { SHARED_STYLES } from '../utils/shared-styles';
 import { withStyles } from '@material-ui/core';
 import { usingClasses } from '../utils/utils';
 

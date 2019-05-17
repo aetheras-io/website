@@ -1,19 +1,16 @@
-import en_US from './en_US';
-import zh_TW from './zh_TW';
-
-const locale = [
+const localeConfig = [
     {
         code: 'us',
         locale: 'en',
         languageCode: 'en-us',
-        messages: en_US
+        file: () => import('./messages/en_US')
     },
     {
         code: 'tw',
         locale: 'zh',
         languageCode: 'zh-tw',
-        messages: zh_TW
+        file: () => import('./messages/zh_TW')
     }
 ]
 
-export default locale;
+export default localeConfig;

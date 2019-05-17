@@ -1,12 +1,12 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { SHARED_STYLES } from "../utils/SharedStyles";
-import { usingClasses } from "../utils/utils";
+import { SHARED_STYLES } from "../../utils/shared-styles";
+import { usingClasses } from "../../utils/utils";
 
 const Paragraph = props => {
     const { classes, messages } = props;
     const msgValues = Object.values(messages);
-    console.log(msgValues);
+
     if (!msgValues || msgValues.length === 0) {
         return null;
     }

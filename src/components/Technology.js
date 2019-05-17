@@ -1,37 +1,47 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { STYLES_CONST, SHARED_STYLES } from "../utils/SharedStyles";
+import { STYLES_CONST, SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
 import Typography from "@material-ui/core/Typography";
 import { Grid } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
-import en_US from '../data/technology/en_US';
-import zh_TW from '../data/technology/zh_TW';
 import { injectIntl, FormattedMessage } from 'react-intl';
+import IntlComponent from './shared/IntlComponent';
 
-const localeData = { en: en_US, zh: zh_TW };
 
-const Technology = props => {
-    const { classes, intl } = props;
-    const locale = intl.locale;
-    const technology = localeData[locale] ? localeData[locale] : localeData[intl.defaultLocale];
-    const techDOM = getTechDOM(technology, classes);
-    return (
-        <section className={usingClasses(classes, 'section')}>
-            <div id="technology" className={usingClasses(classes, 'anchor')} />
-            <Typography component="h2" variant="headline" className={usingClasses(classes, 'headLine')}>
-                <FormattedMessage
-                    id="tech_title"
-                    defaultMessage={'Technology'}
-                />
-            </Typography>
-            <div className={usingClasses(classes, 'list')}>
-                <Grid container spacing={16}>
-                    {techDOM}
-                </Grid>
-            </div>
-        </section>
-    );
+class Technology extends IntlComponent {
+    render() {
+        const { classes } = this.props;
+        const { intlData } = this.state;
+
+        if (!intlData) {
+            return null;
+        }
+
+        const technology = intlData.technology;
+
+        if (!technology) {
+            return null;
+        }
+
+        const techDOM = getTechDOM(technology, classes);
+        return (
+            <section className={usingClasses(classes, 'section')}>
+                <div id="technology" className={usingClasses(classes, 'anchor')} />
+                <Typography component="h2" variant="headline" className={usingClasses(classes, 'headLine')}>
+                    <FormattedMessage
+                        id="tech_title"
+                        defaultMessage={'Technology'}
+                    />
+                </Typography>
+                <div className={usingClasses(classes, 'list')}>
+                    <Grid container spacing={16}>
+                        {techDOM}
+                    </Grid>
+                </div>
+            </section>
+        );
+    }
 };
 
 const getTechDOM = (techList, classes) => {

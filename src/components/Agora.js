@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { SHARED_STYLES } from "../utils/SharedStyles";
+import { SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
 import Typography from '@material-ui/core/Typography';
 import Build from '@material-ui/icons/Build';
