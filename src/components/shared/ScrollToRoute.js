@@ -13,10 +13,10 @@ class ScrollToRoute extends Component {
         const state = this.props.location.state;
         if (state && state.shouldScroll) {
             this.props.location.state.shouldScroll = false;
-            const element = document.getElementById(state.anchor || 'root');
             const isRouteUpdate = this.props.path === this.props.location.pathname && this.props.location.pathname !== prevProps.location.pathname;
             const behavior = isRouteUpdate ? 'instant' : 'smooth'
             setTimeout(() => {
+                const element = document.getElementById(state.anchor || 'root');
                 element.scrollIntoView({ behavior: behavior });
             }, 0);
         }

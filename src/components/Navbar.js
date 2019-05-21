@@ -85,7 +85,7 @@ class Navbar extends React.Component {
                     className={usingClasses(classes, 'link')}
                     key={link.titleId}
                 >
-                    <Link replace to={{ pathname: '/', state: { shouldScroll: true, anchor: link.anchor } }} className={usingClasses(classes, 'linkText')}>
+                    <Link to={{ pathname: '/', state: { shouldScroll: true, anchor: link.anchor } }} className={usingClasses(classes, 'linkText')}>
                         <FormattedMessage
                             id={link.titleId}
                             defaultMessage={link.defaultTitle}
@@ -101,7 +101,7 @@ class Navbar extends React.Component {
                     className={usingClasses(classes, 'mobileMenuLink')}
                     key={link.titleId}
                 >
-                    <Link replace to={{ pathname: '/', state: { shouldScroll: true, anchor: link.anchor } }} className={usingClasses(classes, 'mobileLinkText')}>
+                    <Link to={{ pathname: '/', state: { shouldScroll: true, anchor: link.anchor } }} className={usingClasses(classes, 'mobileLinkText')}>
                         <FormattedMessage
                             id={link.titleId}
                             defaultMessage={link.defalutTitle}
@@ -128,7 +128,7 @@ class Navbar extends React.Component {
                                 variant="h6"
                                 color="inherit"
                                 className={usingClasses(classes, 'titleLink')}>
-                                <Link replace to={{ pathname: '/', state: { shouldScroll: true } }} className={usingClasses(classes, 'linkText')}>
+                                <Link to={{ pathname: '/', state: { shouldScroll: true } }} className={usingClasses(classes, 'linkText')}>
                                     <img
                                         src="/images/logo.png"
                                         alt="Logo"
