@@ -73,12 +73,12 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         transform: 'translateY(1px)'
     },
     newsBody: {
-        padding: `${STYLES_CONST.spacing * 2}px 0`,
+        padding: '16px 0',
         display: 'flex',
         flexDirection: 'column'
     },
     bodyText: Object.assign({ ...SHARED_STYLES.bodyText }, {
-        margin: `${STYLES_CONST.spacing}px 0`,
+        margin: '8px 0',
         overflow: 'hidden',
         maxHeight: '96px'
     }),

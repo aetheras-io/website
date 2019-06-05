@@ -1,92 +1,39 @@
 import React from 'react';
-import { withStyles, Grid } from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 import { STYLES_CONST, SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
-import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import { injectIntl, FormattedMessage } from 'react-intl';
-import IntlComponent from './shared/IntlComponent';
 import CONST from '../utils/const';
 
-class Footer extends IntlComponent {
-    render() {
-        const { classes } = this.props;
-        const { intlData } = this.state;
-
-        if (!intlData) {
-            return null;
-        }
-
-        const documentation = intlData.documentation;
-
-        if (!documentation) {
-            return null;
-        }
-
-        return (
-            <footer className={usingClasses(classes, 'footer')}>
-                <Grid container className={usingClasses(classes, 'gridContainer')}>
-                    <Grid item xs={6} sm={3} className={usingClasses(classes, 'gridItem')}>
-                        <Typography variant="title" className={usingClasses(classes, 'subTitleText')} gutterBottom>
-                            <FormattedMessage
-                                id="getHelp"
-                                defaultMessage={'Get Help'}
-                            />
-                        </Typography>
-                        <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
-                            <Link to={{ pathname: '/about', state: { shouldScroll: true } }} href='#'>
-                                <FormattedMessage
-                                    id="aboutUs_title"
-                                    defaultMessage={'About Us'}
-                                />
-                            </Link>
-                        </Typography>
-                        <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
-                            <a href={CONST.contactMail}>
-                                <FormattedMessage
-                                    id="contactUs"
-                                    defaultMessage={'Contact Us'}
-                                />
-                            </a>
-                        </Typography>
-                        <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
-                            <a href={CONST.whitePaperURL} target="_blank" rel="noopener noreferrer">
-                                <FormattedMessage
-                                    id="whitePaper"
-                                    defaultMessage={'White Paper'}
-                                />
-                            </a>
-                        </Typography>
-                        <Typography variant="body1" className={usingClasses(classes, 'linkText')} gutterBottom>
-                            <a href={CONST.githubURL} target="_blank" rel="noopener noreferrer">
-                                <FormattedMessage
-                                    id="github"
-                                    defaultMessage={'GitHub'}
-                                />
-                            </a>
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={6} className={usingClasses(classes, 'gridItem')}>
-                        <Typography variant="title" className={usingClasses(classes, 'subTitleText')}>
-                            <FormattedMessage
-                                id="more"
-                                defaultMessage={'More'}
-                            />
-                        </Typography>
-                        <Typography variant="body1" className={usingClasses(classes, 'linkText')}>
-                            <FormattedMessage
-                                id="address"
-                                defaultMessage={'Address'}
-                            />: <a href={documentation.addressURL} target="_blank" rel="noopener noreferrer">{documentation.addressName}</a>
-                        </Typography>
-                        <Typography variant="body1" className={usingClasses(classes, 'copyright')}>
-                            Heimdal Holdings Corp.
-                    </Typography>
-                    </Grid>
-                </Grid>
-            </footer>
-        );
-    }
+const Footer = props => {
+    const { classes } = props;
+    return (
+        <footer className={usingClasses(classes, 'footer')}>
+            <div>
+                <div className={usingClasses(classes, 'link')}>
+                    <Link to={{ pathname: '/', state: { shouldScroll: true } }} className={usingClasses(classes, 'logoLink')}>
+                        <img src="/images/aetheras-logo-standard-w-text.png" alt="logo" />
+                    </Link>
+                    <a href={CONST.githubURL} className={usingClasses(classes, 'linkIcon')} target="_blank" rel="noopener noreferrer">
+                        <img src="/images/social-icon_git.svg" alt="github-icon" />
+                    </a>
+                    <a href={CONST.twitterURL} className={usingClasses(classes, 'linkIcon')} target="_blank" rel="noopener noreferrer">
+                        <img src="/images/social-icon_twt.svg" alt="twitter-icon" />
+                    </a>
+                </div>
+                <div className={usingClasses(classes, 'copyright')}>
+                    <span className={usingClasses(classes, 'copyrightText')}>Copyright © 2019 Heimdal Holdings Corp. All rights reserved | </span>
+                    <a href={CONST.contactMail} className={usingClasses(classes, 'contactLink')}>
+                        <FormattedMessage 
+                        id="contact"
+                        defaultMessage="Contact"
+                        />
+                    </a>
+                </div>
+            </div>
+        </footer>
+    );
 };
 
 const styles = Object.assign({ ...SHARED_STYLES }, {
@@ -94,32 +41,39 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         height: STYLES_CONST.footerHeight,
         width: '100%',
         padding: '0 10%',
-        backgroundColor: 'rgba(0, 0, 0, 0.82)',
+        color: 'white',
+        backgroundColor: '#4C4948',
         position: 'absolute',
-        bottom: '0'
+        bottom: '0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
-    gridContainer: {
-        height: '100%',
-        position: 'relative'
+    link: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: '60px'
     },
-    gridItem: {
-        height: '100%',
-        padding: `${STYLES_CONST.spacing * 1.5}px`,
+    logoLink: {
+        marginRight: '56px'
     },
-    subTitleText: Object.assign({ ...SHARED_STYLES.subTitleText }, {
-        color: 'whitesmoke',
+    linkIcon: {
+        opacity: '0.6',
+        transition: 'all 0.3s',
+        '&:hover': {
+            opacity: '1'
+        },
+        '&:not(:last-child)': {
+            marginRight: '24px'
+        }
+    },
+    copyrightText: Object.assign({...SHARED_STYLES.bodyText}, {
+        opacity: '0.6'
     }),
-    linkText: {
-        color: 'whitesmoke',
-        fontSize: '0.955rem',
-        letterSpacing: `${STYLES_CONST.letterSpacing * 1.5}px`
-    },
-    copyright: {
-        height: '24px',
-        position: 'absolute',
-        bottom: '8px',
-        right: '0',
-        color: 'whitesmoke',
+    contactLink: {
+        fontWeight: '700'
     }
 });
 

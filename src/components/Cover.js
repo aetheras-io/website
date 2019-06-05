@@ -1,8 +1,10 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
+import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 import { STYLES_CONST, SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
-import Typography from '@material-ui/core/Typography';
 import { injectIntl, FormattedMessage } from 'react-intl';
 
 const Cover = props => {
@@ -10,31 +12,22 @@ const Cover = props => {
     return (
         <section className={usingClasses(classes, 'cover')}>
             <div id="cover" className={usingClasses(classes, 'anchor')} />
-            <div className={usingClasses(classes, 'logoContainer')}>
-                <img
-                    src="/images/logo.png"
-                    alt="Logo"
-                    className={usingClasses(classes, 'logoImg')}
-                />
-                <div className={usingClasses(classes, 'titleContainer')}>
-                    <Typography
-                        id="logo-title"
-                        variant="h4"
-                        color="inherit"
-                        className={usingClasses(classes, 'title')}>
-                        AETHERAS
-                    </Typography>
-                    <Typography
-                        id="logo-slogan"
-                        variant="h6"
-                        color="inherit"
-                        className={usingClasses(classes, 'slogan')}>
-                        <FormattedMessage
-                            id="slogan"
-                            defaultMessage={'Make the world more flexible with blockchain technology.'}
-                        />
-                    </Typography>
-                </div>
+            <div className={usingClasses(classes, 'titleContainer')}>
+                <span className={usingClasses(classes, 'title')}>
+                    Lorem ipsum dolor sit
+                </span>
+                <span className={usingClasses(classes, 'slogan')}>
+                    <FormattedMessage
+                        id="cover_slogan"
+                        defaultMessage={'Make the world more flexible with blockchain technology.'}
+                    />
+                </span>
+                <Button variant="contained" color="primary" className={usingClasses(classes, 'button')}>
+                    <Link to={{ pathname: '/', state: { shouldScroll: true, anchor: 'product' } }} className={usingClasses(classes, 'buttonLink')}>
+                        Button
+                    </Link>
+                </Button>
+                <KeyboardArrowDown className={usingClasses(classes, 'mobileIcon')}/>
             </div>
         </section>
     );
@@ -43,36 +36,34 @@ const Cover = props => {
 const styles = Object.assign({ ...SHARED_STYLES }, {
     cover: {
         width: '100%',
-        height: 'calc(100vw / 2)',
-        maxHeight: '300px',
+        height: `calc(100vh - ${STYLES_CONST.navHeight})`,
+        maxHeight: '1080px',
         padding: '16px 10% 0 10%',
-        background: 'url("/images/background.png") 50% center'
-    },
-    logoContainer: {
-        height: '100%',
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'flex-start',
-        alignItems: 'center'
-    },
-    logoImg: {
-        display: 'inline-flex',
-        height: '100%',
-        maxHeight: '300px'
+        background: 'url("/images/jumbotron_bg-lg.svg") center center',
+        backgroundSize: 'cover'
     },
     titleContainer: {
         height: '100%',
-        paddingLeft: `${STYLES_CONST.spacing * 2}px`,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'flex-center'
+        alignItems: 'flex-start'
     },
     title: {
-        letterSpacing: `${STYLES_CONST.letterSpacing * 4}px`,
+        fontSize: '64px',
+        fontWeight: '700',
+        letterSpacing: `${STYLES_CONST.letterSpacing}px`,
     },
     slogan: {
-        marginTop: `${STYLES_CONST.spacing * 1.5}px`
+        fontSize: '32px',
+        marginTop: '24px',
+        marginBottom: '56px'
+    },
+    mobileIcon: {
+        alignSelf: 'center',
+        fontSize: '64px',
+        color: STYLES_CONST.primaryColor,
+        display: 'none'
     }
 });
 

@@ -1,12 +1,12 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
+import Button from '@material-ui/core/Button';
 import { STYLES_CONST, SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import { injectIntl, FormattedMessage } from 'react-intl';
 import IntlComponent from "./shared/IntlComponent";
+import CONST from "../utils/const";
 
 
 class TeamMember extends IntlComponent {
@@ -17,67 +17,92 @@ class TeamMember extends IntlComponent {
         if (!intlData) {
             return null;
         }
-
-        const teamMember = intlData.teamMember;
+        const founder = intlData.founder;
+        const teamMember = intlData.team_member;
 
         if (!teamMember || !teamMember.length) {
             return null;
         }
 
+        const founderDOM = getFounderDOM(founder, classes);
         const teamMemberDOM = getTeamMemberDOM(teamMember, classes);
         return (
-            <section className={usingClasses(classes, 'section')}>
-                <Typography component="h2" variant="headline" className={usingClasses(classes, 'headLine')}>
+            <section className={usingClasses(classes, 'section') + usingClasses(classes, 'teamMemberSection')}>
+                <span className={usingClasses(classes, 'titleText')}>
                     <FormattedMessage
-                        id="teamMember_title"
-                        defaultMessage={'Team Member'}
+                        id="team_member_title"
+                        defaultMessage={'Our Members'}
                     />
-                </Typography>
-                <div className={usingClasses(classes, 'list')}>
-                    <Grid container spacing={16}>
+                </span>
+                <div className={usingClasses(classes, 'founderList')}>
+                    {founderDOM}
+                </div>
+                <div id="to-top-trigger" />
+                <div className={usingClasses(classes, 'memberList')}>
+                    <Grid container spacing={0}>
                         {teamMemberDOM}
                     </Grid>
                 </div>
+                <Button variant="outlined" color="primary" className={usingClasses(classes, 'outlinedButton')}>
+                    <a
+                        target="_blank"
+                        href={CONST.recruitURL}
+                        rel="noopener noreferrer"
+                        className={usingClasses(classes, 'buttonLink')}
+                    >
+                        Button
+                    </a>
+                </Button>
             </section>
         );
     }
 };
 
+const getFounderDOM = (founderList, classes) => {
+    let founderDOM = null;
+    if (founderList && founderList.length > 0) {
+        founderDOM = founderList.map((founder, idx) => (
+            <div key={idx} className={usingClasses(classes, 'founderItem')}>
+                <div className={usingClasses(classes, 'head')}>
+                    <img src={founder.photo} alt="founder_photo" className={usingClasses(classes, 'photo')} />
+                </div>
+                <div className={usingClasses(classes, 'body')}>
+                    <span className={usingClasses(classes, 'headLineText')}>
+                        {founder.name}
+                        <span className={usingClasses(classes, 'highLight')}>/</span>
+                        <span className={usingClasses(classes, 'titleDesc')}>
+                            <FormattedMessage 
+                                id="founder_title"
+                                defaultMessage="Founder"
+                            />
+                        </span>
+                    </span>
+                    <span className={usingClasses(classes, 'bodyText')}>
+                        {founder.description}
+                    </span>
+                </div>
+            </div>
+        ))
+    }
+    return founderDOM;
+}
+
 const getTeamMemberDOM = (teamMember, classes) => {
     let teamMemberDOM = null;
     if (teamMember && teamMember.length > 0) {
         teamMemberDOM = teamMember.map((member, idx) => (
-            <Grid item xs={6} sm={4} md={3} lg={2} key={idx}>
-                <Paper className={usingClasses(classes, 'paper')}>
-                    <img
-                        src={member.avatar}
-                        alt="avatar"
-                        className={usingClasses(classes, 'avatar')}
-                    />
-                    <Typography variant="body1" className={usingClasses(classes, 'bodyText')}>
-                        {member.name}
-                    </Typography>
-                    <Typography variant="body1" className={usingClasses(classes, 'subBodyText')}>
-                        {member.job}
-                    </Typography>
-                    <div className={usingClasses(classes, 'linkContainer')}>
-                        {member.github && (
-                            <a href={member.github} target="_blank" rel="noopener noreferrer">
-                                <img src="/images/github-icon.svg" alt="github-icon" className={usingClasses(classes, 'linkIcon')} />
-                            </a>
-                        )}
-                        {member.linkedIn && (
-                            <a href={member.linkedIn} target="_blank" rel="noopener noreferrer">
-                                <img src="/images/linkedin-icon.svg" alt="linkedin-icon" className={usingClasses(classes, 'linkIcon')} />
-                            </a>
-                        )}
-                        {member.mail && (
-                            <a href={member.mail} target="_blank" rel="noopener noreferrer">
-                                <img src="/images/mail-icon.svg" alt="mail-icon" className={usingClasses(classes, 'linkIcon')} />
-                            </a>
-                        )}
-                    </div>
-                </Paper>
+            <Grid item xs={12} sm={12} md={3} lg={3} key={idx} className={usingClasses(classes, 'memberItem')}>
+                <img
+                    src={member.photo}
+                    alt="member_photo"
+                    className={usingClasses(classes, 'memberPhoto')}
+                />
+                <span className={usingClasses(classes, 'memberName')}>
+                    {member.name}
+                </span>
+                <span className={usingClasses(classes, 'memberJob')}>
+                    {member.job}
+                </span>
             </Grid>
         ))
     }
@@ -85,37 +110,78 @@ const getTeamMemberDOM = (teamMember, classes) => {
 }
 
 const styles = Object.assign({ ...SHARED_STYLES }, {
-    list: {
+    teamMemberSection: {
+        backgroundColor: '#FFF8F4'
+    },
+    founderList: {
+        marginBottom: '87px',
+        width: '75%'
+    },
+    founderItem: {
+        display: 'flex',
+        alignItems: 'center',
+        '&:not(:last-child)': {
+            marginBottom: '32px'
+        }
+    },
+    head: {
         width: '100%',
-        marginTop: `calc(1em + ${STYLES_CONST.spacing}px)`
+        maxWidth: '360px',
+        textAlign: 'center'
     },
-    paper: {
-        padding: `${STYLES_CONST.spacing * 2}px`
+    photo: {
+        maxWidth: '360px'
     },
-    subTitleText: {
-        textAlign: 'center',
-        marginBottom: `${STYLES_CONST.spacing * 1.5}px`,
-        letterSpacing: `${STYLES_CONST.letterSpacing * 3}px`
+    body: {
+        maxWidth: '360px',
+        marginTop: '14px',
+        marginLeft: '28px',
+        display: 'flex',
+        flexDirection: 'column',
     },
-    avatar: {
-        width: '64px',
-        margin: '0 auto',
-        borderRadius: '100%',
-        display: 'block',
-        marginBottom: `${STYLES_CONST.spacing}px`,
+    headLineText: Object.assign({ ...SHARED_STYLES.headLineText }, {
+        marginBottom: '40px',
+        display: 'inline-flex',
+        alignItems: 'center'
+    }),
+    highLight: {
+        fontSize: '20px',
+        margin: '0 7px',
+        color: STYLES_CONST.primaryColor
     },
+    titleDesc: {
+        fontSize: '20px',
+        fontWeight: '600'
+    },
+    memberList: {
+        width: '100%',
+        marginBottom: '72px',
+    },
+    memberItem: {
+        padding: `11px`,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    memberPhoto: {
+        width: '100%',
+        maxWidth: '360px',
+        marginBottom: '24px',
+    },
+    memberName: Object.assign({ ...SHARED_STYLES.headLineText }, {
+        marginBottom: '16px'
+    }),
+    memberJob: Object.assign({ ...SHARED_STYLES.bodyText }, {
+        fontWeight: '600'
+    }),
     linkIcon: {
         width: '24px',
         opacity: '0.54',
-        marginRight: `${STYLES_CONST.spacing}px`,
+        marginRight: '8px',
         '&:hover': {
             opacity: '0.84'
         }
-    },
-    subBodyText: {
-        fontSize: '1rem',
-        color: 'rgba(0, 0, 0, 0.63)',
-        marginBottom: `${STYLES_CONST.spacing * 2}px`
     }
 })
 

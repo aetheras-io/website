@@ -60,7 +60,7 @@ const getPartnerDOM = (partnerList, classes) => {
 
 const styles = Object.assign({ ...SHARED_STYLES }, {
     container: {
-        marginTop: `${STYLES_CONST.spacing}px`,
+        marginTop: '8px',
         display: 'flex',
         justifyContent: 'flex-start',
         alignItems: 'center',
@@ -68,11 +68,11 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     },
     link: {
         textDecoration: 'unset',
-        marginRight: `${STYLES_CONST.spacing * 2}px`,
-        marginBottom: `${STYLES_CONST.spacing}px`
+        marginRight: '16px',
+        marginBottom: '8px'
     },
     item: {
-        padding: `${STYLES_CONST.spacing}px`,
+        padding: '8px',
         display: 'inline-flex',
         justifyContent: 'center',
         alignItems: 'center',

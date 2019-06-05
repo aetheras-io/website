@@ -2,7 +2,6 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
-import Typography from "@material-ui/core/Typography";
 import { injectIntl, FormattedMessage } from 'react-intl';
 import TeamMember from "./TeamMember.js";
 import IntlComponent from './shared/IntlComponent';
@@ -17,7 +16,7 @@ class About extends IntlComponent {
             return null;
         }
 
-        const aboutUs = intlData.aboutUs;
+        const aboutUs = intlData.about_us;
 
         if (!aboutUs) {
             return null;
@@ -25,14 +24,17 @@ class About extends IntlComponent {
 
         return (
             <div className={usingClasses(classes, 'wrapper')}>
-                <section className={usingClasses(classes, 'section')}>
-                    <Typography component="h2" variant="headline" className={usingClasses(classes, 'headLine')}>
+                <section className={usingClasses(classes, 'section') + usingClasses(classes, 'aboutSection')}>
+                    <span className={usingClasses(classes, 'titleText')}>
                         <FormattedMessage
-                            id="aboutUs_title"
-                            defaultMessage={'About Us'}
+                            id="about_title"
+                            defaultMessage={'Our Culture'}
                         />
-                    </Typography>
-                    <Paragraph messages={aboutUs} />
+                    </span>
+                    <div className={usingClasses(classes, 'body')}>
+                        <Paragraph messages={aboutUs} />
+                    </div>
+                    <img src="/images/about_ill.svg" alt="about_ill" className={usingClasses(classes, 'aboutIll')} />
                 </section>
                 <TeamMember />
             </div>
@@ -40,6 +42,20 @@ class About extends IntlComponent {
     }
 };
 
-const styles = SHARED_STYLES;
+const styles = Object.assign({...SHARED_STYLES}, {
+    aboutSection: {
+        backgroundColor: '#FFF8F4',
+        padding: '160px 20%'
+    },
+    subTitleText: Object.assign({...SHARED_STYLES.subTitleText}, {
+        marginBottom: '60px'
+    }),
+    body: {
+        marginBottom: '60px'
+    },
+    aboutIll: {
+        width: '100%'
+    }
+});
 
 export default withStyles(styles)(injectIntl(About));

@@ -1,11 +1,9 @@
 import React from 'react';
 import Cover from './Cover';
-import News from './News';
-// import NewsMedium from './NewsMedium';
-import Agora from './Agora';
+import Product from './Product';
+import Founder from './Founder';
 import Technology from './Technology';
-import Partner from './Partner';
-import JoinUs from './JoinUs';
+import JoinUs from './Join-Us';
 import { SHARED_STYLES } from '../utils/shared-styles';
 import { withStyles } from '@material-ui/core';
 import { usingClasses } from '../utils/utils';
@@ -15,11 +13,10 @@ const Home = props => {
     return (
         <div className={usingClasses(classes, 'wrapper')}>
             <Cover />
-            <News />
-            {/* <NewsMedium /> */}
-            <Agora />
+            <Product />
             <Technology />
-            <Partner />
+            <Founder />
+            <div id="to-top-trigger" />
             <JoinUs />
         </div>
     );

@@ -2,45 +2,41 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import { STYLES_CONST, SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
 import { Link } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
 import { injectIntl, FormattedMessage } from 'react-intl';
+import IntlComponent from './shared/IntlComponent';
 
 const link = [
     {
-        titleId: 'news_title',
-        defalutTitle: 'News',
-        anchor: 'news'
+        titleId: 'about_nav_title',
+        defaultTitle: 'About',
+        path: '/about'
     },
     {
-        titleId: 'agora_title',
-        defaultTitle: 'Agora',
-        anchor: 'agora'
+        titleId: 'white_paper_title',
+        defaultTitle: 'Whitepaper',
+        path: '/whitepaper'
     },
     {
-        titleId: 'tech_title',
-        defaultTitle: 'Technology',
-        anchor: 'technology'
+        titleId: 'testnet_title',
+        defaultTitle: 'Testnet',
+        path: '/testnet'
     },
     {
-        titleId: 'partner_title',
-        defaultTitle: 'Partner',
-        anchor: 'partner'
-    },
-    {
-        titleId: 'joinUs_nav_title',
-        defaultTitle: 'Join Us',
-        anchor: 'joinUs'
+        titleId: 'career_title',
+        defaultTitle: 'Career',
+        path: '/career'
     }
 ]
 
-class Navbar extends React.Component {
+class Navbar extends IntlComponent {
     state = {
         isNavMenuOpen: false,
         localeMenuAnchor: null
@@ -74,24 +70,18 @@ class Navbar extends React.Component {
     };
 
     getLinkDOM = (linkList, classes, type) => {
+        const pathname = window.location.pathname;
         if (!linkList || linkList.length === 0) {
             return null;
         }
         if (type === 'desktop') {
             return linkList.map(link => (
-                <Typography
-                    variant="subheading"
-                    color="inherit"
-                    className={usingClasses(classes, 'link')}
-                    key={link.titleId}
-                >
-                    <Link to={{ pathname: '/', state: { shouldScroll: true, anchor: link.anchor } }} className={usingClasses(classes, 'linkText')}>
-                        <FormattedMessage
-                            id={link.titleId}
-                            defaultMessage={link.defaultTitle}
-                        />
-                    </Link>
-                </Typography>
+                <Link key={link.titleId} to={link.path} className={usingClasses(classes, 'linkText') + (pathname === link.path ? ' active' : '')}>
+                    <FormattedMessage
+                        id={link.titleId}
+                        defaultMessage={link.defaultTitle}
+                    />
+                </Link>
             ));
         }
         if (type === 'mobile') {
@@ -101,7 +91,7 @@ class Navbar extends React.Component {
                     className={usingClasses(classes, 'mobileMenuLink')}
                     key={link.titleId}
                 >
-                    <Link to={{ pathname: '/', state: { shouldScroll: true, anchor: link.anchor } }} className={usingClasses(classes, 'mobileLinkText')}>
+                    <Link to={link.path} className={usingClasses(classes, 'mobileLinkText')}>
                         <FormattedMessage
                             id={link.titleId}
                             defaultMessage={link.defalutTitle}
@@ -116,39 +106,52 @@ class Navbar extends React.Component {
     render() {
         const { classes, intl, locale } = this.props;
         const { isNavMenuOpen, localeMenuAnchor } = this.state;
+        const isLocaleMenuOpen = Boolean(localeMenuAnchor);
         const currentLocale = locale.find(l => l.locale === intl.locale);
         const linkDOM = this.getLinkDOM(link, classes, 'desktop');
         const mobileLinkDOM = this.getLinkDOM(link, classes, 'mobile');
         return (
             <React.Fragment>
-                <AppBar position="fixed" className={usingClasses(classes, 'navbar')}>
+                <AppBar position="absolute" className={usingClasses(classes, 'navbar')}>
                     <Toolbar className={usingClasses(classes, 'toolbar')}>
-                        <div className={usingClasses(classes, 'titleContainer')}>
-                            <Typography
-                                variant="h6"
-                                color="inherit"
-                                className={usingClasses(classes, 'titleLink')}>
-                                <Link to={{ pathname: '/', state: { shouldScroll: true } }} className={usingClasses(classes, 'linkText')}>
-                                    <img
-                                        src="/images/logo.png"
-                                        alt="Logo"
-                                        className={usingClasses(classes, 'logoImg')}
-                                    />
-                                    AETHERAS
-                                </Link>
-                            </Typography>
+                        <div className={usingClasses(classes, 'nav')}>
+                            <Link to={{ pathname: '/', state: { shouldScroll: true } }} className={usingClasses(classes, 'logoLink')}>
+                                <img
+                                    src="/images/aetheras-logo-standard.png"
+                                    alt="Logo"
+                                />
+                            </Link>
+                            <div className={usingClasses(classes, 'linkContainer')}>
+                                {linkDOM}
+                                <Button className={usingClasses(classes, 'localeButton') + (isLocaleMenuOpen ? ' active' : '')} onClick={this.openLocaleMenu}>
+                                    <span className={usingClasses(classes, 'bodyText')}>{currentLocale.shortDisplay}</span>
+                                    <KeyboardArrowDown className={usingClasses(classes, 'localeIcon') + (isLocaleMenuOpen ? ' active' : '')} />
+                                </Button>
+                            </div>
                         </div>
-                        <div className={usingClasses(classes, 'anchorContainer')}>
-                            {linkDOM}
-                            <IconButton className={usingClasses(classes, 'localeButton')} color="inherit" onClick={this.openLocaleMenu}>
-                                <span className={`flag-icon flag-icon-squared flag-icon-${currentLocale.code}`}></span>
+                        <div className={usingClasses(classes, 'mobileNav')}>
+                            <IconButton
+                                className={usingClasses(classes, 'menuButton') + ' hamburger--squeeze' + (isNavMenuOpen ? ' is-active' : '')}
+                                color="primary"
+                                onClick={this.openNavMenu}
+                            >
+                                <span className="hamburger-box">
+                                    <span className="hamburger-inner"></span>
+                                </span>
                             </IconButton>
+                            <Link to={{ pathname: '/', state: { shouldScroll: true } }} className={usingClasses(classes, 'mobileLogoLink')}>
+                                <img
+                                    src="/images/aetheras-logo-standard.png"
+                                    alt="Logo"
+                                    className={usingClasses(classes, 'mobileLogoImg')}
+                                />
+                            </Link>
+                            <Button className={usingClasses(classes, 'localeButton') + (isLocaleMenuOpen ? ' active' : '')} onClick={this.openLocaleMenu}>
+                                <span className={usingClasses(classes, 'bodyText')}>{currentLocale.shortDisplay}</span>
+                                <KeyboardArrowDown className={usingClasses(classes, 'localeIcon') + (isLocaleMenuOpen ? ' active' : '')} />
+                            </Button>
                         </div>
-                        <div className={usingClasses(classes, 'mobileAnchorContainer')}>
-                            <IconButton className={usingClasses(classes, 'menuButton')} color="inherit" onClick={this.openNavMenu}>
-                                <MenuIcon />
-                            </IconButton>
-                        </div>
+
                     </Toolbar>
                 </AppBar>
                 <Menu
@@ -160,27 +163,25 @@ class Navbar extends React.Component {
                     MenuListProps={{ disablePadding: true }}
                 >
                     {mobileLinkDOM}
-                    <li className={usingClasses(classes, 'mobileMenuLink')}>
-                        {locale.map(l => (
-                            <IconButton onClick={this.selectLocale(l.code)} key={l.code} className={usingClasses(classes, 'localeMenuItem')}>
-                                <span className={`flag-icon flag-icon-squared flag-icon-${l.code}`} />
-                            </IconButton>
-                        ))}
-                    </li>
                 </Menu>
                 <Menu
                     anchorEl={localeMenuAnchor}
-                    open={Boolean(localeMenuAnchor)}
+                    open={isLocaleMenuOpen}
                     onClose={this.closeLocaleMenu}
-                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                     className={usingClasses(classes, 'localeMenu')}
                     classes={{ paper: usingClasses(classes, 'localeMenuPaper') }}
                     disableAutoFocusItem={true}
                     MenuListProps={{ disablePadding: true }}
                 >
+                    <MenuItem className={usingClasses(classes, 'localeMenuTitle')} disabled>
+                        <FormattedMessage
+                            id="select_language"
+                            defaultMessage="Select a Language"
+                        />
+                    </MenuItem>
                     {locale.map(l => (
                         <MenuItem onClick={this.selectLocale(l.code)} key={l.code} className={usingClasses(classes, 'localeMenuItem')}>
-                            <span className={`flag-icon flag-icon-squared flag-icon-${l.code}`} />
+                            <span className={usingClasses(classes, 'bodyText')}>{l.display}</span>
                         </MenuItem>
                     ))}
                 </Menu>
@@ -192,85 +193,146 @@ class Navbar extends React.Component {
 const styles = Object.assign({ ...SHARED_STYLES }, {
     navbar: {
         height: STYLES_CONST.navHeight,
-        color: 'rgba(0,0,0,0.82)',
-        backgroundColor: 'rgba(255, 255, 255, 0.9)'
+        color: STYLES_CONST.fontColor,
+        backgroundColor: '#fff',
+        boxShadow: 'none'
     },
     toolbar: {
         height: '100%',
-        paddingRight: `${STYLES_CONST.spacing * 0.5}px`,
-        minHeight: STYLES_CONST.navHeight,
+        minHeight: '60px',
+        padding: '0',
+    },
+    nav: {
+        width: '100%',
+        padding: '0 10%',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    mobileNav: {
+        display: 'none',
+        width: '100%',
+        height: '100%',
+        padding: '0 20px',
+        alignItems: 'center',
         justifyContent: 'space-between'
     },
-    titleContainer: {
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'flex-start',
-        alignItems: 'center'
+    logoLink: {
+        height: '36px',
     },
-    logoImg: {
-        height: '33px',
-        transform: 'translateY(-1px)',
-        marginRight: `${STYLES_CONST.spacing}px`
+    mobileLogoLink: {
+        height: '24px',
     },
-    titleLink: {
-        width: 'fit-content',
-        padding: `${STYLES_CONST.spacing}px`,
-        letterSpacing: `${STYLES_CONST.letterSpacing * 4}px`,
-        display: 'flex'
+    mobileLogoImg: {
+        height: '24px'
     },
     linkText: {
+        height: '90px',
+        lineHeight: '90px',
+        marginRight: '36px',
+        fontSize: '16px',
+        fontWeight: '500',
         textDecoration: 'unset',
         letterSpacing: `${STYLES_CONST.letterSpacing * 2}px`,
-        display: 'inline-flex'
+        display: 'inline-flex',
+        boxSizing: 'border-box',
+        '&.active': {
+            borderBottom: `8px solid ${STYLES_CONST.primaryColor}`
+        }
     },
-    anchorContainer: {
+    linkContainer: {
         height: '100%',
         display: 'flex',
         justifyContent: 'flex-end',
         alignItems: 'center'
     },
-    mobileAnchorContainer: {
-        display: 'none',
-        height: '100%',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-        marginRight: `${STYLES_CONST.spacing}px`
-    },
     mobileMenuPaper: {
-        top: '0 !important',
+        top: '59px !important',
         left: '0 !important',
         width: '100%',
         maxWidth: '100%',
-        'ul': {
-            paddingTop: '0',
-            paddingBottom: '0'
-        }
+        boxShadow: 'rgba(255, 77, 77, 0.2) 0px 10px 10px -5px',
+        paddingTop: '20px',
+        paddingBottom: '20px'
     },
     mobileMenuLink: {
         height: 'fit-content',
-        padding: '0'
+        padding: '12px 0',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: STYLES_CONST.fontColor,
+        transition: 'all 0.3s',
+        '&:hover': {
+            backgroundColor: 'unset',
+            color: STYLES_CONST.primaryColor
+        }
     },
     mobileLinkText: {
-        width: '100%',
-        height: '100%',
-        padding: `${STYLES_CONST.spacing * 2}px`,
+        fontSize: '16px',
+        fontWeight: '500',
         textDecoration: 'unset',
-        letterSpacing: `${STYLES_CONST.letterSpacing * 2}px`
+        letterSpacing: `${STYLES_CONST.letterSpacing}px`
     },
-    link: {
-        display: 'inline-flex',
-        padding: `${STYLES_CONST.spacing}px`,
-        marginLeft: `${STYLES_CONST.spacing}px`
+    menuButton: {
+        padding: '0',
+        '&:hover': {
+            backgroundColor: 'unset'
+        }
+    },
+    localeButton: Object.assign({ ...SHARED_STYLES.flatButton }, {
+        padding: '0',
+        fontSize: '16px',
+        minWidth: '48px',
+        color: STYLES_CONST.fontColor
+    }),
+    localeIcon: {
+        fontSize: '18px',
+        width: '24px',
+        height: '24px',
+        color: STYLES_CONST.primaryColor,
+        transition: 'all 0.3s',
+        '&.active': {
+            transform: 'rotate(-180deg)'
+        }
     },
     localeMenuPaper: {
-        top: '8px !important',
-        right: '8px !important',
+        top: '90px !important',
+        left: 'unset !important',
+        right: 'calc(10% + 6px) !important',
+        width: '247px',
+        boxShadow: 'rgba(255, 77, 77, 0.2) 0px 10px 30px 0px'
+    },
+    localeMenuList: {
+        padding: '16px 0'
+    },
+
+    localeMenuTitle: {
+        padding: '16px 32px',
+        margin: '16px 0 8px 0',
+        color: STYLES_CONST.secondaryColor,
+        fontSize: '16px',
+        fontWeight: '700',
+        opacity: '1',
+        '&:hover': {
+            backgroundColor: 'unset',
+        }
     },
     localeMenuItem: {
-        padding: `${STYLES_CONST.spacing * 2}px`,
-        justifyContent: 'center',
-
-    }
+        padding: '16px 32px',
+        color: STYLES_CONST.fontColor,
+        transition: 'all 0.3s',
+        '&:hover': {
+            backgroundColor: 'unset',
+            color: STYLES_CONST.primaryColor
+        },
+        '&:last-child': {
+            marginBottom: '16px'
+        }
+    },
+    bodyText: Object.assign({ ...SHARED_STYLES.bodyText }, {
+        fontWeight: '500'
+    })
 });
 
 export default withStyles(styles)(injectIntl(Navbar));

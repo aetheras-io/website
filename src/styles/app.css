@@ -3,7 +3,8 @@ html, body {
 }
 
 body {
-    font-family: Source Sans Pro, sans-serif;
+    font-family: Montserrat, sans-serif;
+    color: #4C4948;
     background-color: #fefefe !important;
 }
 
@@ -13,16 +14,50 @@ body {
 }
 
 a {
-    color: inherit !important;
+    color: inherit;
 }
 
-.flag-icon {
-    border-radius: 50%;
+span.hamburger-box {
+    width: 24px;
+}
+span.hamburger-inner, span.hamburger-inner:after, span.hamburger-inner:before {
+    width: 24px;
+    height: 2px;
+    background-color: #FF7D2F;
+}
+span.hamburger-inner {
+    margin-top: -1px;
+}
+span.hamburger-inner:before {
+    top: -6px;
+}
+span.hamburger-inner:after {
+    bottom: -6px;
 }
 
-.localeMenuItem .flag-icon {
-    min-width: 24px;
-    min-height: 24px;
+button.to-top-button {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    z-index: 999;
+    transition: all 0.5s;
+    transform: translateY(150px);
+}
+
+button.to-top-button:hover {
+    background-color: #FF4D4D;
+}
+
+button.to-top-button:focus {
+    background-color: #E54545;
+}
+
+button.to-top-button.active {
+    transform: translateY(0);
 }
 
 .newsBody .bodyText {
@@ -34,152 +69,181 @@ a {
 
 @keyframes buildIcon {
     0%{
-        opacity: 0.2;
-    }
-    50%{
-        opacity: 0.75;
+        opacity: 0.85;
     }
     100%{
-        opacity: 0.2;
+        opacity: 0.3;
     }
 }
 
-@media (min-width: 729px) {
-    .mobileMenuPaper {
+@media (max-width: 980px) {
+    div.nav {
+        padding: 0 5%;
+    }
+    div.nav a.linkText {
+        margin-left: 24px;
+    }
+}
+
+@media (max-width: 824px) {
+    div.nav {
         display: none;
     }
-}
-
-/* tablet or small laptop */
-@media (max-width: 728px) {
+    div.mobileNav {
+        display: flex;
+    }
+    button.localeButton {
+        transform: translateY(1.5px);
+    }
+    header.navbar {
+        height: 60px;
+    }
+    div.localeMenuPaper {
+        top: 59px !important;
+        right: 0 !important;
+        width: 100%;
+        max-width: 100%;
+        box-shadow: rgba(255, 77, 77, 0.2) 0px 15px 30px -5px
+    }
+    div.wrapper {
+        padding-top: 60px;
+    }
     section.cover {
-        padding: 16px 5% 0 5%;
+        min-height: calc(100vh - 60px);
+    }
+    div.titleContainer {
+        align-items: center;
+    }
+}
+/*
+/* tablet or small laptop */
+@media (max-width: 768px) {
+    section.cover {
+        padding: 310px 12px 56px 12px;
+        background: url('/images/jumbotron_bg.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position-y: -90px;
+    }
+    section.cover .button {
+        display: none;
+    }
+    section.cover .mobileIcon {
+        display: flex;
+    }
+    span.title {
+        font-size: 32px;
+        text-align: center;
+    }
+    span.slogan {
+        font-size: 20px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+    button.button, button.outlinedButton {
+        width: 138.4px;
+        height: 48px;
+        font-size: 20px;
+        letter-spacing: 1.5px;
+    }
+    img.illImg {
+        margin-top: -17px;
+        margin-bottom: 40px;
+    }
+    section.techSection .body {
+        padding: 24px;
+    }
+    section.techSection .headLineText, section.techSection .bodyText {
+        text-align: left;
+    }
+    div.founderList {
+        margin-top: 0px;
+        margin-bottom: 40px;
+    }
+    div.founderItem {
+        flex-direction: column;
+    }
+    div.founderItem:not(:last-child) {
+        margin-bottom: 72px;
+    }
+    img.photo {
+        width:100%;
+    }
+    div.body {
+        text-align: center;
+        margin-left: 0;
+    }
+    section.aboutSection {
+        padding-top: 72px;
+    }
+    section.aboutSection div.body {
+        margin-bottom: 40px;
+    }
+    section.teamMemberSection span.headLineText {
+        flex-direction: column;
+    }
+    section.teamMemberSection span.highLight {
+        display: none
+    }
+    section.teamMemberSection span.titleDesc {
+        margin-top: 12px;
+    }
+    section.teamMemberSection div.founderList {
+        width: 100%;
+        margin-bottom: 0;
+    }
+    section.teamMemberSection div.founderItem {
+        margin-bottom: 40px;
+    }
+    section.teamMemberSection div.memberList {
+        margin-bottom: 40px;
+    }
+    section.teamMemberSection div.memberItem {
+        padding: 0;
+    }
+    section.teamMemberSection div.memberItem:not(:last-child) {
+        margin-bottom: 40px;
+    }
+    section.teamMemberSection span.memberName {
+        margin-bottom: 12px;
+    }
+    div.link {
+        margin-bottom: 32px;
+    }
+    div.link > a.logoLink {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 16px;
+    }
+    div.copyright {
+        text-align: center;
+    }
+    span.titleText {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+    span.headLineText {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+    span.subTitleText {
+        font-size: 16px;
+        margin-top: -12px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+    p.paragraph {
+        font-size: 16px;
+        line-height: 28px;
     }
     section:not(.cover) {
-        width: 90%;
+        padding: 72px 12px 48px 12px;
     }
     footer.footer {
         padding: 0 5%;
     }
-    div.anchorContainer {
-        display: none;
+    button.to-top-button {
+        bottom: 100px;
     }
-    div.mobileAnchorContainer {
-        display: flex;
-    }
-    .localeMenuPaper {
-        display: none;
-    }
-}
-/* tablet or xl mobile */
-@media (max-width: 568px) {
-    #logo-title {
-        font-size: 1.716rem;
-    }
-    #logo-slogan {
-        font-size: 1.106rem;
-    }
-    span.titleDate {
-        font-size: 0.8rem;
-        display: block;
-        margin-left: 0;
-    }
-}
-
-/* mobile */
-@media (max-width: 420px) {
-    #logo-title {
-        font-size: 1.215rem;
-    }
-    #logo-slogan {
-        font-size: 0.8rem;
-    }
-    h2.titleText {
-        font-size: 1.215rem;
-    }
-    h2.subTitleText {
-        font-size: 1.215rem;
-    }
-    span.titleDate {
-        font-size: 0.8rem;
-    }
-    p.bodyText {
-        font-size: 1.1215rem;
-        line-height: 1.8rem;
-    }
-    p.bodyText {
-        font-size: 1.1215rem;
-        line-height: 1.8rem;
-    }
-    a.moreLink {
-        font-size: 0.975rem;
-    }
-    p.linkText {
-        font-size: 0.95rem;
-    }
-
-    #notFound-title {
-        font-size: 3rem;
-        margin-top: 0px;
-    }
-
-    #notFound-subTitle {
-        font-size: 1.215rem;
-    }
-
-    .notFound .body {
-        margin-top: 32px
-    }
-
-    #notFound-bodyText {
-        font-size: 1.4rem;
-        margin-top: 24px;
-    }
-}
-
-/* small mobile */
-@media (max-width: 320px) {
-
-    #logo-title {
-        font-size: 1.1rem;
-    }
-    #logo-slogan {
-        font-size: 0.7rem;
-    }
-    h2.titleText {
-        font-size: 1.1rem;
-    }
-    h2.subTitleText {
-        font-size: 1.1rem;
-    }
-    span.titleDate {
-        font-size: 0.7em;
-    }
-    p.bodyText {
-        font-size: 1.11rem;
-        line-height: 1.75rem;
-    }
-    a.moreLink {
-        font-size: 0.9rem;
-    }
-    p.linkText {
-        font-size: 0.78rem;
-    }
-
-    #notFound-title {
-        margin-top: 0
-    }
-
-    div.body {
-        margin-top: 40px;
-    }
-
-    #notFound-subTitle {
-        font-size: 1.11rem;
-    }
-
-    #notFound-bodyText {
-        font-size: 1.2315rem;
-    }
-
 }
