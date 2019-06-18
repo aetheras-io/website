@@ -1,0 +1,68 @@
+kind: pipeline
+name: website
+
+trigger:
+  branch:
+    - source
+
+steps:
+- name: build
+  image: node:latest
+  commands:
+    - npm -v
+    #- npm run test
+    - npm install --unsafe-perm
+    - npm run build
+
+# - name: firebase-hosting
+#   image: node:latest
+#   environment:
+#     FIREBASE_TOKEN:
+#       from_secret: vault_firebase_webtoken
+#   commands:
+#     - npm install -g firebase-tools
+#     - firebase deploy --token $FIREBASE_TOKEN
+
+- name: slack
+  image: plugins/slack
+  when:
+    status:
+      - success
+      - failure
+  settings:
+    webhook: 
+      from_secret: vault_webhook
+    channel: ci_cd
+    template: >
+      {{#success build.status}}
+        [{{build.branch}}] *{{repo.name}}* build *{{build.number}}* type: *{{build.event}}* succeeded. {{build.link}} {{build.pull}}
+      {{else}}
+        [{{build.branch}}] *{{repo.name}}* build *{{build.number}}* type: *{{build.event}}* failed. {{build.link}}
+      {{/success}}
+
+# ---
+# kind: secret
+# name: vault_webhook
+# get:
+#   path: secret/services/slack
+#   name: webhook
+
+# ---
+# kind: secret
+# name: vault_firebase_webtoken
+# get:
+#   path: secret/services/firebase
+#   name: token
+
+  # publish_artifacts_gcs:
+  #   image: plugins/gcs
+  #   source: dist
+  #   target: 4dpocket-artifacts/${DRONE_REPO_NAME}/${DRONE_BUILD_NUMBER}
+  #   # ignore: bin/*
+  #   # acl: allUsers:READER,user@domain.com:OWNER
+  #   # gzip: js,css,html
+  #   # cache_control: public,max-age=3600
+  #   # metadata: {"x-goog-meta-foo":"bar"}
+  #   secrets: [google_credentials]
+  #   when:
+  #     event: [ push, tag, pull_request ]
