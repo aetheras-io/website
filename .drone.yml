@@ -40,12 +40,12 @@ steps:
         [{{build.branch}}] *{{repo.name}}* build *{{build.number}}* type: *{{build.event}}* failed. {{build.link}}
       {{/success}}
 
-# ---
-# kind: secret
-# name: vault_webhook
-# get:
-#   path: secret/services/slack
-#   name: webhook
+---
+kind: secret
+name: vault_webhook
+get:
+  path: secret/services/slack
+  name: webhook
 
 # ---
 # kind: secret
