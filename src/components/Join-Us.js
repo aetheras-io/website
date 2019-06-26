@@ -31,7 +31,10 @@ const JoinUs = (props) => {
                     rel="noopener noreferrer"
                     className={usingClasses(classes, 'buttonLink')}
                 >
-                    Button
+                    <FormattedMessage
+                    id="join_us_button"
+                    defaultMessage={'Learn More'}
+                    />
                 </a>
             </Button>
         </section>

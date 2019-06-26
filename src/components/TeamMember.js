@@ -38,21 +38,11 @@ class TeamMember extends IntlComponent {
                     {founderDOM}
                 </div>
                 <div id="to-top-trigger" />
-                <div className={usingClasses(classes, 'memberList')}>
+                {/* <div className={usingClasses(classes, 'memberList')}>
                     <Grid container spacing={0}>
                         {teamMemberDOM}
                     </Grid>
-                </div>
-                <Button variant="outlined" color="primary" className={usingClasses(classes, 'outlinedButton')}>
-                    <a
-                        target="_blank"
-                        href={CONST.recruitURL}
-                        rel="noopener noreferrer"
-                        className={usingClasses(classes, 'buttonLink')}
-                    >
-                        Button
-                    </a>
-                </Button>
+                </div> */}                
             </section>
         );
     }
@@ -77,9 +67,9 @@ const getFounderDOM = (founderList, classes) => {
                             />
                         </span>
                     </span>
-                    <span className={usingClasses(classes, 'bodyText')}>
+                    {/* <span className={usingClasses(classes, 'bodyText')}>
                         {founder.description}
-                    </span>
+                    </span> */}
                 </div>
             </div>
         ))

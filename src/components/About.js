@@ -6,6 +6,7 @@ import { injectIntl, FormattedMessage } from 'react-intl';
 import TeamMember from "./TeamMember.js";
 import IntlComponent from './shared/IntlComponent';
 import Paragraph from "./shared/Paragraph";
+import JoinUs from './Join-Us';
 
 class About extends IntlComponent {
     render() {
@@ -37,6 +38,7 @@ class About extends IntlComponent {
                     <img src="/images/about_ill.svg" alt="about_ill" className={usingClasses(classes, 'aboutIll')} />
                 </section>
                 <TeamMember />
+                <JoinUs />
             </div>
         );
     }

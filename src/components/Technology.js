@@ -42,7 +42,10 @@ class Technology extends IntlComponent {
                 </div>
                 <Button variant="outlined" color="primary" className={usingClasses(classes, 'outlinedButton')}>
                     <Link to="/whitepaper" className={usingClasses(classes, 'buttonLink')}>
-                        Button
+                    <FormattedMessage
+                        id="tech_button"
+                        defaultMessage={'Whitepaper'}
+                    />
                     </Link>
                 </Button>
             </section>

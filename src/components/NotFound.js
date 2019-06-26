@@ -25,7 +25,10 @@ const NotFound = props => {
                     </p>
                     <Button variant="contained" color="primary" className={usingClasses(classes, 'button')}>
                         <Link to="/" className={usingClasses(classes, 'buttonLink')}>
-                            Button
+                            <FormattedMessage
+                                id="home_button"
+                                defaultMessage={'Home'}
+                            />                            
                         </Link>
                     </Button>
             </section>

@@ -7,11 +7,12 @@ const zh_TW = {
         "career_title": "職缺訊息",
         "select_language": '選擇語言',
         /* cover */
-        "cover_title": "中文短文",
-        "cover_slogan": "Make the world more flexible with blockchain technology.",
+        "cover_title": "Connecting Worlds",
+        "cover_slogan": "Making the world more flexible with blockchain technology.",
+        "cover_button": "Learn More",
         /* product */
-        "product_title": "產品",
-        "product_sub_title": "Our Goal is to Sed ut perspiciatis unde omnis iste",
+        "product_title": "Agora",
+        "product_sub_title": "A game asset centric blockchain platform that aims to connect games.",
         /* technology */
         "tech_title": "應用技術",
         /* founder */
@@ -24,8 +25,9 @@ const zh_TW = {
         "address_name": "台北市中山區松江路139號8樓之4",
         "address_url": "https://www.google.com.tw/maps/place/10491%E5%8F%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%B1%B1%E5%8D%80%E6%9D%BE%E6%B1%9F%E8%B7%AF139%E8%99%9F%E6%A8%93%E4%B9%8B4/@25.0551209,121.5310811,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a95e2641b4ef:0xc4d6eb589e692817!8m2!3d25.0551209!4d121.5332751",
         /* not_found */
-        "not_found_title": "網頁不存在",
+        "not_found_title": "404",
         "not_found_message": "你所訪問的網頁連結已經不存在或被移除了。",
+        "home_button": "回主頁",
         /* about */
         "about_title": "團隊文化",
         "team_member_title": "團隊成員"

@@ -14,7 +14,10 @@ const Cover = props => {
             <div id="cover" className={usingClasses(classes, 'anchor')} />
             <div className={usingClasses(classes, 'titleContainer')}>
                 <span className={usingClasses(classes, 'title')}>
-                    Lorem ipsum dolor sit
+                    <FormattedMessage
+                        id="cover_title"
+                        defaultMessage={'Connecting Worlds'}
+                    />
                 </span>
                 <span className={usingClasses(classes, 'slogan')}>
                     <FormattedMessage
@@ -24,7 +27,10 @@ const Cover = props => {
                 </span>
                 <Button variant="contained" color="primary" className={usingClasses(classes, 'button')}>
                     <Link to={{ pathname: '/', state: { shouldScroll: true, anchor: 'product' } }} className={usingClasses(classes, 'buttonLink')}>
-                        Button
+                        <FormattedMessage
+                            id="cover_button"
+                            defaultMessage={'Learn More'}
+                        />
                     </Link>
                 </Button>
                 <KeyboardArrowDown className={usingClasses(classes, 'mobileIcon')}/>

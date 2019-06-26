@@ -1,7 +1,7 @@
 import React from 'react';
 import Cover from './Cover';
 import Product from './Product';
-import Founder from './Founder';
+// import Founder from './Founder';
 import Technology from './Technology';
 import JoinUs from './Join-Us';
 import { SHARED_STYLES } from '../utils/shared-styles';
@@ -15,7 +15,7 @@ const Home = props => {
             <Cover />
             <Product />
             <Technology />
-            <Founder />
+            {/* <Founder /> */}
             <div id="to-top-trigger" />
             <JoinUs />
         </div>
