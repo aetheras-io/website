@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "aetheras-io"
+  },
+  "targets": {
+    "aetheras-io": {
+      "hosting": {
+        "aetheras-io": [
+          "aetheras-io"
+        ]
+      }
+    }
+  }
+}

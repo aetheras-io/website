@@ -14,14 +14,14 @@ steps:
     - npm install --unsafe-perm
     - npm run build
 
-# - name: firebase-hosting
-#   image: node:latest
-#   environment:
-#     FIREBASE_TOKEN:
-#       from_secret: vault_firebase_webtoken
-#   commands:
-#     - npm install -g firebase-tools
-#     - firebase deploy --token $FIREBASE_TOKEN
+- name: firebase-hosting
+  image: node:latest
+  environment:
+    FIREBASE_TOKEN:
+      from_secret: vault_firebase_webtoken
+  commands:
+    - npm install -g firebase-tools
+    - firebase deploy --token $FIREBASE_TOKEN
 
 - name: slack
   image: plugins/slack
@@ -47,12 +47,12 @@ get:
   path: secret/services/slack
   name: webhook
 
-# ---
-# kind: secret
-# name: vault_firebase_webtoken
-# get:
-#   path: secret/services/firebase
-#   name: token
+---
+kind: secret
+name: vault_firebase_webtoken
+get:
+  path: secret/services/firebase
+  name: token
 
   # publish_artifacts_gcs:
   #   image: plugins/gcs
