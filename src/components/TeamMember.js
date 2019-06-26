@@ -5,6 +5,7 @@ import { usingClasses } from "../utils/utils";
 // import Grid from "@material-ui/core/Grid";
 import { injectIntl, FormattedMessage } from 'react-intl';
 import IntlComponent from "./shared/IntlComponent";
+import { borderRadius } from "@material-ui/system";
 // import CONST from "../utils/const";
 
 
@@ -104,25 +105,29 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     },
     founderList: {
         marginBottom: '87px',
-        width: '75%'
+        width: '75%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexWrap: 'wrap'
     },
     founderItem: {
         display: 'flex',
         alignItems: 'center',
-        '&:not(:last-child)': {
-            marginBottom: '32px'
-        }
+        justifyContent: 'center',
+        marginRight: '32px',
+        marginBottom: '32px'
     },
     head: {
         width: '100%',
-        maxWidth: '360px',
+        maxWidth: '180px',
         textAlign: 'center'
     },
     photo: {
-        maxWidth: '360px'
+        maxWidth: '180px',
+        borderRadius: '16px'
     },
     body: {
-        maxWidth: '360px',
         marginTop: '14px',
         marginLeft: '28px',
         display: 'flex',

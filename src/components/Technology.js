@@ -36,7 +36,7 @@ class Technology extends IntlComponent {
                     />
                 </span>
                 <div className={usingClasses(classes, 'list')}>
-                    <Grid container spacing={16}>
+                    <Grid container spacing={4}>
                         {techDOM}
                     </Grid>
                 </div>

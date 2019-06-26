@@ -21,9 +21,10 @@ export const SHARED_STYLES = Object.freeze({
         alignItems: 'center'
     },
     button: {
-        width: '221px',
+        minWidth: '221px',
         height: '64px',
         borderRadius: '32px',
+        padding: '5px 32px',
         fontSize: '28px',
         fontWeight: '700',
         letterSpacing: `${STYLES_CONST.letterSpacing * 2.5}px`,
@@ -37,9 +38,10 @@ export const SHARED_STYLES = Object.freeze({
         }
     },
     outlinedButton: {
-        width: '221px',
+        minWidth: '221px',
         height: '64px',
         borderRadius: '32px',
+        padding: '5px 32px',
         fontSize: '28px',
         fontWeight: '700',
         letterSpacing: `${STYLES_CONST.letterSpacing * 2.5}px`,

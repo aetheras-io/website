@@ -15,11 +15,13 @@ const zh_TW = {
         "product_sub_title": "A game asset centric blockchain platform that aims to connect games.",
         /* technology */
         "tech_title": "應用技術",
+        "tech_button": "查閱白皮書",
         /* founder */
         "founder_title": "創辦人",
         /* join_us */
         "join_us_title": "我們正在招募夥伴",
         "join_us_message": "我們正在尋找各個職位的同伴，辦公室地點位於台北市，更多資訊請參考我們的104網頁",
+        "join_us_button": "了解更多",
         /* footer */
         "contact": "聯絡我們",
         "address_name": "台北市中山區松江路139號8樓之4",

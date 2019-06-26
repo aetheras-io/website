@@ -313,7 +313,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         color: STYLES_CONST.secondaryColor,
         fontSize: '16px',
         fontWeight: '700',
-        opacity: '1',
+        opacity: '1 !important',
         '&:hover': {
             backgroundColor: 'unset',
         }

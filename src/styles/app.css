@@ -191,6 +191,7 @@ button.to-top-button.active {
     section.teamMemberSection div.founderList {
         width: 100%;
         margin-bottom: 0;
+        flex-direction: column;
     }
     section.teamMemberSection div.founderItem {
         margin-bottom: 40px;
