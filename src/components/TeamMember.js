@@ -5,7 +5,6 @@ import { usingClasses } from "../utils/utils";
 // import Grid from "@material-ui/core/Grid";
 import { injectIntl, FormattedMessage } from 'react-intl';
 import IntlComponent from "./shared/IntlComponent";
-import { borderRadius } from "@material-ui/system";
 // import CONST from "../utils/const";
 
 
