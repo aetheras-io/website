@@ -98,6 +98,9 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         flexDirection: 'column',
         padding: '24px 40px 36px 40px'
     },
+    paper: {
+        height: '100%'
+    }
 })
 
 export default withStyles(styles)(injectIntl(Technology));

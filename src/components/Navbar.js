@@ -2,14 +2,14 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import { STYLES_CONST, SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
 import { Link } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
+// import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import IntlComponent from './shared/IntlComponent';
 
@@ -104,10 +104,11 @@ class Navbar extends IntlComponent {
     }
 
     render() {
-        const { classes, intl, locale } = this.props;
+        // const { classes, intl, locale } = this.props;
+        const { classes, locale } = this.props;
         const { isNavMenuOpen, localeMenuAnchor } = this.state;
         const isLocaleMenuOpen = Boolean(localeMenuAnchor);
-        const currentLocale = locale.find(l => l.locale === intl.locale);
+        // const currentLocale = locale.find(l => l.locale === intl.locale);
         const linkDOM = this.getLinkDOM(link, classes, 'desktop');
         const mobileLinkDOM = this.getLinkDOM(link, classes, 'mobile');
         return (
@@ -123,10 +124,10 @@ class Navbar extends IntlComponent {
                             </Link>
                             <div className={usingClasses(classes, 'linkContainer')}>
                                 {linkDOM}
-                                <Button className={usingClasses(classes, 'localeButton') + (isLocaleMenuOpen ? ' active' : '')} onClick={this.openLocaleMenu}>
+                                {/* <Button className={usingClasses(classes, 'localeButton') + (isLocaleMenuOpen ? ' active' : '')} onClick={this.openLocaleMenu}>
                                     <span className={usingClasses(classes, 'bodyText')}>{currentLocale.shortDisplay}</span>
                                     <KeyboardArrowDown className={usingClasses(classes, 'localeIcon') + (isLocaleMenuOpen ? ' active' : '')} />
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
                         <div className={usingClasses(classes, 'mobileNav')}>
@@ -146,10 +147,11 @@ class Navbar extends IntlComponent {
                                     className={usingClasses(classes, 'mobileLogoImg')}
                                 />
                             </Link>
-                            <Button className={usingClasses(classes, 'localeButton') + (isLocaleMenuOpen ? ' active' : '')} onClick={this.openLocaleMenu}>
+                            <div></div>
+                            {/* <Button className={usingClasses(classes, 'localeButton') + (isLocaleMenuOpen ? ' active' : '')} onClick={this.openLocaleMenu}>
                                 <span className={usingClasses(classes, 'bodyText')}>{currentLocale.shortDisplay}</span>
                                 <KeyboardArrowDown className={usingClasses(classes, 'localeIcon') + (isLocaleMenuOpen ? ' active' : '')} />
-                            </Button>
+                            </Button> */}
                         </div>
 
                     </Toolbar>
@@ -229,7 +231,6 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     linkText: {
         height: '90px',
         lineHeight: '90px',
-        marginRight: '36px',
         fontSize: '16px',
         fontWeight: '500',
         textDecoration: 'unset',
@@ -238,6 +239,9 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         boxSizing: 'border-box',
         '&.active': {
             borderBottom: `8px solid ${STYLES_CONST.primaryColor}`
+        },
+        '&:not(:last-of-type)': {
+            marginRight: '36px'
         }
     },
     linkContainer: {
@@ -284,6 +288,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         padding: '0',
         fontSize: '16px',
         minWidth: '48px',
+        marginLeft: '36px',
         color: STYLES_CONST.fontColor
     }),
     localeIcon: {

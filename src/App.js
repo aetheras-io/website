@@ -8,23 +8,26 @@ import { addLocaleData, IntlProvider } from 'react-intl';
 import zh from 'react-intl/locale-data/zh';
 import en from 'react-intl/locale-data/en';
 import localeConfig from './i18n/locale-config';
+import ReactGA from 'react-ga';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { STYLES_CONST } from './utils/shared-styles';
 import ScrollToRoute from './components/shared/ScrollToRoute';
 import IntlComponent from './components/shared/IntlComponent';
+import GoogleAnalytics from './components/shared/Google-Analytics';
 import Home from './components/Home';
 import Tasks from './components/Tasks';
 // import Contact from './components/Contact';
 import About from './components/About';
 import NotFound from './components/NotFound';
-import './styles/app.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { debounce } from './utils/utils';
 import { Button } from '@material-ui/core';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import 'hamburgers/dist/hamburgers.min.css';
+import './styles/app.css';
+import CONST from './utils/const';
 
 addLocaleData([...en, ...zh]);
 
@@ -53,13 +56,15 @@ const theme = createMuiTheme({
 class App extends IntlComponent {
     constructor(props) {
         super(props);
-        const browserLanguage = (navigator.language || navigator.browserLanguage).toLowerCase();
-        this.defaultLocale = (localeConfig.find(l => l.languageCode === browserLanguage || l.locale === browserLanguage) || localeConfig[0]);
+        // const browserLanguage = (navigator.language || navigator.browserLanguage).toLowerCase();
+        // this.defaultLocale = (localeConfig.find(l => l.languageCode === browserLanguage || l.locale === browserLanguage) || localeConfig[0]);
+        this.defaultLocale = localeConfig.find(l => l.languageCode === 'en-us');
         this.state = {
             network: 'Loading...',
             currentLocale: this.defaultLocale,
             showToTopButton: false
         };
+        ReactGA.initialize(CONST.googleAnalyticsID);
     }
 
     setLocale = (locale) => {
@@ -119,6 +124,7 @@ class App extends IntlComponent {
                         <CssBaseline />
                         <Router>
                             <React.Fragment>
+                                <GoogleAnalytics />
                                 <Navbar locale={localeConfig} setLocale={this.setLocale} />
                                 <Switch>
                                     <ScrollToRoute exact path="/" component={Home} />
