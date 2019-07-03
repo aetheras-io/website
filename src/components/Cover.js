@@ -50,6 +50,9 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         background: 'url("/images/jumbotron_bg-lg.svg") center center',
         backgroundSize: 'cover'
     },
+    container: Object.assign({ ...SHARED_STYLES.container}, {
+        alignItems: 'flex-start'
+    }),
     titleContainer: {
         height: '100%',
         display: 'flex',
