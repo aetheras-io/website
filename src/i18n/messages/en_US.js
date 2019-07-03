@@ -36,17 +36,17 @@ const en_US = {
     },
     "technology": [
         {
-            "icon": "/images/tech_icon-1.svg",
+            "icon": "/images/icon-block.svg",
             "title": "Blockchain Based",
             "content": "Using blockchain technology, Agora guarantees fairness and transparency with the innate properties of blockchain.  Storing data on the chain would ensure the data will not be altered."
         },
         {
-            "icon": "/images/tech_icon-2.svg",
+            "icon": "/images/icon-alliance.svg",
             "title": "Game Alliances",
             "content": "With asset data stored and readily accessible from the chain, it becomes straightforward for games to collaborate and support each others' data."
         },
         {
-            "icon": "/images/tech_icon-3.svg",
+            "icon": "/images/icon-owner.svg",
             "title": "Data Ownership",
             "content": "Under Agora, players own their asset data.  Regardless of whether the game is centralized or decentralized, the data is for the players to keep and use."
         }

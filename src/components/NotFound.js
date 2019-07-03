@@ -40,6 +40,9 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     notFound: Object.assign({ ...SHARED_STYLES.wrapper }, {
         background: 'url("/images/background.png") 50% center'
     }),
+    section: Object.assign({ ...SHARED_STYLES.section }, {
+        flexDirection: 'column'
+    }),
     paragraph: Object.assign({...SHARED_STYLES.paragraph}, {
         marginBottom: '72px'
     })

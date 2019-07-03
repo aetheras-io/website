@@ -12,28 +12,30 @@ const Cover = props => {
     return (
         <section className={usingClasses(classes, 'cover')}>
             <div id="cover" className={usingClasses(classes, 'anchor')} />
-            <div className={usingClasses(classes, 'titleContainer')}>
-                <span className={usingClasses(classes, 'title')}>
-                    <FormattedMessage
-                        id="cover_title"
-                        defaultMessage={'Connecting Worlds'}
-                    />
-                </span>
-                <span className={usingClasses(classes, 'slogan')}>
-                    <FormattedMessage
-                        id="cover_slogan"
-                        defaultMessage={'Make the world more flexible with blockchain technology.'}
-                    />
-                </span>
-                <Button variant="contained" color="primary" className={usingClasses(classes, 'button')}>
-                    <Link to={{ pathname: '/', state: { shouldScroll: true, anchor: 'product' } }} className={usingClasses(classes, 'buttonLink')}>
+            <div className={usingClasses(classes, 'container')}>
+                <div className={usingClasses(classes, 'titleContainer')}>
+                    <span className={usingClasses(classes, 'title')}>
                         <FormattedMessage
-                            id="cover_button"
-                            defaultMessage={'Learn More'}
+                            id="cover_title"
+                            defaultMessage={'Connecting Worlds'}
                         />
-                    </Link>
-                </Button>
-                <KeyboardArrowDown className={usingClasses(classes, 'mobileIcon')}/>
+                    </span>
+                    <span className={usingClasses(classes, 'slogan')}>
+                        <FormattedMessage
+                            id="cover_slogan"
+                            defaultMessage={'Make the world more flexible with blockchain technology.'}
+                        />
+                    </span>
+                    <Button variant="contained" color="primary" className={usingClasses(classes, 'button')}>
+                        <Link to={{ pathname: '/', state: { shouldScroll: true, anchor: 'product' } }} className={usingClasses(classes, 'buttonLink')}>
+                            <FormattedMessage
+                                id="cover_button"
+                                defaultMessage={'Learn More'}
+                            />
+                        </Link>
+                    </Button>
+                    <KeyboardArrowDown className={usingClasses(classes, 'mobileIcon')} />
+                </div>
             </div>
         </section>
     );

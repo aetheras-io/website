@@ -16,9 +16,18 @@ export const SHARED_STYLES = Object.freeze({
         width: '100%',
         padding: `160px 10%`,
         display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    container: {
+        width: '100%',
+        height: '100%',
+        maxWidth: 'calc(1180px)',
+        margin: '0 auto',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     button: {
         minWidth: '221px',
@@ -27,7 +36,7 @@ export const SHARED_STYLES = Object.freeze({
         padding: '5px 32px',
         fontSize: '28px',
         fontWeight: '700',
-        letterSpacing: `${STYLES_CONST.letterSpacing * 2.5}px`,
+        letterSpacing: '1px',
         textTransform: 'none',
         boxShadow: 'none',
         '&:hover': {
@@ -44,7 +53,7 @@ export const SHARED_STYLES = Object.freeze({
         padding: '5px 32px',
         fontSize: '28px',
         fontWeight: '700',
-        letterSpacing: `${STYLES_CONST.letterSpacing * 2.5}px`,
+        letterSpacing: '1px',
         textTransform: 'none',
         boxShadow: 'none',
         '&:hover': {

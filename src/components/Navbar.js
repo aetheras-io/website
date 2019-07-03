@@ -42,8 +42,8 @@ class Navbar extends IntlComponent {
         localeMenuAnchor: null
     };
 
-    openNavMenu = () => {
-        this.setState({ isNavMenuOpen: true });
+    toggleNavMenu = () => {
+        this.setState(prevState =>  {return { isNavMenuOpen: !prevState.isNavMenuOpen }});
     }
 
     closeNavMenu = () => {
@@ -134,13 +134,17 @@ class Navbar extends IntlComponent {
                             <IconButton
                                 className={usingClasses(classes, 'menuButton') + ' hamburger--squeeze' + (isNavMenuOpen ? ' is-active' : '')}
                                 color="primary"
-                                onClick={this.openNavMenu}
+                                onClick={this.toggleNavMenu}
                             >
                                 <span className="hamburger-box">
                                     <span className="hamburger-inner"></span>
                                 </span>
                             </IconButton>
-                            <Link to={{ pathname: '/', state: { shouldScroll: true } }} className={usingClasses(classes, 'mobileLogoLink')}>
+                            <Link
+                                to={{ pathname: '/', state: { shouldScroll: true } }}
+                                className={usingClasses(classes, 'mobileLogoLink')}
+                                onClick={this.closeNavMenu}
+                            >
                                 <img
                                     src="/images/aetheras-logo-standard.png"
                                     alt="Logo"
@@ -209,7 +213,9 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         padding: '0 10%',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        maxWidth: 'calc(1180px + 20%)',
+        margin: '0 auto'
     },
     mobileNav: {
         display: 'none',
@@ -237,6 +243,10 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         letterSpacing: `${STYLES_CONST.letterSpacing * 2}px`,
         display: 'inline-flex',
         boxSizing: 'border-box',
+        transition: 'all 0.3s',
+        '&:hover': {
+            color: STYLES_CONST.primaryColor
+        },
         '&.active': {
             borderBottom: `8px solid ${STYLES_CONST.primaryColor}`
         },
@@ -250,8 +260,11 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         justifyContent: 'flex-end',
         alignItems: 'center'
     },
+    mobileMenu: {
+        top: '60px !important'
+    },
     mobileMenuPaper: {
-        top: '59px !important',
+        top: '0 !important',
         left: '0 !important',
         width: '100%',
         maxWidth: '100%',

@@ -12,31 +12,33 @@ const JoinUs = (props) => {
     return (
         <section className={usingClasses(classes, 'section') + usingClasses(classes, 'joinUsSection')}>
             <div id="join_us" className={usingClasses(classes, 'anchor')} />
-            <span className={usingClasses(classes, 'titleText')}>
-                <FormattedMessage
-                    id="join_us_title"
-                    defaultMessage={'We are Hiring'}
-                />
-            </span>
-            <span className={usingClasses(classes, 'subTitleText')}>
-                <FormattedMessage
-                    id="join_us_message"
-                    defaultMessage={'We are currently hiring for various roles at our Taipei office. Please visit our 104 page for details'}
-                />
-            </span>
-            <Button variant="contained" color="primary" className={usingClasses(classes, 'button')}>
-                <a
-                    target="_blank"
-                    href={CONST.recruitURL}
-                    rel="noopener noreferrer"
-                    className={usingClasses(classes, 'buttonLink')}
-                >
+            <div className={usingClasses(classes, 'container')}>
+                <span className={usingClasses(classes, 'titleText')}>
                     <FormattedMessage
-                    id="join_us_button"
-                    defaultMessage={'Learn More'}
+                        id="join_us_title"
+                        defaultMessage={'We are Hiring'}
                     />
-                </a>
-            </Button>
+                </span>
+                <span className={usingClasses(classes, 'subTitleText')}>
+                    <FormattedMessage
+                        id="join_us_message"
+                        defaultMessage={'We are currently hiring for various roles at our Taipei office. Please visit our 104 page for details'}
+                    />
+                </span>
+                <Button variant="contained" color="primary" className={usingClasses(classes, 'button')}>
+                    <a
+                        target="_blank"
+                        href={CONST.recruitURL}
+                        rel="noopener noreferrer"
+                        className={usingClasses(classes, 'buttonLink')}
+                    >
+                        <FormattedMessage
+                            id="join_us_button"
+                            defaultMessage={'Learn More'}
+                        />
+                    </a>
+                </Button>
+            </div>
         </section>
     );
 };
@@ -46,7 +48,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         background: 'url("/images/hiring_bg.png")',
         backgroundSize: 'cover'
     },
-    subTitleText: Object.assign({...SHARED_STYLES.subTitleText}, {
+    subTitleText: Object.assign({ ...SHARED_STYLES.subTitleText }, {
         marginBottom: '72px'
     })
 });

@@ -4,8 +4,8 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import { STYLES_CONST, SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
-import { Grid } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
+import ArrowForward from '@material-ui/icons/ArrowForward';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import IntlComponent from './shared/IntlComponent';
 
@@ -29,25 +29,26 @@ class Technology extends IntlComponent {
         return (
             <section className={usingClasses(classes, 'section') + usingClasses(classes, 'techSection')}>
                 <div id="technology" className={usingClasses(classes, 'anchor')} />
-                <span className={usingClasses(classes, 'titleText')}>
-                    <FormattedMessage
-                        id="tech_title"
-                        defaultMessage={'Technology'}
-                    />
-                </span>
-                <div className={usingClasses(classes, 'list')}>
-                    <Grid container spacing={4}>
+                <div className={usingClasses(classes, 'container')}>
+                    <span className={usingClasses(classes, 'titleText')}>
+                        <FormattedMessage
+                            id="tech_title"
+                            defaultMessage={'Technology'}
+                        />
+                    </span>
+                    <div className={usingClasses(classes, 'list')}>
                         {techDOM}
-                    </Grid>
+                    </div>
+                    <Button color="primary" className={usingClasses(classes, 'flatButton')}>
+                        <Link to="/whitepaper" className={usingClasses(classes, 'buttonLink')}>
+                            <FormattedMessage
+                                id="tech_button"
+                                defaultMessage={'Whitepaper'}
+                            />
+                            <ArrowForward className={usingClasses(classes, 'arrowIcon')}/>
+                        </Link>
+                    </Button>
                 </div>
-                <Button variant="outlined" color="primary" className={usingClasses(classes, 'outlinedButton')}>
-                    <Link to="/whitepaper" className={usingClasses(classes, 'buttonLink')}>
-                    <FormattedMessage
-                        id="tech_button"
-                        defaultMessage={'Whitepaper'}
-                    />
-                    </Link>
-                </Button>
             </section>
         );
     }
@@ -57,10 +58,10 @@ const getTechDOM = (techList, classes) => {
     let techDOM = null;
     if (techList && techList.length > 0) {
         techDOM = techList.map((tech, idx) => (
-            <Grid item xs={12} sm={4} key={idx}>
+            <div className={usingClasses(classes, 'techItem')} key={idx}>
                 <Paper elevation={1} className={usingClasses(classes, 'paper')}>
                     <div className={usingClasses(classes, 'head')}>
-                        <img src={tech.icon} alt="tech_icon" className={usingClasses(classes, 'techIcon')}/>
+                        <img src={tech.icon} alt="tech_icon" className={usingClasses(classes, 'techIcon')} />
                     </div>
                     <div className={usingClasses(classes, 'body')}>
                         <span className={usingClasses(classes, 'headLineText')}>
@@ -71,7 +72,7 @@ const getTechDOM = (techList, classes) => {
                         </span>
                     </div>
                 </Paper>
-            </Grid>
+            </div>
         ))
     }
     return techDOM;
@@ -84,11 +85,20 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     list: {
         width: '100%',
         marginTop: '12px',
-        marginBottom: '72px'
+        marginBottom: '72px',
+        display: 'flex',
+        marginLeft: '-10px',
+        marginRight: '-10px'
+    },
+    techItem: {
+        width: '33.3%',
+        paddingLeft: '10px',
+        paddingRight: '10px'
     },
     head: {
         backgroundColor: STYLES_CONST.primaryColor,
         padding: '36px 0',
+        borderRadius: '4px 4px 0 0',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
@@ -96,10 +106,29 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     body: {
         display: 'flex',
         flexDirection: 'column',
-        padding: '24px 40px 36px 40px'
+        padding: '24px 32px 36px 32px'
     },
     paper: {
         height: '100%'
+    },
+    headLineText: Object.assign({ ...SHARED_STYLES.headLineText }, {
+        fontSize: '24px'
+    }),
+    bodyText: Object.assign({ ...SHARED_STYLES.bodyText }, {
+        fontWeight: '500'
+    }),
+    flatButton: Object.assign({ ...SHARED_STYLES.flatButton }, {
+        fontSize: '28px',
+        fontWeight: '700',
+        textTransform: 'unset',
+        '&:hover': {
+            backgroundColor: 'unset',
+        }
+    }),
+    arrowIcon: {
+        fontSize: '24px',
+        marginLeft: '4px',
+        transform: 'translateY(3px)',
     }
 })
 

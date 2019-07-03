@@ -67,12 +67,32 @@ button.to-top-button.active {
     -webkit-line-clamp: 3;
 }
 
+.techSection .flatButton:hover .arrowIcon {
+    animation: rightBounce 1s ease-out infinite;
+}
+
+.mobileMenu div:first-child {
+    top: 60px !important;
+}
+
 @keyframes buildIcon {
     0%{
         opacity: 0.85;
     }
     100%{
         opacity: 0.3;
+    }
+}
+
+@keyframes rightBounce {
+    0%{
+        transform: translateX(0) translateY(3px);
+    }
+    50%{
+        transform: translateX(4px) translateY(3px);
+    }
+    100%{
+        transform: translateX(0) translateY(3px);
     }
 }
 
@@ -130,6 +150,7 @@ button.to-top-button.active {
     }
     section.cover .mobileIcon {
         display: flex;
+        margin-top: -40px;
     }
     span.title {
         font-size: 32px;
@@ -140,31 +161,44 @@ button.to-top-button.active {
         margin-bottom: 32px;
         text-align: center;
     }
-    button.button, button.outlinedButton {
-        width: 138.4px;
+    button.button, button.outlinedButton, button.flatButton {
+        /* width: 138.4px; */
         height: 48px;
         font-size: 20px;
         letter-spacing: 1.5px;
     }
     img.illImg {
         margin-top: -17px;
-        margin-bottom: 40px;
+        margin-bottom: 12px;
+    }
+    section.techSection .titleText {
+        margin-bottom: 12px;
     }
     section.techSection .body {
         padding: 24px;
+    }
+    section.techSection .list {
+        flex-direction: column;
+        margin-bottom: 32px;
+    }
+    section.techSection .techItem {
+        width: 100%;
+    }
+    section.techSection .techItem:not(:last-of-type) {
+        margin-bottom: 32px;
     }
     section.techSection .headLineText, section.techSection .bodyText {
         text-align: left;
     }
     div.founderList {
         margin-top: 0px;
-        margin-bottom: 40px;
+        flex-direction: column;
     }
     div.founderItem {
         flex-direction: column;
     }
-    div.founderItem:not(:last-child) {
-        margin-bottom: 72px;
+    div.memberItem {
+        flex-direction: column;
     }
     img.photo {
         width:100%;
@@ -182,25 +216,30 @@ button.to-top-button.active {
     section.teamMemberSection span.headLineText {
         flex-direction: column;
     }
-    section.teamMemberSection span.highLight {
-        display: none
-    }
     section.teamMemberSection span.titleDesc {
         margin-top: 12px;
     }
     section.teamMemberSection div.founderList {
         width: 100%;
-        margin-bottom: 0;
         flex-direction: column;
     }
     section.teamMemberSection div.founderItem {
-        margin-bottom: 40px;
+        max-width: 360px;
+        flex-direction: row;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+    section.teamMemberSection div.body {
+        margin-left: 24px;
+        text-align: left;
     }
     section.teamMemberSection div.memberList {
         margin-bottom: 40px;
+        flex-direction: column;
     }
     section.teamMemberSection div.memberItem {
-        padding: 0;
+        max-width: 360px;
+        flex-direction: row;
     }
     section.teamMemberSection div.memberItem:not(:last-child) {
         margin-bottom: 40px;

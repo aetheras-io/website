@@ -25,20 +25,22 @@ class Founder extends IntlComponent {
         return (
             <section className={usingClasses(classes, 'section')}>
                 <div id="founder" className={usingClasses(classes, 'anchor')} />
-                <span className={usingClasses(classes, 'titleText')}>
-                    <FormattedMessage
-                        id="founder_title"
-                        defaultMessage={'Founder'}
-                    />
-                </span>
-                <div className={usingClasses(classes, 'founderList')}>
-                    {founderDOM}
+                <div className={usingClasses(classes, 'container')}>
+                    <span className={usingClasses(classes, 'titleText')}>
+                        <FormattedMessage
+                            id="founder_title"
+                            defaultMessage={'Founder'}
+                        />
+                    </span>
+                    <div className={usingClasses(classes, 'founderList')}>
+                        {founderDOM}
+                    </div>
+                    <Button variant="outlined" color="primary" className={usingClasses(classes, 'outlinedButton')}>
+                        <Link to="/about" className={usingClasses(classes, 'buttonLink')}>
+                            Button
+                        </Link>
+                    </Button>
                 </div>
-                <Button variant="outlined" color="primary" className={usingClasses(classes, 'outlinedButton')}>
-                    <Link to="/about" className={usingClasses(classes, 'buttonLink')}>
-                        Button
-                    </Link>
-                </Button>
             </section>
         );
     }

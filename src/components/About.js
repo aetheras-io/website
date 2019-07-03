@@ -26,16 +26,18 @@ class About extends IntlComponent {
         return (
             <div className={usingClasses(classes, 'wrapper')}>
                 <section className={usingClasses(classes, 'section') + usingClasses(classes, 'aboutSection')}>
-                    <span className={usingClasses(classes, 'titleText')}>
-                        <FormattedMessage
-                            id="about_title"
-                            defaultMessage={'Our Culture'}
-                        />
-                    </span>
-                    <div className={usingClasses(classes, 'body')}>
-                        <Paragraph messages={aboutUs} />
+                    <div className={usingClasses(classes, 'container')}>
+                        <span className={usingClasses(classes, 'titleText')}>
+                            <FormattedMessage
+                                id="about_title"
+                                defaultMessage={'Our Culture'}
+                            />
+                        </span>
+                        <div className={usingClasses(classes, 'body')}>
+                            <Paragraph messages={aboutUs} />
+                        </div>
+                        <img src="/images/about_ill.svg" alt="about_ill" className={usingClasses(classes, 'aboutIll')} />
                     </div>
-                    <img src="/images/about_ill.svg" alt="about_ill" className={usingClasses(classes, 'aboutIll')} />
                 </section>
                 <TeamMember />
                 <JoinUs />
@@ -44,12 +46,12 @@ class About extends IntlComponent {
     }
 };
 
-const styles = Object.assign({...SHARED_STYLES}, {
+const styles = Object.assign({ ...SHARED_STYLES }, {
     aboutSection: {
         backgroundColor: '#FFF8F4',
         padding: '160px 20%'
     },
-    subTitleText: Object.assign({...SHARED_STYLES.subTitleText}, {
+    subTitleText: Object.assign({ ...SHARED_STYLES.subTitleText }, {
         marginBottom: '60px'
     }),
     body: {
