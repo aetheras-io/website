@@ -17,7 +17,8 @@ export const SHARED_STYLES = Object.freeze({
         padding: `160px 10%`,
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        position: 'relative'
     },
     container: {
         width: '100%',
@@ -113,7 +114,9 @@ export const SHARED_STYLES = Object.freeze({
         }
     },
     anchor: {
-        transform: 'translateY(-160px)'
+        position: 'absolute',
+        top: '0',
+        left: '0'
     },
     build: {
         height: '200px',
