@@ -85,10 +85,11 @@ export const SHARED_STYLES = Object.freeze({
         marginBottom: '60px'
     },
     subTitleText: {
-        fontSize: '28px',
+        fontSize: '24px',
         fontWeight: '500',
         letterSpacing: `${STYLES_CONST.letterSpacing}px`,
-        marginBottom: '48px'
+        marginBottom: '48px',
+        maxWidth: '880px'
     },
     headLineText: {
         fontSize: '28px',
