@@ -103,13 +103,14 @@ export const SHARED_STYLES = Object.freeze({
         lineHeight: '24px'
     },
     paragraph: {
-        fontSize: '28px',
+        fontSize: '24px',
         lineHeight: '36px',
         letterSpacing: `${STYLES_CONST.letterSpacing}px`,
         marginTop: '0',
         marginBottom: '28px',
         textAlign: 'center',
         fontWeight: '500',
+        maxWidth: '880px',
         '&:last-child': {
             marginBottom: '0'
         }
