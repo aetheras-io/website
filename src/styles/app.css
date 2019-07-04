@@ -129,7 +129,7 @@ button.to-top-button.active {
         padding-top: 60px;
     }
     section.cover {
-        min-height: calc(100vh - 60px);
+        height: fit-content;
     }
     div.titleContainer {
         align-items: center;
@@ -139,11 +139,16 @@ button.to-top-button.active {
 /* tablet or small laptop */
 @media (max-width: 768px) {
     section.cover {
-        padding: 310px 12px 56px 12px;
+        padding: 0 12px 10vh 12px;
         background: url('/images/jumbotron_bg.svg');
         background-repeat: no-repeat;
         background-size: 100%;
         background-position-y: -90px;
+        min-height: calc(100vh - 140px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
     }
     section.cover .button {
         display: none;
