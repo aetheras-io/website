@@ -22,18 +22,19 @@ const link = [
     {
         titleId: 'white_paper_title',
         defaultTitle: 'Whitepaper',
-        path: '/whitepaper'
+        path: '/AetherasWhitepaper.pdf',
+        target: '_blank'
     },
     {
         titleId: 'testnet_title',
         defaultTitle: 'Testnet',
         path: '/testnet'
     },
-    {
-        titleId: 'career_title',
-        defaultTitle: 'Career',
-        path: '/career'
-    }
+    // {
+    //     titleId: 'career_title',
+    //     defaultTitle: 'Career',
+    //     path: '/career'
+    // }
 ]
 
 class Navbar extends IntlComponent {
@@ -76,7 +77,7 @@ class Navbar extends IntlComponent {
         }
         if (type === 'desktop') {
             return linkList.map(link => (
-                <Link key={link.titleId} to={link.path} className={usingClasses(classes, 'linkText') + (pathname === link.path ? ' active' : '')}>
+                <Link key={link.titleId} to={link.path} className={usingClasses(classes, 'linkText') + (pathname === link.path ? ' active' : '')} target={link.target}>
                     <FormattedMessage
                         id={link.titleId}
                         defaultMessage={link.defaultTitle}
@@ -91,7 +92,7 @@ class Navbar extends IntlComponent {
                     className={usingClasses(classes, 'mobileMenuLink')}
                     key={link.titleId}
                 >
-                    <Link to={link.path} className={usingClasses(classes, 'mobileLinkText')}>
+                    <Link to={link.path} className={usingClasses(classes, 'mobileLinkText')} target={link.target}>
                         <FormattedMessage
                             id={link.titleId}
                             defaultMessage={link.defalutTitle}

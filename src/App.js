@@ -19,6 +19,7 @@ import Home from './components/Home';
 import Tasks from './components/Tasks';
 // import Contact from './components/Contact';
 import About from './components/About';
+import Career from './components/Join-Us'
 import NotFound from './components/NotFound';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -130,7 +131,7 @@ class App extends IntlComponent {
                                     <ScrollToRoute exact path="/" component={Home} />
                                     <ScrollToRoute path="/portfolio" component={Tasks} />
                                     {/* <ScrollToRoute path="/contact" component={Contact} /> */}
-                                    <ScrollToRoute path="/about" component={About} />
+                                    <ScrollToRoute path="/about" component={About} />                                    
                                     <ScrollToRoute
                                         exact
                                         path="/404"
