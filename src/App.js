@@ -19,7 +19,6 @@ import Home from './components/Home';
 import Tasks from './components/Tasks';
 // import Contact from './components/Contact';
 import About from './components/About';
-import Career from './components/Join-Us'
 import NotFound from './components/NotFound';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
