@@ -21,6 +21,9 @@ const Footer = props => {
                     <a href={CONST.twitterURL} className={usingClasses(classes, 'linkIcon')} target="_blank" rel="noopener noreferrer">
                         <img src="/images/social-icon_twt.svg" alt="twitter-icon" />
                     </a>
+                    <a href={CONST.discordURL} className={usingClasses(classes, 'linkIcon')} target="_blank" rel="noopener noreferrer">
+                        <img src="/images/social-icon_dcd.svg" alt="discord-icon" />
+                    </a>
                 </div>
                 <div className={usingClasses(classes, 'copyright')}>
                     <span className={usingClasses(classes, 'copyrightText')}>Copyright © 2019 Heimdal Holdings Corp. All rights reserved | </span>

@@ -34,7 +34,8 @@ const link = [
     {
         titleId: 'developer_title',
         defaultTitle: 'Developers',
-        path: 'https://developers.aetheras.io/'
+        path: 'https://developers.aetheras.io/',
+        external: true
     },
     {
         titleId: 'auction_title',
