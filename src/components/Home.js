@@ -3,7 +3,7 @@ import Cover from './Cover';
 import Product from './Product';
 // import Founder from './Founder';
 import Technology from './Technology';
-import JoinUs from './Join-Us';
+// import JoinUs from './Join-Us';
 import { SHARED_STYLES } from '../utils/shared-styles';
 import { withStyles } from '@material-ui/core';
 import { usingClasses } from '../utils/utils';
@@ -17,7 +17,7 @@ const Home = props => {
             <Technology />
             {/* <Founder /> */}
             <div id="to-top-trigger" />
-            <JoinUs />
+            {/* <JoinUs /> */}
         </div>
     );
 };

@@ -28,7 +28,19 @@ const link = [
     {
         titleId: 'testnet_title',
         defaultTitle: 'Testnet',
-        path: '/testnet'
+        path: 'https://explore.aetheras.io/',
+        external: true
+    },
+    {
+        titleId: 'developer_title',
+        defaultTitle: 'Developers',
+        path: 'https://developers.aetheras.io/'
+    },
+    {
+        titleId: 'auction_title',
+        defaultTitle: 'Agora Auctions',
+        path: 'https://auctions.aetheras.io/',
+        external: true
     },
     // {
     //     titleId: 'career_title',
@@ -75,15 +87,24 @@ class Navbar extends IntlComponent {
         if (!linkList || linkList.length === 0) {
             return null;
         }
-        if (type === 'desktop') {
+        if (type === 'desktop') {            
             return linkList.map(link => (
+                link.external === true
+                ?
+                <a key={link.titleId} href={link.path} className={usingClasses(classes, 'linkText') + (pathname === link.path ? ' active' : '')} target={link.target}>                        
+                    <FormattedMessage
+                        id={link.titleId}
+                        defaultMessage={link.defaultTitle}
+                    />
+                </a>
+                :
                 <Link key={link.titleId} to={link.path} className={usingClasses(classes, 'linkText') + (pathname === link.path ? ' active' : '')} target={link.target}>
                     <FormattedMessage
                         id={link.titleId}
                         defaultMessage={link.defaultTitle}
                     />
                 </Link>
-            ));
+            ));                            
         }
         if (type === 'mobile') {
             return linkList.map(link => (
@@ -92,12 +113,21 @@ class Navbar extends IntlComponent {
                     className={usingClasses(classes, 'mobileMenuLink')}
                     key={link.titleId}
                 >
+                    {link.external === true
+                    ?
+                    <a key={link.titleId} href={link.path} className={usingClasses(classes, 'mobileLinkText')} target={link.target}>                        
+                        <FormattedMessage
+                            id={link.titleId}
+                            defaultMessage={link.defaultTitle}
+                        />
+                    </a>
+                    :
                     <Link to={link.path} className={usingClasses(classes, 'mobileLinkText')} target={link.target}>
                         <FormattedMessage
                             id={link.titleId}
-                            defaultMessage={link.defalutTitle}
+                            defaultMessage={link.defaultTitle}
                         />
-                    </Link>
+                    </Link>}
                 </MenuItem>
             ));
         }
