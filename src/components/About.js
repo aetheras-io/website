@@ -49,7 +49,7 @@ class About extends IntlComponent {
 const styles = Object.assign({ ...SHARED_STYLES }, {
     aboutSection: {
         backgroundColor: '#FFF8F4',
-        padding: '160px 20%'
+        padding: '72px 20%'
     },
     subTitleText: Object.assign({ ...SHARED_STYLES.subTitleText }, {
         marginBottom: '60px'

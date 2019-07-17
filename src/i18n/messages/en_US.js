@@ -17,7 +17,7 @@ const en_US = {
         "tech_title": "Features",
         "tech_button": "Read the Whitepaper",
         /* founder */
-        "founder_title": "Founder",
+        "founder_title": "Co-Founder",
         /* join_us */
         "join_us_title": "We Are Hiring",
         "join_us_message": "We are currently hiring for various roles at our Taipei office. Please visit our 104 page for details",
@@ -70,24 +70,44 @@ const en_US = {
     },
     "team_member": [
         {
-            "photo": "/images/member_pho-3.png",
-            "name": "Name",
-            "job": "Job",
+            "photo": "/images/joanne.jpg",
+            "name": "Joanne Tsai",
+            "job": "Chief of Staff",
         },
         {
-            "photo": "/images/member_pho-4.png",
-            "name": "Name",
-            "job": "Job",
+            "photo": "/images/armor.jpg",
+            "name": "Armor",
+            "job": "Director of Marketing",
         },
         {
-            "photo": "/images/member_pho-5.png",
-            "name": "Name",
-            "job": "Job",
+            "photo": "/images/max.jpg",
+            "name": "Max Lin",
+            "job": "Software Engineer",
         },
         {
-            "photo": "/images/member_pho-6.png",
-            "name": "Name",
-            "job": "Job",
+            "photo": "/images/neil.jpg",
+            "name": "Neil Huang",
+            "job": "Software Engineer",
+        },
+        {
+            "photo": "/images/jake.jpg",
+            "name": "Jake Wu",
+            "job": "Software Engineer",
+        },
+        {
+            "photo": "/images/tony.jpg",
+            "name": "Tony Wu",
+            "job": "Software Engineer",
+        },
+        {
+            "photo": "/images/bill.jpg",
+            "name": "Bill Dai",
+            "job": "UI/UX Designer",
+        },
+        {
+            "photo": "/images/lyle.jpg",
+            "name": "Lyle Chang",
+            "job": "Software Engineer",
         }
     ]
 }

@@ -30,7 +30,7 @@ const Product = props => {
 
 const styles = Object.assign({ ...SHARED_STYLES }, {
     section: Object.assign({ ...SHARED_STYLES.section }, {
-       padding: '160px 10% 80px 10%' 
+       padding: '72px 10% 72px 10%' 
     }),
 });
 

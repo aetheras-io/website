@@ -14,7 +14,7 @@ export const SHARED_STYLES = Object.freeze({
     },
     section: {
         width: '100%',
-        padding: `160px 10%`,
+        padding: `72px 10%`,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

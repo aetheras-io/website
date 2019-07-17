@@ -69,7 +69,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
             opacity: '1'
         },
         '&:not(:last-child)': {
-            marginRight: '24px'
+            marginRight: '16px'
         }
     },
     copyrightText: Object.assign({...SHARED_STYLES.bodyText}, {

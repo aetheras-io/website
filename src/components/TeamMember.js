@@ -25,7 +25,7 @@ class TeamMember extends IntlComponent {
         }
 
         const founderDOM = getFounderDOM(founder, classes);
-        // const teamMemberDOM = getTeamMemberDOM(teamMember, classes);
+        const teamMemberDOM = getTeamMemberDOM(teamMember, classes);
         return (
             <section className={usingClasses(classes, 'section') + usingClasses(classes, 'teamMemberSection')}>
                 <div className={usingClasses(classes, 'container')}>
@@ -39,9 +39,9 @@ class TeamMember extends IntlComponent {
                         {founderDOM}
                     </div>
                     <div id="to-top-trigger" />
-                    {/* <div className={usingClasses(classes, 'memberList')}>
+                    <div className={usingClasses(classes, 'memberList')}>
                         {teamMemberDOM}
-                    </div> */}
+                    </div>
                 </div>
             </section>
         );
@@ -63,7 +63,7 @@ const getFounderDOM = (founderList, classes) => {
                     <span className={usingClasses(classes, 'bodyText')}>
                         <FormattedMessage
                             id="founder_title"
-                            defaultMessage="Founder"
+                            defaultMessage="Co-Founder"
                         />
                     </span>
                     {/* <span className={usingClasses(classes, 'bodyText')}>
@@ -76,27 +76,27 @@ const getFounderDOM = (founderList, classes) => {
     return founderDOM;
 }
 
-// const getTeamMemberDOM = (teamMember, classes) => {
-//     let teamMemberDOM = null;
-//     if (teamMember && teamMember.length > 0) {
-//         teamMemberDOM = teamMember.map((member, idx) => (
-//             <div key={idx} className={usingClasses(classes, 'memberItem')}>
-//                 <div className={usingClasses(classes, 'head')}>
-//                     <img src={member.photo} alt="memeber_photo" className={usingClasses(classes, 'photo')} />
-//                 </div>
-//                 <div className={usingClasses(classes, 'body')}>
-//                     <span className={usingClasses(classes, 'headLineText')}>
-//                         {member.name}
-//                     </span>
-//                     <span className={usingClasses(classes, 'bodyText')}>
-//                         {member.job}
-//                     </span>
-//                 </div>
-//             </div>
-//         ))
-//     }
-//     return teamMemberDOM;
-// }
+const getTeamMemberDOM = (teamMember, classes) => {
+    let teamMemberDOM = null;
+    if (teamMember && teamMember.length > 0) {
+        teamMemberDOM = teamMember.map((member, idx) => (
+            <div key={idx} className={usingClasses(classes, 'memberItem')}>
+                <div className={usingClasses(classes, 'head')}>
+                    <img src={member.photo} alt="memeber_photo" className={usingClasses(classes, 'photo')} />
+                </div>
+                <div className={usingClasses(classes, 'body')}>
+                    <span className={usingClasses(classes, 'headLineText')}>
+                        {member.name}
+                    </span>
+                    <span className={usingClasses(classes, 'bodyText')}>
+                        {member.job}
+                    </span>
+                </div>
+            </div>
+        ))
+    }
+    return teamMemberDOM;
+}
 
 const styles = Object.assign({ ...SHARED_STYLES }, {
     teamMemberSection: {
