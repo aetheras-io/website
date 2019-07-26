@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import { STYLES_CONST, SHARED_STYLES } from "../utils/shared-styles";
@@ -34,7 +33,10 @@ const Cover = props => {
                             />
                         </Link>
                     </Button>
-                    <KeyboardArrowDown className={usingClasses(classes, 'mobileIcon')} />
+                    <span className={usingClasses(classes, 'mobileIcon')}>
+                        SCROLL
+                        <img src="/images/expand_more.svg" alt="expand_more"/>
+                    </span>
                 </div>
             </div>
         </section>
@@ -72,9 +74,12 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     },
     mobileIcon: {
         alignSelf: 'center',
-        fontSize: '64px',
+        fontSize: '16px',
         color: STYLES_CONST.primaryColor,
-        display: 'none'
+        display: 'none',
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginBottom: '24px'
     }
 });
 

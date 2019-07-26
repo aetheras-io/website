@@ -75,6 +75,27 @@ button.to-top-button.active {
     top: 60px !important;
 }
 
+.section.what-is-agora,
+.section.connecting,
+.section.roadmap {
+    background: #FFF8F4;
+}
+
+.section.motivation {
+    background-image: linear-gradient(#FFF, #FFF8F4);
+}
+
+.section.freedom {
+    background-image: linear-gradient(#FFF8F4, #FFF);
+}
+
+.section.gamers,
+.section.ownership,
+.section.technology,
+.section.revenue {
+    background: #F6F5F5;
+}
+
 @keyframes buildIcon {
     0%{
         opacity: 0.85;
@@ -96,16 +117,41 @@ button.to-top-button.active {
     }
 }
 
-@media (max-width: 980px) {
+@keyframes bottomBounce {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(4px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1279px) {
     div.nav {
         padding: 0 5%;
     }
     div.nav a.linkText {
-        margin-left: 24px;
+        margin-right: 24px;
     }
+    section.section {
+        padding: 72px 5%;
+    }
+    section.cover {
+        padding: 12px 5% 0 5%;
+    }
+    section.aboutSection {
+        padding: 72px 10%;
+    }
+    div.bookmarkContainer {
+        padding: 0 5%;
+    }
+
 }
 
-@media (max-width: 824px) {
+@media (max-width: 1024px) {
     div.nav {
         display: none;
     }
@@ -128,23 +174,82 @@ button.to-top-button.active {
     div.wrapper {
         padding-top: 60px;
     }
-    section.cover {
-        height: fit-content;
-    }
-    div.titleContainer {
+    div.bookmarkOverlay {
+        top: 60px;
+        left: 0;
+        height: calc(100% - 60px);
+        width: 28px;
+        display: flex;
         align-items: center;
+        z-index: 998;
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+    div.bookmarkOverlay.active {
+        width: 280px;
+    }
+    span.bookmarkTrigger {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        transition: all 0.2s;
+    }
+    span.bookmarkTrigger svg {
+        transition: all 0.2s;
+    }
+    span.bookmarkTrigger.active {
+        left: 256px;
+        border-radius: 8px 0 0 8px;
+    }
+    span.bookmarkTrigger.active svg {
+        transform: rotate(180deg);
+    }
+    div.bookmarkContainer {
+        background: #FFE5D5;
+        padding: 0;
+        width: 280px;
+        transform: translateX(-300px);
+        transition: all 0.3s;
+    }
+    div.bookmarkContainer.active {
+        transform: translateX(0);
+    }
+    div.bookmark {
+        width: 280px;
+        height: 500px;
+        top: 0;
+        padding: 30px 12px;
+        box-shadow: none;
+    }
+    div.bookmarkPaper {
+        padding: 0 28px;
+        background: transparent;
+    }
+    div.whitepaper div.container {
+        margin: 0;
     }
 }
 /*
 /* tablet or small laptop */
 @media (max-width: 768px) {
     section.cover {
-        padding: 0 12px 10vh 12px;
+        height: fit-content;
+    }
+    section.cover div.container {
+        align-items: center;
+    }
+    div.titleContainer {
+        align-items: center;
+    }
+    section.cover {
+        padding: 0 12px 24px 12px;
         background: url('/images/jumbotron_bg.svg');
         background-repeat: no-repeat;
         background-size: 100%;
-        background-position-y: -90px;
-        min-height: calc(100vh - 140px);
+        background-position-y: -80px;
+        min-height: calc(100vh - 124px);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -155,7 +260,7 @@ button.to-top-button.active {
     }
     section.cover .mobileIcon {
         display: flex;
-        margin-top: -40px;
+        animation: bottomBounce 1s ease-out infinite;
     }
     span.title {
         font-size: 32px;
@@ -290,5 +395,50 @@ button.to-top-button.active {
     }
     button.to-top-button {
         bottom: 100px;
+    }
+    div.whitepaper section.section {
+        padding: 30px 28px;
+    }
+    div.whitepaper div.anchor {
+        top: -60px;
+    }
+    div.whitepaper div.block {
+        flex-direction: column;
+        align-items: center;
+    }
+    div.whitepaper div.blockHead {
+        margin: 0;
+    }
+    div.whitepaper div.blockBody {
+        align-items: center;
+    }
+    div.whitepaper div.connectingList {
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    div.whitepaper div.connectingItem {
+        flex-direction: row;
+        align-items: center;
+    }
+    div.whitepaper div.connectingItem img {
+        margin-right: 16px;
+    }
+    div.whitepaper div.roadmapBlock {
+        flex-direction: column;
+        padding-left: 24px;
+    }
+    div.whitepaper div.roadmapBlock:not(:last-of-type):before {
+        top: 116px;
+        left: 5px;
+    }
+    div.whitepaper div.roadmapBlock:after {
+        top: 104px;
+        left: 0;
+    }
+    div.whitepaper div.roadmapBlockBody {
+        margin: 0;
+    }
+    div.whitepaper section.about span.titleText {
+        font-size: 24px;
     }
 }

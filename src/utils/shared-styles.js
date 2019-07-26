@@ -3,7 +3,7 @@ export const STYLES_CONST = Object.freeze({
     secondaryColor: '#FF4D4D',
     fontColor: '#4C4948',
     letterSpacing: 1,
-    navHeight: '90px',
+    navHeight: '80px',
     footerHeight: '275px'
 })
 
@@ -14,7 +14,7 @@ export const SHARED_STYLES = Object.freeze({
     },
     section: {
         width: '100%',
-        padding: `72px 10%`,
+        padding: '72px 10%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

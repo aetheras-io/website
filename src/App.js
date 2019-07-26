@@ -16,9 +16,8 @@ import ScrollToRoute from './components/shared/ScrollToRoute';
 import IntlComponent from './components/shared/IntlComponent';
 import GoogleAnalytics from './components/shared/Google-Analytics';
 import Home from './components/Home';
-import Tasks from './components/Tasks';
-// import Contact from './components/Contact';
 import About from './components/About';
+import Whitepaper from './components/Whitepaper';
 import NotFound from './components/NotFound';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -128,9 +127,8 @@ class App extends IntlComponent {
                                 <Navbar locale={localeConfig} setLocale={this.setLocale} />
                                 <Switch>
                                     <ScrollToRoute exact path="/" component={Home} />
-                                    <ScrollToRoute path="/portfolio" component={Tasks} />
-                                    {/* <ScrollToRoute path="/contact" component={Contact} /> */}
-                                    <ScrollToRoute path="/about" component={About} />                                    
+                                    <ScrollToRoute path="/about" component={About} />
+                                    <ScrollToRoute path="/whitepaper" component={Whitepaper} />                                    
                                     <ScrollToRoute
                                         exact
                                         path="/404"

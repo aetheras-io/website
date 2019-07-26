@@ -28,10 +28,6 @@ const Product = props => {
     );
 };
 
-const styles = Object.assign({ ...SHARED_STYLES }, {
-    section: Object.assign({ ...SHARED_STYLES.section }, {
-       padding: '72px 10% 72px 10%' 
-    }),
-});
+const styles = SHARED_STYLES;
 
 export default withStyles(styles)(injectIntl(Product));

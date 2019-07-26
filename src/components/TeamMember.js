@@ -104,6 +104,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     },
     founderList: {
         width: '75%',
+        maxWidth: '690px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -143,9 +144,10 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     }),
     memberList: {
         width: '100%',
+        maxWidth: '690px',
         marginBottom: '72px',
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         justifyContent: 'space-around',
         flexWrap: 'wrap'
     },

@@ -22,8 +22,7 @@ const link = [
     {
         titleId: 'white_paper_title',
         defaultTitle: 'Whitepaper',
-        path: '/AetherasWhitepaper.pdf',
-        target: '_blank'
+        path: '/whitepaper'
     },
     {
         titleId: 'testnet_title',
@@ -37,12 +36,12 @@ const link = [
         path: 'https://developers.aetheras.io/',
         external: true
     },
-    {
-        titleId: 'auction_title',
-        defaultTitle: 'Agora Auctions',
-        path: 'https://auctions.aetheras.io/',
-        external: true
-    },
+    // {
+    //     titleId: 'auction_title',
+    //     defaultTitle: 'Agora Auctions',
+    //     path: 'https://auctions.aetheras.io/',
+    //     external: true
+    // },
     // {
     //     titleId: 'career_title',
     //     defaultTitle: 'Career',
@@ -233,7 +232,9 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         height: STYLES_CONST.navHeight,
         color: STYLES_CONST.fontColor,
         backgroundColor: '#fff',
-        boxShadow: 'none'
+        borderBottom: '1px solid rgba(76, 73, 72, 0.1)',
+        boxShadow: 'none',
+        position: 'fixed'
     },
     toolbar: {
         height: '100%',
@@ -267,9 +268,9 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         height: '24px'
     },
     linkText: {
-        height: '90px',
-        lineHeight: '90px',
-        fontSize: '16px',
+        height: STYLES_CONST.navHeight,
+        lineHeight: STYLES_CONST.navHeight,
+        fontSize: '14px',
         fontWeight: '500',
         textDecoration: 'unset',
         letterSpacing: `${STYLES_CONST.letterSpacing * 2}px`,
@@ -347,7 +348,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         }
     },
     localeMenuPaper: {
-        top: '90px !important',
+        top: `${STYLES_CONST.navHeight} !important`,
         left: 'unset !important',
         right: 'calc(10% + 6px) !important',
         width: '247px',

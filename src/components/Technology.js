@@ -40,7 +40,7 @@ class Technology extends IntlComponent {
                         {techDOM}
                     </div>
                     <Button color="primary" className={usingClasses(classes, 'flatButton')}>
-                        <Link to="/AetherasWhitepaper.pdf" className={usingClasses(classes, 'buttonLink')} target="_blank">
+                        <Link to="/whitepaper" className={usingClasses(classes, 'buttonLink')}>
                             <FormattedMessage
                                 id="tech_button"
                                 defaultMessage={'Whitepaper'}
