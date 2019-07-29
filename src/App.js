@@ -100,7 +100,9 @@ class App extends IntlComponent {
         if (triggerElement) {
             const triggerHeight = triggerElement.offsetTop - (window.innerHeight + 50);
             this.safeSetState({ showToTopButton: window.scrollY > triggerHeight });
-        }        
+        } else {
+            this.safeSetState({ showToTopButton: false });
+        }
     }
 
     scrollToTop = () => {
