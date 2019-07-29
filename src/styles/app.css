@@ -230,6 +230,9 @@ button.to-top-button.active {
     div.whitepaper div.container {
         margin: 0;
     }
+    div.whitepaper div.anchor {
+        top: -60px;
+    }
 }
 /*
 /* tablet or small laptop */
@@ -398,9 +401,6 @@ button.to-top-button.active {
     }
     div.whitepaper section.section {
         padding: 30px 28px;
-    }
-    div.whitepaper div.anchor {
-        top: -60px;
     }
     div.whitepaper div.block {
         flex-direction: column;

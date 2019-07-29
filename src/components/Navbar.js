@@ -98,7 +98,7 @@ class Navbar extends IntlComponent {
                     />
                 </a>
                 :
-                <Link key={link.titleId} to={{ pathname: link.path, state: { shouldScroll: true }}} className={usingClasses(classes, 'linkText') + (pathname === link.path ? ' active' : '')} target={link.target}>
+                <Link key={link.titleId} to={{ pathname: link.path, state: { shouldScroll: true }}} className={usingClasses(classes, 'linkText') + (pathname === link.path ? ' active' : '')}>
                     <FormattedMessage
                         id={link.titleId}
                         defaultMessage={link.defaultTitle}
@@ -122,7 +122,7 @@ class Navbar extends IntlComponent {
                         />
                     </a>
                     :
-                    <Link to={{ pathname: link.path, state: { shouldScroll: true }}} className={usingClasses(classes, 'mobileLinkText')} target={link.target}>
+                    <Link to={{ pathname: link.path, state: { shouldScroll: true }}} className={usingClasses(classes, 'mobileLinkText')}>
                         <FormattedMessage
                             id={link.titleId}
                             defaultMessage={link.defaultTitle}
@@ -309,7 +309,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     },
     mobileMenuLink: {
         height: 'fit-content',
-        padding: '12px 0',
+        padding: '0',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -324,7 +324,10 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         fontSize: '16px',
         fontWeight: '500',
         textDecoration: 'unset',
-        letterSpacing: `${STYLES_CONST.letterSpacing}px`
+        letterSpacing: `${STYLES_CONST.letterSpacing}px`,
+        width: '100%',
+        textAlign: 'center',
+        padding: '12px 0'
     },
     menuButton: {
         padding: '0',
