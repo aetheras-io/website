@@ -98,7 +98,7 @@ class Navbar extends IntlComponent {
                     />
                 </a>
                 :
-                <Link key={link.titleId} to={link.path} className={usingClasses(classes, 'linkText') + (pathname === link.path ? ' active' : '')} target={link.target}>
+                <Link key={link.titleId} to={{ pathname: link.path, state: { shouldScroll: true }}} className={usingClasses(classes, 'linkText') + (pathname === link.path ? ' active' : '')} target={link.target}>
                     <FormattedMessage
                         id={link.titleId}
                         defaultMessage={link.defaultTitle}
@@ -122,7 +122,7 @@ class Navbar extends IntlComponent {
                         />
                     </a>
                     :
-                    <Link to={link.path} className={usingClasses(classes, 'mobileLinkText')} target={link.target}>
+                    <Link to={{ pathname: link.path, state: { shouldScroll: true }}} className={usingClasses(classes, 'mobileLinkText')} target={link.target}>
                         <FormattedMessage
                             id={link.titleId}
                             defaultMessage={link.defaultTitle}
@@ -142,6 +142,7 @@ class Navbar extends IntlComponent {
         // const currentLocale = locale.find(l => l.locale === intl.locale);
         const linkDOM = this.getLinkDOM(link, classes, 'desktop');
         const mobileLinkDOM = this.getLinkDOM(link, classes, 'mobile');
+        const anchorEl = document.getElementsByClassName('MuiAppBar-root')[0] || document.getElementById('root');
         return (
             <React.Fragment>
                 <AppBar position="absolute" className={usingClasses(classes, 'navbar')}>
@@ -192,6 +193,7 @@ class Navbar extends IntlComponent {
                     </Toolbar>
                 </AppBar>
                 <Menu
+                    anchorEl={anchorEl}
                     open={isNavMenuOpen}
                     onClose={this.closeNavMenu}
                     disableAutoFocusItem={true}
@@ -202,7 +204,7 @@ class Navbar extends IntlComponent {
                     {mobileLinkDOM}
                 </Menu>
                 <Menu
-                    anchorEl={localeMenuAnchor}
+                    anchorEl={anchorEl}
                     open={isLocaleMenuOpen}
                     onClose={this.closeLocaleMenu}
                     className={usingClasses(classes, 'localeMenu')}

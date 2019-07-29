@@ -37,6 +37,10 @@ class Whitepaper extends IntlComponent {
         this.safeSetState(prevState => {return { isBookmarkOpen: !prevState.isBookmarkOpen }})
     }
 
+    closeBookmark = () => {
+        this.safeSetState({ isBookmarkOpen: false });
+    }
+
     getBookMarkActive = () => {
         if (this.isDidMount) {
             return {
@@ -112,7 +116,7 @@ class Whitepaper extends IntlComponent {
                         <ArrowRight />
                     </span>
                 </div>
-                <section className={`${usingClasses(classes, 'section')} what-is-agora`}>
+                <section className={`${usingClasses(classes, 'section')} what-is-agora`} onClick={this.closeBookmark}>
                     <div id="what-is-agora" className={usingClasses(classes, 'anchor')} />
                     <div className={usingClasses(classes, 'container')}>
                         <span className={usingClasses(classes, 'titleText')}>
@@ -130,7 +134,7 @@ class Whitepaper extends IntlComponent {
                         </p>
                     </div>
                 </section>
-                <section className={`${usingClasses(classes, 'section')} motivation`}>
+                <section className={`${usingClasses(classes, 'section')} motivation`} onClick={this.closeBookmark}>
                     <div id="motivation" className={usingClasses(classes, 'anchor')} />
                     <div className={usingClasses(classes, 'container')}>
                         <span className={usingClasses(classes, 'titleText')}>
@@ -167,7 +171,7 @@ class Whitepaper extends IntlComponent {
                         </div>
                     </div>
                 </section>
-                <section className={`${usingClasses(classes, 'section')} developers`}>
+                <section className={`${usingClasses(classes, 'section')} developers`} onClick={this.closeBookmark}>
                     <div id="developers" className={usingClasses(classes, 'anchor')} />
                     <div className={usingClasses(classes, 'container')}>
                         <span className={usingClasses(classes, 'smallTitleText')}>
@@ -260,7 +264,7 @@ class Whitepaper extends IntlComponent {
                         </div>
                     </div>
                 </section>
-                <section className={`${usingClasses(classes, 'section')} gamers`}>
+                <section className={`${usingClasses(classes, 'section')} gamers`} onClick={this.closeBookmark}>
                     <div id="gamers" className={usingClasses(classes, 'anchor')} />
                     <div className={usingClasses(classes, 'container')}>
                         <span className={usingClasses(classes, 'smallTitleText')}>
@@ -334,7 +338,7 @@ class Whitepaper extends IntlComponent {
                         </div>
                     </div>
                 </section>
-                <section className={`${usingClasses(classes, 'section')} connecting`}>
+                <section className={`${usingClasses(classes, 'section')} connecting`} onClick={this.closeBookmark}>
                     <div id="connecting" className={usingClasses(classes, 'anchor')} />
                     <div className={usingClasses(classes, 'container')}>
                         <span className={usingClasses(classes, 'titleText')}>
@@ -386,7 +390,7 @@ class Whitepaper extends IntlComponent {
                         </div>
                     </div>
                 </section>
-                <section className={`${usingClasses(classes, 'section')} alliance`}>
+                <section className={`${usingClasses(classes, 'section')} alliance`} onClick={this.closeBookmark}>
                     <div id="alliance" className={usingClasses(classes, 'anchor')} />
                     <div className={usingClasses(classes, 'container')}>
                         <span className={usingClasses(classes, 'smallTitleText')}>
@@ -416,7 +420,7 @@ class Whitepaper extends IntlComponent {
                         <img src="/images/alliance_ill.png" alt="alliance_ill" className={usingClasses(classes, 'illImg')} />
                     </div>
                 </section>
-                <section className={`${usingClasses(classes, 'section')} ownership`}>
+                <section className={`${usingClasses(classes, 'section')} ownership`} onClick={this.closeBookmark}>
                     <div id="ownership" className={usingClasses(classes, 'anchor')} />
                     <div className={usingClasses(classes, 'container')}>
                         <span className={usingClasses(classes, 'smallTitleText')}>
@@ -440,7 +444,7 @@ class Whitepaper extends IntlComponent {
                         <img src="/images/ownership_ill.png" alt="ownership_ill" className={usingClasses(classes, 'illImg')} />
                     </div>
                 </section>
-                <section className={`${usingClasses(classes, 'section')} freedom`}>
+                <section className={`${usingClasses(classes, 'section')} freedom`} onClick={this.closeBookmark}>
                     <div id="freedom" className={usingClasses(classes, 'anchor')} />
                     <div className={usingClasses(classes, 'container')}>
                         <span className={usingClasses(classes, 'smallTitleText')}>
@@ -482,7 +486,7 @@ class Whitepaper extends IntlComponent {
                         <img src="/images/freedom_ill.png" alt="freedom_ill" className={usingClasses(classes, 'illImg')} />
                     </div>
                 </section>
-                <section className={`${usingClasses(classes, 'section')} technology`}>
+                <section className={`${usingClasses(classes, 'section')} technology`} onClick={this.closeBookmark}>
                     <div id="technology" className={usingClasses(classes, 'anchor')} />
                     <div className={usingClasses(classes, 'container')}>
                         <span className={usingClasses(classes, 'smallTitleText')}>
@@ -562,7 +566,7 @@ class Whitepaper extends IntlComponent {
                         </div>
                     </div>
                 </section>
-                <section className={`${usingClasses(classes, 'section')} community`}>
+                <section className={`${usingClasses(classes, 'section')} community`} onClick={this.closeBookmark}>
                     <div id="community" className={usingClasses(classes, 'anchor')} />
                     <div className={usingClasses(classes, 'container')}>
                         <span className={usingClasses(classes, 'smallTitleText')}>
@@ -655,7 +659,7 @@ class Whitepaper extends IntlComponent {
                         </div>
                     </div>
                 </section>
-                <section className={`${usingClasses(classes, 'section')} revenue`}>
+                <section className={`${usingClasses(classes, 'section')} revenue`} onClick={this.closeBookmark}>
                     <div id="revenue" className={usingClasses(classes, 'anchor')} />
                     <div className={usingClasses(classes, 'container')}>
                         <span className={usingClasses(classes, 'smallTitleText')}>
@@ -679,7 +683,7 @@ class Whitepaper extends IntlComponent {
                         <img src="/images/revenue_ill.png" alt="revenue_ill" className={usingClasses(classes, 'illImg')} />
                     </div>
                 </section>
-                <section className={`${usingClasses(classes, 'section')} roadmap`}>
+                <section className={`${usingClasses(classes, 'section')} roadmap`} onClick={this.closeBookmark}>
                     <div id="roadmap" className={usingClasses(classes, 'anchor')} />
                     <div className={usingClasses(classes, 'container')}>
                         <span className={usingClasses(classes, 'smallTitleText')}>
@@ -806,7 +810,7 @@ class Whitepaper extends IntlComponent {
                         </div>
                     </div>
                 </section>
-                <section className={`${usingClasses(classes, 'section')} about`}>
+                <section className={`${usingClasses(classes, 'section')} about`} onClick={this.closeBookmark}>
                     <div id="about" className={usingClasses(classes, 'anchor')} />
                     <div className={usingClasses(classes, 'container')}>
                         <div className={usingClasses(classes, 'aboutTitle')}>
