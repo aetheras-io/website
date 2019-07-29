@@ -177,39 +177,26 @@ button.to-top-button.active {
     div.bookmarkOverlay {
         top: 60px;
         left: 0;
-        height: calc(100% - 60px);
+        height: calc(100vh - 60px);
         width: 28px;
         display: flex;
         align-items: center;
         z-index: 998;
         transition: all 0.3s;
         cursor: pointer;
+        position: fixed;
     }
     div.bookmarkOverlay.active {
-        width: 280px;
+        width: 300px;
     }
-    span.bookmarkTrigger {
+    div.bookmarkTrigger {
         display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        left: 0;
-        transition: all 0.2s;
-    }
-    span.bookmarkTrigger svg {
-        transition: all 0.2s;
-    }
-    span.bookmarkTrigger.active {
-        left: 256px;
-        border-radius: 8px 0 0 8px;
-    }
-    span.bookmarkTrigger.active svg {
-        transform: rotate(180deg);
     }
     div.bookmarkContainer {
         background: #FFE5D5;
         padding: 0;
-        width: 280px;
+        width: 300px;
+        min-width: 300px;
         transform: translateX(-300px);
         transition: all 0.3s;
     }
@@ -217,11 +204,12 @@ button.to-top-button.active {
         transform: translateX(0);
     }
     div.bookmark {
-        width: 280px;
+        width: 300px;
         height: 500px;
         top: 0;
         padding: 30px 12px;
         box-shadow: none;
+        position: absolute;
     }
     div.bookmarkPaper {
         padding: 0 28px;
@@ -440,5 +428,8 @@ button.to-top-button.active {
     }
     div.whitepaper section.about span.titleText {
         font-size: 24px;
+    }
+    div.whitepaper span.subTitleText {
+        text-align: start;
     }
 }

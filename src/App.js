@@ -130,7 +130,7 @@ class App extends IntlComponent {
                                 <Switch>
                                     <ScrollToRoute exact path="/" component={Home} />
                                     <ScrollToRoute path="/about" component={About} />
-                                    <ScrollToRoute path="/whitepaper" component={Whitepaper} />                                    
+                                    <ScrollToRoute path="/agora" component={Whitepaper} />                                    
                                     <ScrollToRoute
                                         exact
                                         path="/404"

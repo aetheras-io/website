@@ -112,9 +112,11 @@ class Whitepaper extends IntlComponent {
                             </Paper>
                         </div>
                     </div>
-                    <span className={`${usingClasses(classes, 'bookmarkTrigger')} ${isBookmarkOpen ? ' active' : ''}`}>
-                        <ArrowRight />
-                    </span>
+                    <div className={`${usingClasses(classes, 'bookmarkTrigger')} ${isBookmarkOpen ? ' active' : ''}`}>
+                        <span className={`${usingClasses(classes, 'trigger')} ${isBookmarkOpen ? ' active' : ''}`}>
+                            <ArrowRight />
+                        </span>
+                    </div>
                 </div>
                 <section className={`${usingClasses(classes, 'section')} what-is-agora`} onClick={this.closeBookmark}>
                     <div id="what-is-agora" className={usingClasses(classes, 'anchor')} />
@@ -859,12 +861,8 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         top: '-80px'
     }),
     bookmarkOverlay: {
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        zIndex: 1,
-        width: '100%',
-        height: '100%',
+        position: 'absolute',
+        width: '100vw',
     },
     bookmarkContainer: {
         width: '100%',
@@ -872,12 +870,13 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         maxWidth: 'calc(1180px + 20%)',
         padding: '0 10%',
         margin: '0 auto',
-        position: 'relative'
+        position: 'static'
     },
     bookmark: {
-        position: 'absolute',
+        position: 'fixed',
+        zIndex: 998,
         top: '140px',
-        width: '232px',
+        width: '236px',
         display: 'flex',
         boxShadow: '0 10px 30px 0 rgba(255, 125, 47, 0.1)',
     },
@@ -887,6 +886,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     },
     scrollbar: {
         background: STYLES_CONST.primaryColor,
+        width: '4px',
         maxHeight: '100%',
         transition: 'all 0.3s'
     },
@@ -936,6 +936,24 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     },
     bookmarkTrigger: {
         display: 'none',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        width: '324px',
+        minWidth: '324px',
+        height: '48px',
+        position: 'absolute',
+        left: '0',
+        transform: 'translateX(-300px)',
+        transition: 'all 0.3s',
+        '&.active': {
+            transform: 'translateX(0)',
+            paddingRight: '24px'
+        }
+    },
+    trigger: {
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         width: '24px',
         minWidth: '24px',
         height: '48px',
@@ -943,7 +961,16 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         zIndex: 998,
         background: 'rgba(255, 125, 47, 0.16)',
         borderRadius: '0 8px 8px 0',
-        color: STYLES_CONST.primaryColor
+        color: STYLES_CONST.primaryColor,
+        '&.active': {
+            borderRadius: '8px 0 0 8px',
+            '& svg': {
+                transform: 'rotate(180deg)'
+            }
+        },
+        '& svg': {
+            transition: 'all 0.3s'
+        }
     },
     titleText: Object.assign({ ...SHARED_STYLES.titleText }, {
         fontSize: '32px',

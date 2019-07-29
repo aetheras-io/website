@@ -22,7 +22,7 @@ const link = [
     {
         titleId: 'white_paper_title',
         defaultTitle: 'Whitepaper',
-        path: '/whitepaper'
+        path: '/agora'
     },
     {
         titleId: 'testnet_title',
