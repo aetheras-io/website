@@ -21,7 +21,7 @@ const link = [
     },
     {
         titleId: 'white_paper_title',
-        defaultTitle: 'Whitepaper',
+        defaultTitle: 'Agora',
         path: '/agora'
     },
     {

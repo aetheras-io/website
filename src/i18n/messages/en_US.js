@@ -2,7 +2,7 @@ const en_US = {
     "static": {
         /* nav */
         "about_nav_title": "About",
-        "white_paper_title": "What is Agora",
+        "white_paper_title": "Agora",
         "testnet_title": "Testnet",
         "career_title": "Career",
         "select_language": 'Select a Language',
@@ -15,7 +15,7 @@ const en_US = {
         "product_sub_title": "Agora is a game asset centric platform that aims to provide a way to connect the virtual worlds of games.",
         /* technology */
         "tech_title": "Features",
-        "tech_button": "What is Agora",
+        "tech_button": "More Details",
         /* founder */
         "founder_title": "Co-Founder",
         /* join_us */

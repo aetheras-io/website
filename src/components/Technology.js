@@ -40,10 +40,10 @@ class Technology extends IntlComponent {
                         {techDOM}
                     </div>
                     <Button color="primary" className={usingClasses(classes, 'flatButton')}>
-                        <Link to={{ pathname: "/whitepaper", state: { shouldScroll: true }}} className={usingClasses(classes, 'buttonLink')}>
+                        <Link to={{ pathname: "/agora", state: { shouldScroll: true }}} className={usingClasses(classes, 'buttonLink')}>
                             <FormattedMessage
                                 id="tech_button"
-                                defaultMessage={'Whitepaper'}
+                                defaultMessage={'More Details'}
                             />
                             <ArrowForward className={usingClasses(classes, 'arrowIcon')}/>
                         </Link>

@@ -2,7 +2,7 @@ const zh_TW = {
     "static": {
         /* nav */
         "about_nav_title": "關於我們",
-        "white_paper_title": "What is Agora",
+        "white_paper_title": "Agora",
         "testnet_title": "測試網路",
         "career_title": "職缺訊息",
         "select_language": '選擇語言',
@@ -15,7 +15,7 @@ const zh_TW = {
         "product_sub_title": "A game asset centric blockchain platform that aims to connect games.",
         /* technology */
         "tech_title": "應用技術",
-        "tech_button": "What is Agora",
+        "tech_button": "More Details",
         /* founder */
         "founder_title": "創辦人",
         /* join_us */
