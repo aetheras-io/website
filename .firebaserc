@@ -1,12 +1,12 @@
 {
   "projects": {
-    "default": "aetheras-io"
+    "default": "aetheras-internal"
   },
   "targets": {
-    "aetheras-io": {
+    "aetheras-internal": {
       "hosting": {
-        "aetheras-io": [
-          "aetheras-io"
+        "aetheras-internal": [
+          "aetheras-internal"
         ]
       }
     }

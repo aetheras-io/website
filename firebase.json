@@ -1,6 +1,6 @@
 {
   "hosting": {
-      "target": "aetheras-io",
+      "target": "aetheras-internal",
       "public": "build",
       "ignore": [
           "firebase.json",
