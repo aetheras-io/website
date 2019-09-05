@@ -2,6 +2,7 @@ export const STYLES_CONST = Object.freeze({
     primaryColor: '#FF7D2F',
     secondaryColor: '#FF4D4D',
     fontColor: '#4C4948',
+    jobColor: '#908989',
     letterSpacing: 1,
     navHeight: '80px',
     footerHeight: '275px'

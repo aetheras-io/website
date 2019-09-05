@@ -113,11 +113,10 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     founderItem: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
         justifyContent: 'flex-start',
-        marginRight: '32px',
-        marginLeft: '32px',
-        marginBottom: '32px'
+        marginRight: '30px',
+        marginLeft: '30px',
+        marginBottom: '80px'
     },
     head: {
         width: '100%',
@@ -129,18 +128,19 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
         borderRadius: '16px'
     },
     body: {
-        marginTop: '14px',
+        marginTop: '3px',
         display: 'flex',
-        flexDirection: 'column',
-        textAlign: 'center'
+        flexDirection: 'column',        
     },
     headLineText: Object.assign({ ...SHARED_STYLES.headLineText }, {
-        fontSize: '24px',
-        marginBottom: '4px',
+        fontSize: '20px',
+        marginBottom: '2px',
         color: STYLES_CONST.primaryColor
-    }),
-    bodyText: Object.assign({ ...SHARED_STYLES.bodyText }, {
-        fontStyle: 'italic'
+    }),    
+    bodyText: Object.assign({
+        fontSize: '14px',
+        fontWeight: '600',
+        color: STYLES_CONST.jobColor
     }),
     memberList: {
         width: '100%',
@@ -153,8 +153,7 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     },
     memberItem: {
         display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        flexDirection: 'column',        
         justifyContent: 'flex-start',
         marginRight: '16px',
         marginLeft: '16px',
