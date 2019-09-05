@@ -191,6 +191,21 @@ const en_US = {
             "photo": "/images/lyle.jpg",
             "name": "Lyle Chang",
             "job": "Software Engineer",
+        },
+        {
+            "photo": "/images/eric.jpg",
+            "name": "Eric Tsai",
+            "job": "Project Manager",
+        },
+        {
+            "photo": "/images/wayne.jpg",
+            "name": "Wayne Jeng",
+            "job": "Software Engineer",
+        },
+        {
+            "photo": "/images/ryan.jpg",
+            "name": "Ryan Ho",
+            "job": "Software Engineer",
         }
     ]
 }
