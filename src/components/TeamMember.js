@@ -144,20 +144,20 @@ const styles = Object.assign({ ...SHARED_STYLES }, {
     }),
     memberList: {
         width: '100%',
-        maxWidth: '690px',
+        maxWidth: '900px',
         marginBottom: '72px',
         display: 'flex',
-        alignItems: 'flex-start',
-        justifyContent: 'space-around',
+        alignItems: 'center',
+        justifyContent: 'center',
         flexWrap: 'wrap'
     },
     memberItem: {
         display: 'flex',
         flexDirection: 'column',        
         justifyContent: 'flex-start',
-        marginRight: '16px',
-        marginLeft: '16px',
-        marginBottom: '32px'
+        marginRight: '30px',
+        marginLeft: '30px',
+        marginBottom: '80px'
     },
     memberPhoto: {
         width: '100%',
