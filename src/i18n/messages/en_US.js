@@ -20,12 +20,12 @@ const en_US = {
         "founder_title": "Co-Founder",
         /* join_us */
         "join_us_title": "We Are Hiring",
-        "join_us_message": "We are currently hiring for various roles at our Taipei office. Please visit our 104 page for details",
+        "join_us_message": "We are currently hiring for various roles at our Taipei office. Please visit our Yourator page for details",
         "join_us_button": "Learn More",
         /* footer */
         "contact": "Contact",
-        "address_name": "8F.-4, No. 139, Songjiang Rd., Zhongshan Dist., Taipei City 104, Taiwan (R.O.C.)",
-        "address_url": "https://www.google.com.tw/maps/place/8F.-4,+No,+No.+139,+Songjiang+Road,+Zhongshan+District,+Taipei+City,+10491/@25.0551257,121.5310864,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a95e2641b4ef:0x4ff57a8f15a8bbed!8m2!3d25.0551209!4d121.5332751?hl=en",
+        "address_name": "8F., No. 66, Nanjing W. Rd., Datong Dist., Taipei City 103, Taiwan (R.O.C.)",
+        "address_url": "https://www.google.com/maps/search/8F.,.+66,+Nanjing+W.+Rd.,+Datong+Dist.,+Taipei+City+103,+Taiwan/@25.0528742,121.5164682,17z?hl=en",
         /* not_found */
         "not_found_title": "404 Page Not Found",
         "not_found_message": "The page you visited either does not exist or has been moved.",

@@ -22,7 +22,7 @@ const JoinUs = (props) => {
                 <span className={usingClasses(classes, 'subTitleText')}>
                     <FormattedMessage
                         id="join_us_message"
-                        defaultMessage={'We are currently hiring for various roles at our Taipei office. Please visit our 104 page for details'}
+                        defaultMessage={'We are currently hiring for various roles at our Taipei office. Please visit our Yourator page for details'}
                     />
                 </span>
                 <Button variant="contained" color="primary" className={usingClasses(classes, 'button')}>
