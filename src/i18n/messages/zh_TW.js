@@ -20,12 +20,12 @@ const zh_TW = {
         "founder_title": "創辦人",
         /* join_us */
         "join_us_title": "我們正在招募夥伴",
-        "join_us_message": "我們正在尋找各個職位的同伴，辦公室地點位於台北市，更多資訊請參考我們的104網頁",
+        "join_us_message": "我們正在尋找各個職位的同伴，辦公室地點位於台北市，更多資訊請參考我們的Yourator網頁",
         "join_us_button": "了解更多",
         /* footer */
         "contact": "聯絡我們",
-        "address_name": "台北市中山區松江路139號8樓之4",
-        "address_url": "https://www.google.com.tw/maps/place/10491%E5%8F%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%B1%B1%E5%8D%80%E6%9D%BE%E6%B1%9F%E8%B7%AF139%E8%99%9F%E6%A8%93%E4%B9%8B4/@25.0551209,121.5310811,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a95e2641b4ef:0xc4d6eb589e692817!8m2!3d25.0551209!4d121.5332751",
+        "address_name": "台北市大同區南京西路66號8樓",
+        "address_url": "https://www.google.com/maps/place/103台北市大同區南京西路66號8F/@25.0528742,121.5164682,17z/data=!4m5!3m4!1s0x3442a96c0a52d9b7:0x7a7be8cf8acc8268!8m2!3d25.0528742!4d121.5186569",
         /* not_found */
         "not_found_title": "404",
         "not_found_message": "你所訪問的網頁連結已經不存在或被移除了。",
