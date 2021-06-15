@@ -9,7 +9,7 @@ const en_US = {
         /* cover */
         "cover_title": "Connecting Worlds",
         "cover_slogan": "Making the world more flexible with blockchain technology.",
-        "cover_button": "Learn More",        
+        "cover_button": "Learn More",
         /* product */
         "product_title": "Introducing Agora",
         "product_sub_title": "Agora is a game asset centric platform that aims to provide a way to connect the virtual worlds of games.",
@@ -196,11 +196,6 @@ const en_US = {
             "photo": "/images/eric.jpg",
             "name": "Eric Tsai",
             "job": "Project Manager",
-        },
-        {
-            "photo": "/images/wayne.jpg",
-            "name": "Wayne Jeng",
-            "job": "Software Engineer",
         },
         {
             "photo": "/images/ryan.jpg",
