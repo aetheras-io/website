@@ -17,7 +17,6 @@ import IntlComponent from './components/shared/IntlComponent';
 import GoogleAnalytics from './components/shared/Google-Analytics';
 import Home from './components/Home';
 import About from './components/About';
-import Whitepaper from './components/Whitepaper';
 import NotFound from './components/NotFound';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -108,7 +107,7 @@ class App extends IntlComponent {
     scrollToTop = () => {
         const ele = document.getElementById('root');
         ele.scrollIntoView({ behavior: 'smooth' });
-        setTimeout(() => this.safeSetState({ showToTopButton: false}), 300);
+        setTimeout(() => this.safeSetState({ showToTopButton: false }), 300);
     }
 
     render() {
@@ -130,7 +129,7 @@ class App extends IntlComponent {
                                 <Switch>
                                     <ScrollToRoute exact path="/" component={Home} />
                                     <ScrollToRoute path="/about" component={About} />
-                                    <ScrollToRoute path="/agora" component={Whitepaper} />                                    
+                                    {/* <ScrollToRoute path="/agora" component={Whitepaper} />                                     */}
                                     <ScrollToRoute
                                         exact
                                         path="/404"

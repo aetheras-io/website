@@ -1,4 +1,5 @@
 const CONST = {
+    chainURL: 'https://agence.network',
     githubURL: 'https://github.com/aetheras-io',
     twitterURL: 'https://twitter.com/aetheras_io',
     discordURL: 'https://discord.gg/R9TCtyh',

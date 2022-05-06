@@ -1,14 +1,13 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
 import { STYLES_CONST, SHARED_STYLES } from "../utils/shared-styles";
 import { usingClasses } from "../utils/utils";
 import Paper from '@material-ui/core/Paper';
 import ArrowForward from '@material-ui/icons/ArrowForward';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import IntlComponent from './shared/IntlComponent';
-
+import CONST from '../utils/const';
 
 class Technology extends IntlComponent {
     render() {
@@ -40,13 +39,13 @@ class Technology extends IntlComponent {
                         {techDOM}
                     </div>
                     <Button color="primary" className={usingClasses(classes, 'flatButton')}>
-                        <Link to={{ pathname: "/agora", state: { shouldScroll: true }}} className={usingClasses(classes, 'buttonLink')}>
+                        <a href={CONST.chainURL} className={usingClasses(classes, 'buttonLink')}>
                             <FormattedMessage
                                 id="tech_button"
                                 defaultMessage={'More Details'}
                             />
-                            <ArrowForward className={usingClasses(classes, 'arrowIcon')}/>
-                        </Link>
+                            <ArrowForward className={usingClasses(classes, 'arrowIcon')} />
+                        </a>
                     </Button>
                 </div>
             </section>

@@ -1,8 +1,8 @@
 const en_US = {
     "static": {
         /* nav */
-        "about_nav_title": "About",
-        "white_paper_title": "Agora",
+        "about_nav_title": "About Us",
+        "chain_title": "Agence",
         "testnet_title": "Testnet",
         "career_title": "Career",
         "select_language": 'Select a Language',
@@ -11,11 +11,11 @@ const en_US = {
         "cover_slogan": "Making the world more flexible with blockchain technology.",
         "cover_button": "Learn More",
         /* product */
-        "product_title": "Introducing Agora",
-        "product_sub_title": "Agora is a game asset centric platform that aims to provide a way to connect the virtual worlds of games.",
+        "product_title": "Introducing Agence",
+        "product_sub_title": "Agence is a game asset centric platform that aims to provide a way to connect the virtual worlds of games.",
         /* technology */
         "tech_title": "Features",
-        "tech_button": "More Details",
+        "tech_button": "For More Details",
         /* founder */
         "founder_title": "Co-Founder",
         /* join_us */
@@ -34,8 +34,8 @@ const en_US = {
         "about_title": "Our Culture",
         "team_member_title": "Our Members",
         /* whitepaper */
-        "what_is_agora_title": "What is Agora",
-        "what_is_agora_message": "Agora is a game asset centric platform that aims to provide a way to connect the virtual worlds of games.",
+        "what_is_agora_title": "What is Agence",
+        "what_is_agora_message": "Agence is a game asset centric platform that aims to provide a way to connect the virtual worlds of games.",
         "motivation_title": "Motivation From Pain Points",
         "motivation_sub_title": "Our main motivation is to solve pain points in the gaming industry, as well as creating practical uses for blockchain technology.",
         "motivation_message_1": "To say the gaming industry is hyper competitive would be an understatement. With 9050 new games released on Steam alone in 2018, each desperately fight for screen time.",
@@ -60,43 +60,43 @@ const en_US = {
         "gamers_barrier_title": "Barrier to try new games",
         "gamers_barrier_message": "Finding time to even try new games is also increasingly more difficult. Games employ numerous tactics such as daily quests and time limited events to entice players to spend at least a certain amount of time everyday. Trying a new game could mean losing precious time and items from the game that the player has been playing.",
         "connecting_title": "Connecting gaming worlds with blockchain",
-        "connecting_meesage_1": "Agora is a network that enables the connecting of games, opening doors to developer alliances and strategic partnerships.",
-        "connecting_meesage_2": "In short, Agora aims to solve issues surrounding:",
+        "connecting_meesage_1": "Agence is a network that enables the connecting of games, opening doors to developer alliances and strategic partnerships.",
+        "connecting_meesage_2": "In short, Agence aims to solve issues surrounding:",
         "connecting_item_1": "Game alliances",
         "connecting_item_2": "Ownership",
         "connecting_item_3": "Gaming freedom",
         "alliance_title": "Alliance of Developers",
         "alliance_message_1": "The idea is to bring together groups of remarkable developers, see if they could become something greater, to work together and compete with the bigger developers.",
         "alliance_message_2": "While it may be unreasonable to expect smaller developers to reliably produce games that can directly compete with AAA games, having a series of interconnected games where data can be shared will open the door for new ways to play games.",
-        "alliance_message_3": "Agora enables the sharing of virtual assets among games, whether it may be items, equipment, or other content. With a way to provide data to one another, partnered games simply need to decide how to interpret each others’ data.",
+        "alliance_message_3": "Agence enables the sharing of virtual assets among games, whether it may be items, equipment, or other content. With a way to provide data to one another, partnered games simply need to decide how to interpret each others’ data.",
         "ownership_title": "Asset Ownership",
         "ownership_message_1": "Ownership in most online games can be considered as virtual as the virtual assets themselves. Players own the assets as long as the games’ servers are alive. Which means once the developers decide that it’s not worth keeping the servers alive and shut them down, the players lose all the assets that they’ve spent money to acquire.",
-        "ownership_message_2": "With Agora, the data is stored on a blockchain instead, which means players would continue to possess the data even after the servers stop running. Players would be able to continue to use that data in other supported games, and also if a developer decides to revive the original game.",
+        "ownership_message_2": "With Agence, the data is stored on a blockchain instead, which means players would continue to possess the data even after the servers stop running. Players would be able to continue to use that data in other supported games, and also if a developer decides to revive the original game.",
         "freedom_title": "Gaming Freedom",
         "freedom_message_1": "It’s natural for developers to design games in a way that encourages players to keep playing and come back with mechanics such as daily quests and limit time events.",
         "freedom_message_2": "On the flip side, this means players run the risk of losing rewards when they take a break and switch games. Without the chance to try new things, players can start feeling trapped, and the game can end up feeling more like work than fun.",
-        "freedom_message_3": "Agora provides the potential for players to continue to earn rewards for a certain game even when playing a different partnered game, allowing players to freely try new games. This helps keep the experience fresh and enjoyment for players, as well as encouraging players to spend.",
+        "freedom_message_3": "Agence provides the potential for players to continue to earn rewards for a certain game even when playing a different partnered game, allowing players to freely try new games. This helps keep the experience fresh and enjoyment for players, as well as encouraging players to spend.",
         "freedom_message_4": "Typically, convincing a player to spend money on an online game meant convincing them that this game is and will stay fun, and will survive for the foreseeable future.",
-        "freedom_message_5": "With Agora, these risks would be mitigated as long as there are other partner games using the data.",
+        "freedom_message_5": "With Agence, these risks would be mitigated as long as there are other partner games using the data.",
         "technology_title": "Technology",
-        "technology_message_1": "Agora will be a proprietary blockchain using Proof-of-Stake consensus that connects to the Cosmos Network. As a custom chain, the logic to create, trade, and sell virtual assets will be embedded into the chain itself.",
+        "technology_message_1": "Agence will be a proprietary blockchain using Proof-of-Stake consensus that connects to the Cosmos Network. As a custom chain, the logic to create, trade, and sell virtual assets will be embedded into the chain itself.",
         "technology_message_2": "We will be providing interfaces for both developers and gamers to ensure a smooth experience:",
         "technology_sdk_title": "SDK",
-        "technology_sdk_message": "We will be providing an SDK for game developers to easily connect their game to Agora. Using the SDK, games can mint, sell, and retrieve virtual assets for players. Developers will be able to control which and how assets can be used in their games.",
+        "technology_sdk_message": "We will be providing an SDK for game developers to easily connect their game to Agence. Using the SDK, games can mint, sell, and retrieve virtual assets for players. Developers will be able to control which and how assets can be used in their games.",
         "technology_wallet_title": "Wallet",
         "technology_wallet_message": "Users will be able to view their possessions, send and receive assets via the wallet, which will have both browser and mobile based versions.",
         "technology_auction_title": "Auction Platform",
         "technology_auction_message": "An auction website, similar to eBay, will provide a convenient way for players to advertise and sell their assets for a fair value.",
         "community_title": "Community",
-        "community_message": "There will be multiple ways to participate in Agora. Below are some roles, and are not mutually exclusive.",
+        "community_message": "There will be multiple ways to participate in Agence. Below are some roles, and are not mutually exclusive.",
         "community_validators_title": "Validators",
         "community_validators_message": "Validators help secure the network through staking and participating in consensus with other validators.",
         "community_developers_title": "Developers",
         "community_developers_message": "Developers help create content through the minting and selling of virtual assets.",
         "community_gamers_title": "Gamers",
-        "community_gamers_message": "Gamers can buy and trade assets on Agora.",
+        "community_gamers_message": "Gamers can buy and trade assets on Agence.",
         "community_coders_title": "Coders",
-        "community_coders_message": "We intend to make Agora’s code base open source, allowing everyone to contribute.",
+        "community_coders_message": "We intend to make Agence’s code base open source, allowing everyone to contribute.",
         "revenue_title": "Revenue Model",
         "revenue_message_1": "We estimate that we will likely be making most of our revenue via the auction website, which we will receive a small percentage from every auction on the site.",
         "revenue_message_2": "While we also do intend to mint our own assets on the sites and sell them, they will likely serve more of a role to jumpstart the ecosystem. Likewise, the chain will collect a small fee from transactions on the chain, but those are values mainly for discouraging spam and abuse.",
@@ -110,7 +110,7 @@ const en_US = {
         "roadmap_explorer_title": "Chain Explorer",
         "roadmap_explorer_message": "An interface for whoever may be interested in monitoring the health of the chain.",
         "roadmap_wallet_title": "Mobile Wallet",
-        "roadmap_wallet_message": "The wallet provides an interface for users to view and send assets, and sign transactions for Agora.",
+        "roadmap_wallet_message": "The wallet provides an interface for users to view and send assets, and sign transactions for Agence.",
         "roadmap_economic_title": "Economic Model",
         "roadmap_economic_message": "We anticipate great feedback and iterations to polish economic model.",
         "about_aetheras_title": "About Aetheras",
@@ -121,7 +121,7 @@ const en_US = {
         {
             "icon": "/images/icon-block.svg",
             "title": "Blockchain Based",
-            "content": "Using blockchain technology, Agora guarantees fairness and transparency with the innate properties of blockchain.  Storing data on the chain would ensure the data will not be altered."
+            "content": "Using blockchain technology, Agence guarantees fairness and transparency with the innate properties of blockchain.  Storing data on the chain would ensure the data will not be altered."
         },
         {
             "icon": "/images/icon-alliance.svg",
@@ -131,7 +131,7 @@ const en_US = {
         {
             "icon": "/images/icon-owner.svg",
             "title": "Data Ownership",
-            "content": "Under Agora, players own their asset data.  Regardless of whether the game is centralized or decentralized, the data is for the players to keep and use."
+            "content": "Under Agence, players own their asset data.  Regardless of whether the game is centralized or decentralized, the data is for the players to keep and use."
         }
     ],
     "founder": [

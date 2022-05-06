@@ -34,7 +34,7 @@ class Whitepaper extends IntlComponent {
     }
 
     onBookmarkTrigger = () => {
-        this.safeSetState(prevState => {return { isBookmarkOpen: !prevState.isBookmarkOpen }})
+        this.safeSetState(prevState => { return { isBookmarkOpen: !prevState.isBookmarkOpen } })
     }
 
     closeBookmark = () => {
@@ -44,7 +44,7 @@ class Whitepaper extends IntlComponent {
     getBookMarkActive = () => {
         if (this.isDidMount) {
             return {
-                whatIsAgora: true,
+                whatIsAgence: true,
                 motivation: document.getElementById('motivation').getBoundingClientRect().top <= 20,
                 developers: document.getElementById('developers').getBoundingClientRect().top <= 20,
                 gamers: document.getElementById('gamers').getBoundingClientRect().top <= 20,
@@ -60,7 +60,7 @@ class Whitepaper extends IntlComponent {
             }
         } else {
             return {
-                whatIsAgora: true,
+                whatIsAgence: true,
                 motivation: false,
                 developers: false,
                 gamers: false,
@@ -96,7 +96,7 @@ class Whitepaper extends IntlComponent {
                                 <div className={usingClasses(classes, 'scrollbar')} style={{ height: `${scrollPercentage}%` }} />
                             </div>
                             <Paper className={usingClasses(classes, 'bookmarkPaper')}>
-                                <Button className={`${usingClasses(classes, 'bookmarkLink')} ${isBookmarkActive.whatIsAgora ? ' active' : ''}`} onClick={this.onBookmarkClick('what-is-agora')} disableRipple={true}>What is Agora</Button>
+                                <Button className={`${usingClasses(classes, 'bookmarkLink')} ${isBookmarkActive.whatIsAgence ? ' active' : ''}`} onClick={this.onBookmarkClick('what-is-agora')} disableRipple={true}>What is Agence</Button>
                                 <Button className={`${usingClasses(classes, 'bookmarkLink')} ${isBookmarkActive.motivation ? ' active' : ''}`} onClick={this.onBookmarkClick('motivation')} disableRipple={true}>Motivation From Pain Points</Button>
                                 <Button className={`${usingClasses(classes, 'subBookmarkLink')} ${isBookmarkActive.developers ? ' active' : ''}`} onClick={this.onBookmarkClick('developers')} disableRipple={true}>Developers</Button>
                                 <Button className={`${usingClasses(classes, 'subBookmarkLink')} ${isBookmarkActive.gamers ? ' active' : ''}`} onClick={this.onBookmarkClick('gamers')} disableRipple={true}>Gamers</Button>
@@ -124,14 +124,14 @@ class Whitepaper extends IntlComponent {
                         <span className={usingClasses(classes, 'titleText')}>
                             <FormattedMessage
                                 id="what_is_agora_title"
-                                defaultMessage={'What is Agora'}
+                                defaultMessage={'What is Agence'}
                             />
                         </span>
                         <img src="/images/products_ill.svg" alt="products_ill" className={usingClasses(classes, 'illImg')} />
                         <p className={usingClasses(classes, 'subTitleText')}>
                             <FormattedMessage
                                 id="what_is_agora_message"
-                                defaultMessage={'Agora is a game asset centric platform that aims to provide a way to connect the virtual worlds of games.'}
+                                defaultMessage={'Agence is a game asset centric platform that aims to provide a way to connect the virtual worlds of games.'}
                             />
                         </p>
                     </div>
@@ -352,13 +352,13 @@ class Whitepaper extends IntlComponent {
                         <p className={usingClasses(classes, 'paragraph')}>
                             <FormattedMessage
                                 id="connecting_meesage_1"
-                                defaultMessage={'Agora is a network that enables the connecting of games, opening doors to developer alliances and strategic partnerships.'}
+                                defaultMessage={'Agence is a network that enables the connecting of games, opening doors to developer alliances and strategic partnerships.'}
                             />
                         </p>
                         <p className={usingClasses(classes, 'paragraph')}>
                             <FormattedMessage
                                 id="connecting_meesage_2"
-                                defaultMessage={'In short, Agora aims to solve issues surrounding:'}
+                                defaultMessage={'In short, Agence aims to solve issues surrounding:'}
                             />
                         </p>
                         <div className={usingClasses(classes, 'connectingList')}>
@@ -416,7 +416,7 @@ class Whitepaper extends IntlComponent {
                         <span className={usingClasses(classes, 'bodyParagraph')}>
                             <FormattedMessage
                                 id="alliance_message_3"
-                                defaultMessage={'Agora enables the sharing of virtual assets among games, whether it may be items, equipment, or other content. With a way to provide data to one another, partnered games simply need to decide how to interpret each others’ data.'}
+                                defaultMessage={'Agence enables the sharing of virtual assets among games, whether it may be items, equipment, or other content. With a way to provide data to one another, partnered games simply need to decide how to interpret each others’ data.'}
                             />
                         </span>
                         <img src="/images/alliance_ill.png" alt="alliance_ill" className={usingClasses(classes, 'illImg')} />
@@ -440,7 +440,7 @@ class Whitepaper extends IntlComponent {
                         <span className={usingClasses(classes, 'bodyParagraph')}>
                             <FormattedMessage
                                 id="ownership_message_2"
-                                defaultMessage={'With Agora, the data is stored on a blockchain instead, which means players would continue to possess the data even after the servers stop running. Players would be able to continue to use that data in other supported games, and also if a developer decides to revive the original game.'}
+                                defaultMessage={'With Agence, the data is stored on a blockchain instead, which means players would continue to possess the data even after the servers stop running. Players would be able to continue to use that data in other supported games, and also if a developer decides to revive the original game.'}
                             />
                         </span>
                         <img src="/images/ownership_ill.png" alt="ownership_ill" className={usingClasses(classes, 'illImg')} />
@@ -470,7 +470,7 @@ class Whitepaper extends IntlComponent {
                         <span className={usingClasses(classes, 'bodyParagraph')}>
                             <FormattedMessage
                                 id="freedom_message_3"
-                                defaultMessage={'Agora provides the potential for players to continue to earn rewards for a certain game even when playing a different partnered game, allowing players to freely try new games. This helps keep the experience fresh and enjoyment for players, as well as encouraging players to spend.'}
+                                defaultMessage={'Agence provides the potential for players to continue to earn rewards for a certain game even when playing a different partnered game, allowing players to freely try new games. This helps keep the experience fresh and enjoyment for players, as well as encouraging players to spend.'}
                             />
                         </span>
                         <span className={usingClasses(classes, 'bodyParagraph')}>
@@ -482,7 +482,7 @@ class Whitepaper extends IntlComponent {
                         <span className={usingClasses(classes, 'bodyParagraph')}>
                             <FormattedMessage
                                 id="freedom_message_5"
-                                defaultMessage={'With Agora, these risks would be mitigated as long as there are other partner games using the data.'}
+                                defaultMessage={'With Agence, these risks would be mitigated as long as there are other partner games using the data.'}
                             />
                         </span>
                         <img src="/images/freedom_ill.png" alt="freedom_ill" className={usingClasses(classes, 'illImg')} />
@@ -500,7 +500,7 @@ class Whitepaper extends IntlComponent {
                         <span className={usingClasses(classes, 'bodyParagraph')}>
                             <FormattedMessage
                                 id="technology_message_1"
-                                defaultMessage={'Agora will be a proprietary blockchain using Proof-of-Stake consensus that connects to the Cosmos Network. As a custom chain, the logic to create, trade, and sell virtual assets will be embedded into the chain itself.'}
+                                defaultMessage={'Agence will be a proprietary blockchain using Proof-of-Stake consensus that connects to the Cosmos Network. As a custom chain, the logic to create, trade, and sell virtual assets will be embedded into the chain itself.'}
                             />
                         </span>
                         <span className={usingClasses(classes, 'bodyText')}>
@@ -523,7 +523,7 @@ class Whitepaper extends IntlComponent {
                                 <span className={usingClasses(classes, 'bodyText')}>
                                     <FormattedMessage
                                         id="technology_sdk_message"
-                                        defaultMessage={'We will be providing an SDK for game developers to easily connect their game to Agora. Using the SDK, games can mint, sell, and retrieve virtual assets for players. Developers will be able to control which and how assets can be used in their games.'}
+                                        defaultMessage={'We will be providing an SDK for game developers to easily connect their game to Agence. Using the SDK, games can mint, sell, and retrieve virtual assets for players. Developers will be able to control which and how assets can be used in their games.'}
                                     />
                                 </span>
                             </div>
@@ -580,7 +580,7 @@ class Whitepaper extends IntlComponent {
                         <span className={usingClasses(classes, 'bodyText')}>
                             <FormattedMessage
                                 id="community_message"
-                                defaultMessage={'There will be multiple ways to participate in Agora. Below are some roles, and are not mutually exclusive.'}
+                                defaultMessage={'There will be multiple ways to participate in Agence. Below are some roles, and are not mutually exclusive.'}
                             />
                         </span>
                         <div className={usingClasses(classes, 'block')}>
@@ -635,7 +635,7 @@ class Whitepaper extends IntlComponent {
                                 <span className={usingClasses(classes, 'bodyText')}>
                                     <FormattedMessage
                                         id="community_gamers_message"
-                                        defaultMessage={'Gamers can buy and trade assets on Agora.'}
+                                        defaultMessage={'Gamers can buy and trade assets on Agence.'}
                                     />
                                 </span>
                             </div>
@@ -654,7 +654,7 @@ class Whitepaper extends IntlComponent {
                                 <span className={usingClasses(classes, 'bodyText')}>
                                     <FormattedMessage
                                         id="community_coders_message"
-                                        defaultMessage={'We intend to make Agora’s code base open source, allowing everyone to contribute.'}
+                                        defaultMessage={'We intend to make Agence’s code base open source, allowing everyone to contribute.'}
                                     />
                                 </span>
                             </div>
@@ -785,7 +785,7 @@ class Whitepaper extends IntlComponent {
                                     <span className={usingClasses(classes, 'roadmapBlockMessage')}>
                                         <FormattedMessage
                                             id="roadmap_wallet_message"
-                                            defaultMessage={'The wallet provides an interface for users to view and send assets, and sign transactions for Agora.'}
+                                            defaultMessage={'The wallet provides an interface for users to view and send assets, and sign transactions for Agence.'}
                                         />
                                     </span>
                                 </div>

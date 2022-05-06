@@ -12,33 +12,23 @@ import Menu from '@material-ui/core/Menu';
 // import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import IntlComponent from './shared/IntlComponent';
+import CONST from '../utils/const';
 
 const link = [
     {
         titleId: 'about_nav_title',
-        defaultTitle: 'About',
+        defaultTitle: 'About Us',
         path: '/about'
     },
     {
-        titleId: 'white_paper_title',
-        defaultTitle: 'Agora',
-        path: '/agora'
-    },
-    {
-        titleId: 'testnet_title',
-        defaultTitle: 'Testnet',
-        path: 'https://explore.aetheras.io/',
-        external: true
-    },
-    {
-        titleId: 'developer_title',
-        defaultTitle: 'Developers',
-        path: 'https://developers.aetheras.io/',
+        titleId: 'chain_title',
+        defaultTitle: 'Agence',
+        path: CONST.chainURL,
         external: true
     },
     // {
     //     titleId: 'auction_title',
-    //     defaultTitle: 'Agora Auctions',
+    //     defaultTitle: 'Agence Auctions',
     //     path: 'https://auctions.aetheras.io/',
     //     external: true
     // },
@@ -56,7 +46,7 @@ class Navbar extends IntlComponent {
     };
 
     toggleNavMenu = () => {
-        this.setState(prevState =>  {return { isNavMenuOpen: !prevState.isNavMenuOpen }});
+        this.setState(prevState => { return { isNavMenuOpen: !prevState.isNavMenuOpen } });
     }
 
     closeNavMenu = () => {
@@ -87,24 +77,24 @@ class Navbar extends IntlComponent {
         if (!linkList || linkList.length === 0) {
             return null;
         }
-        if (type === 'desktop') {            
+        if (type === 'desktop') {
             return linkList.map(link => (
                 link.external === true
-                ?
-                <a key={link.titleId} href={link.path} className={usingClasses(classes, 'linkText') + (pathname === link.path ? ' active' : '')} target={link.target}>                        
-                    <FormattedMessage
-                        id={link.titleId}
-                        defaultMessage={link.defaultTitle}
-                    />
-                </a>
-                :
-                <Link key={link.titleId} to={{ pathname: link.path, state: { shouldScroll: true }}} className={usingClasses(classes, 'linkText') + (pathname === link.path ? ' active' : '')}>
-                    <FormattedMessage
-                        id={link.titleId}
-                        defaultMessage={link.defaultTitle}
-                    />
-                </Link>
-            ));                            
+                    ?
+                    <a key={link.titleId} href={link.path} className={usingClasses(classes, 'linkText') + (pathname === link.path ? ' active' : '')} target={link.target}>
+                        <FormattedMessage
+                            id={link.titleId}
+                            defaultMessage={link.defaultTitle}
+                        />
+                    </a>
+                    :
+                    <Link key={link.titleId} to={{ pathname: link.path, state: { shouldScroll: true } }} className={usingClasses(classes, 'linkText') + (pathname === link.path ? ' active' : '')}>
+                        <FormattedMessage
+                            id={link.titleId}
+                            defaultMessage={link.defaultTitle}
+                        />
+                    </Link>
+            ));
         }
         if (type === 'mobile') {
             return linkList.map(link => (
@@ -114,20 +104,20 @@ class Navbar extends IntlComponent {
                     key={link.titleId}
                 >
                     {link.external === true
-                    ?
-                    <a key={link.titleId} href={link.path} className={usingClasses(classes, 'mobileLinkText')} target={link.target}>                        
-                        <FormattedMessage
-                            id={link.titleId}
-                            defaultMessage={link.defaultTitle}
-                        />
-                    </a>
-                    :
-                    <Link to={{ pathname: link.path, state: { shouldScroll: true }}} className={usingClasses(classes, 'mobileLinkText')}>
-                        <FormattedMessage
-                            id={link.titleId}
-                            defaultMessage={link.defaultTitle}
-                        />
-                    </Link>}
+                        ?
+                        <a key={link.titleId} href={link.path} className={usingClasses(classes, 'mobileLinkText')} target={link.target}>
+                            <FormattedMessage
+                                id={link.titleId}
+                                defaultMessage={link.defaultTitle}
+                            />
+                        </a>
+                        :
+                        <Link to={{ pathname: link.path, state: { shouldScroll: true } }} className={usingClasses(classes, 'mobileLinkText')}>
+                            <FormattedMessage
+                                id={link.titleId}
+                                defaultMessage={link.defaultTitle}
+                            />
+                        </Link>}
                 </MenuItem>
             ));
         }
