@@ -168,11 +168,6 @@ const en_US = {
             "job": "Software Engineer",
         },
         {
-            "photo": "/images/neil.jpg",
-            "name": "Neil Huang",
-            "job": "Software Engineer",
-        },
-        {
             "photo": "/images/tony.jpg",
             "name": "Tony Wu",
             "job": "Software Engineer",
@@ -181,11 +176,6 @@ const en_US = {
             "photo": "/images/bill.jpg",
             "name": "Bill Dai",
             "job": "UI/UX Designer",
-        },
-        {
-            "photo": "/images/lyle.jpg",
-            "name": "Lyle Chang",
-            "job": "Software Engineer",
         },
         {
             "photo": "/images/eric.jpg",
